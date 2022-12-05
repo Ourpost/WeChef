@@ -1,1 +1,35 @@
+<%= form_with(model: store) do |f| %>
+
+<div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+
+<div>
+  <%= f.label :tel %>
+  <%= f.text_field :tel %>
+</div>
+
+<div>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+</div>
+
+<div>
+  <%= f.label :business_hours_start %>
+  <%= f.text_field :business_hours_start %>
+</div>
+
+<div>
+  <%= f.label :business_hours_end %>
+  <%= f.text_field :business_hours_end %>
+</div>
+
+<div>
+  <%= f.label :logo %>
+  <%= f.text_field :logo %>
+</div>
+
+<%= f.submit %>
+<% end %>
 

@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_05_044457) do
+ActiveRecord::Schema.define(version: 2022_12_05_072624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "menus", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.text "note"
+    t.string "photo"
+    t.datetime "delete_at"
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["delete_at"], name: "index_menus_on_delete_at"
+  end
 
   create_table "stores", force: :cascade do |t|
     t.string "name"
