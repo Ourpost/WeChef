@@ -1,3 +1,27 @@
 <h1>菜單頁面</h1>
 
-<%= link_to "新增菜單" , new_store_menu_path %>                                                                                                                                                                                                                             
+<%= link_to "新增菜單", new_store_menu_path %>    
+<%= link_to "新增商店", new_store_path %>
+<%= link_to "回首頁"  , root_path %>               
+
+
+<table>
+<tr>
+  <td>照片</td>
+  <td>名稱</td>
+  <td>價格</td>
+  <td>備註</td>
+</tr>
+
+<% @menus.each do |menu| %>
+<tr>
+  <td><%= menu.photo%></td>
+  <td><%= menu.name %></td>
+  <td><%= menu.price%></td>
+  <td><%= menu.note%></td>
+</tr>
+<% end %>
+
+</table>
+
+

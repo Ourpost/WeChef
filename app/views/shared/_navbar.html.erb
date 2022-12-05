@@ -1,5 +1,6 @@
 <nav>
   <% if user_signed_in?%>
+    <%= current_user.email%>
     <%= link_to "登出" , destroy_user_session_path , method: 'DELETE' , data:{confirm: "Are you sure? "} %>
     <%= link_to "編輯" , edit_user_registration_path %>
 

@@ -1,19 +1,23 @@
 <%= render "shared/navbar"%>
 
-<h1>菜單首頁</h1>
+
 <%= link_to "新增商店", new_store_path %>
+
 <table>
   <tr>
+    <th>Update Menu</th>
     <th>商店名稱</th>
     <th>修改</th>
     <th>刪除</th>
   </tr>
   <% @stores.each do |store| %>
     <tr>
+      <td><%= link_to "菜單", store_menus_path(store.id) %></td>
       <td><%= link_to store.name, store_path(store.id) %></td>
       <td><%= link_to "編輯", edit_store_path(store.id) %></td>
       <td><%= link_to "刪除", store_path(store.id), method: "delete", data: {confirm: "確定刪除？"} %></td>
     </tr>
   <% end %>
 </table>
+
 

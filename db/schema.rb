@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_05_072624) do
+ActiveRecord::Schema.define(version: 2022_12_05_155143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2022_12_05_072624) do
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "store_id"
     t.index ["delete_at"], name: "index_menus_on_delete_at"
   end
 
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 2022_12_05_072624) do
     t.string "logo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
     t.index ["delete_at"], name: "index_stores_on_delete_at"
   end
 
