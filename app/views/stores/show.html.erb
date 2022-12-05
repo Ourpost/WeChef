@@ -1,1 +1,8 @@
 <h1>SHOW</h1>
+店名：<%= @store.name %>
+電話：<%= @store.tel %>
+地址：<%= @store.address %>
+營業時間（起）：<%= @store.business_hours_start %>
+營業時間（迄）：<%= @store.business_hours_end %>
+商店LOGO：<%= @store.logo %>
+<%=link_to "返回", stores_path %>

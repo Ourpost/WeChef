@@ -11,7 +11,7 @@
   <% @stores.each do |store| %>
     <tr>
       <td><%= link_to store.name, store_path(store.id) %></td>
-      <td><%= link_to "編輯", edit_sotre_path(store.id) %></td>
+      <td><%= link_to "編輯", edit_store_path(store.id) %></td>
       <td><%= link_to "刪除", store_path(store.id), method: "delete", data: {confirm: "確定刪除？"} %></td>
     </tr>
   <% end %>
