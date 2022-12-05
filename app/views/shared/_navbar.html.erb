@@ -1,0 +1,13 @@
+<nav>
+  <tr>
+    <td>
+      <%= link_to "註冊" , new_user_registration_path %>
+    </td>
+    <td>
+      <%= link_to "登入" , new_user_session_path %>
+    </td>
+    <td>
+      <%= link_to "登出" , destroy_user_session_path , method: 'DELETE' , data:{confirm: "Are you sure? "} %>
+    </td>
+  </tr>
+</nav>
