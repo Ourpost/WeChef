@@ -1,6 +1,4 @@
 <h1>classifications#edit</h1>
-<%# <%= render "form" %> %>
-
 <%= form_with(model: @classification, url: store_classification_path({store: @classification.store, id: @classification.id})) do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name %>
