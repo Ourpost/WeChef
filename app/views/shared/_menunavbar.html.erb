@@ -11,9 +11,10 @@
      <div class="order-3 hidden w-full md:flex md:items-center md:w-auto md:order-1" id="menu">
         <nav>
            <ul class="items-center justify-between pt-4 text-base text-blue-600 md:flex md:pt-0">
-              <li><%=link_to current_user.email , edit_user_registration_path ,class: "inline-block px-1 py-2 text-lg font-medium no-underline hover:text-black lg:-ml-2" %></li>
-              <li><%= link_to "新增商店", new_store_path ,class: "inline-block px-4 py-2 text-lg font-medium no-underline hover:text-black lg:-ml-2"%></li>
-              <li><a class="inline-block px-4 py-2 text-lg font-medium no-underline hover:text-black lg:-ml-2" href="#">關於我們</a></li>
+              <li><%=link_to current_user.email, edit_user_registration_path ,class: "inline-block px-1 py-2 text-lg font-medium no-underline hover:text-black lg:-ml-2" %></li>
+              <li><%= link_to "新增菜單", new_store_menu_path ,class: "inline-block px-4 py-2 text-lg font-medium no-underline hover:text-black lg:-ml-2"%></li>
+              <li><%= link_to "新增商店", new_store_path ,class:"inline-block px-2 py-2 text-lg font-medium no-underline hover:text-black lg:-ml-2" %></li>
+              <li><%= link_to "回首頁", root_path ,class:"inline-block px-2 py-2 text-lg font-medium no-underline hover:text-black lg:-ml-2" %></li>
            </ul>
         </nav>
      </div>
@@ -30,3 +31,4 @@
      </div>
   </div>
 </nav>
+

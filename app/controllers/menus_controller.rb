@@ -17,7 +17,7 @@ before_action :find_store , only:[ :new, :create ,:index]
   def create
     # render html: params
     if @store.menus.create(menu_params)
-      redirect_to store_menus_path , notices: '品項新增成功'  
+      redirect_to store_menus_path , notice: '品項新增成功'  
     else
       render :new
     end
@@ -31,16 +31,15 @@ before_action :find_store , only:[ :new, :create ,:index]
 
   def update
     if @menu.update(menu_params)
-      redirect_to store_menus_path , notices: '品項更新成功'
+      redirect_to store_menus_path , notice: '品項更新成功'
     else
       render :edit
     end
-
   end
 
   def destroy
     @menu.destroy
-    redirect_to store_menus_path , notices: '品項移除成功'
+    redirect_to store_menus_path , alert: '品項移除成功'
   end
 
 private
