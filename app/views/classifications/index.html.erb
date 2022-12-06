@@ -1,0 +1,17 @@
+<h1>classifications#index</h1>
+<%= link_to "新增分類", new_store_classification_path %>
+
+<table>
+  <tr>
+    <th>名稱</th>
+    <th>修改</th>
+    <th>刪除</th>
+  </tr>
+<% @classifications.each do |classification| %>
+  <tr>
+    <td><%= link_to classification.name, store_classification_path({store: classification.store, id: classification.id}) %></td>
+    <td><%= link_to "修改", edit_store_classification_path({store: classification.store, id: classification.id})  %></td>
+    <td><%= link_to "刪除", store_classification_path({store: classification.store, id: classification.id}), method: "delete", data: {confirm: "確定刪除？"}  %></td>
+  </tr>
+<% end %>
+</table>
