@@ -3,7 +3,7 @@
   <table class="block min-w-full border-collapse md:table">
 		<thead class="block md:table-header-group">
 			<tr class="absolute block border border-grey-500 md:border-none md:table-row -top-full md:top-auto -left-full md:left-auto md:relative ">
-				<th class="block p-2 font-bold text-center text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Update classifications</th>
+				<th class="block p-2 font-bold text-center text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Update Menu</th>
 				<th class="block p-2 font-bold text-center text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">商店名稱</th>
 				<th class="block p-2 font-bold text-center text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">商店地址</th>
 				<th class="block p-2 font-bold text-center text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">電話</th>
@@ -15,7 +15,7 @@
         <tr class="block bg-gray-300 border border-grey-500 md:border-none md:table-row">
           <td class="block p-2 text-center md:border md:border-grey-500 md:table-cell">
             <span class="inline-block w-1/3 font-bold md:hidden">Update Menu</span>
-            <button class="px-2 py-1 font-bold text-white bg-blue-500 border-blue-500 rounded bo-rder bg hover:bg-blue-700"><%= link_to "分類", store_classifications_path(store.id) %>
+            <button class="px-2 py-1 font-bold text-white bg-blue-500 border-blue-500 rounded bo-rder bg hover:bg-blue-700"><%= link_to "菜單", store_menus_path(store.id) %>
             </button>
           </td>
           <td class="block p-2 text-center md:border md:border-grey-500 md:table-cell">
