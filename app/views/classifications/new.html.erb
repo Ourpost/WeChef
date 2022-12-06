@@ -1,2 +1,7 @@
 <h1>classifications#new</h1>
-<%= render "form" %>
+<%= form_with(model: @classification, url: store_classifications_path(@store)) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.submit %>
+<% end %>
+

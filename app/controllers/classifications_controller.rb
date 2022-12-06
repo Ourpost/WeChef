@@ -28,7 +28,7 @@ class ClassificationsController < ApplicationController
 
   def update
     if @classification.update(classification_params)
-      redirect_to store_classifications_path , notice: '分類更新成功'
+      redirect_to store_classifications_path({store: @classification.store}) , notice: '分類更新成功'
     else
       render :edit
     end
