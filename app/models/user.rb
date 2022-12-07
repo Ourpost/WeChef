@@ -8,5 +8,6 @@ class User < ApplicationRecord
 
   # relationships
   has_many :stores
-        
+  
+  enum role: {user: 0, vender:1}
 end
