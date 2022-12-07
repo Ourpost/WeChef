@@ -15,12 +15,12 @@ before_action :find_store , only:[ :new, :create ,:index]
   # create 因為有關連所以要用store的角度去建立
   # save 後面加驚嘆號就可以看到 save的錯誤
   def create
-    render html: params
-    # if @store.menus.create(menu_params)
-    #   redirect_to store_menus_path , notice: '品項新增成功'  
-    # else
-    #   render :new
-    # end
+    # render html: params
+    if @store.menus.create(menu_params)
+      redirect_to store_menus_path , notice: '品項新增成功'  
+    else
+      render :new
+    end
   end
 
   def show
