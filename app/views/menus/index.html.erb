@@ -3,6 +3,7 @@
 
 <table>
 <tr>
+  <td>分類</td>
   <td>照片</td>
   <td>名稱</td>
   <td>價格</td>
@@ -11,6 +12,7 @@
 
 <% @menus.each do |menu| %>
 <tr>
+  <td><%= Classification.find(menu.classification_id).name %></td>
   <td><%= menu.photo%></td>
   <td><%= menu.name %></td>
   <td><%= menu.price%></td>

@@ -6,4 +6,5 @@ class Menu < ApplicationRecord
 
   # relationships
   belongs_to :store
+  belongs_to :classification, :optional => true
 end
