@@ -1,8 +1,8 @@
-<%= form_with(model: menu , url: store_menus_path(@store)) do |f| %>
+<%= form_with( model: [ store , menu ] ) do |f| %>
 
   <div>
     <%= f.label :photo ,"商品圖片"%>
-    <%= f.url_field :photo %>
+    <%= f.file_field :photo %>
   </div>
   
   <div>
