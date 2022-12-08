@@ -1,26 +1,6 @@
 <%= render "shared/menunavbar" %>
 
 
-<table>
-<tr>
-  <td>分類</td>
-  <td>照片</td>
-  <td>名稱</td>
-  <td>價格</td>
-  <td>備註</td>
-</tr>
-
-<% @menus.each do |menu| %>
-<tr>
-  <td><%= Classification.find(menu.classification_id).name %></td>
-  <td><%= menu.photo%></td>
-  <td><%= menu.name %></td>
-  <td><%= menu.price%></td>
-  <td><%= menu.note%></td>
-</tr>
-<% end %>
-
-</table>
 <section class="bg-white dark:bg-gray-900">
   <div class="container px-6 py-10 mx-auto">
   <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white"><%= @store.name %>Store Menu</h1>
@@ -35,7 +15,6 @@
                 <%= menu.note %>
               </p>
               <span class="self-end text-md gray-500 text- dark:text-gray-100"><%= menu.price %></span>
-
             <div class="flex">
               <%= link_to "修改" , edit_store_menu_path(@store ,menu) ,class:"mx-2" %>
               
