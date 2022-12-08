@@ -46,6 +46,7 @@ private
 
   def menu_params
     params.require(:menu).permit(:name , :price , :note , :photo , :delete_at , :quantity, :classification_id)
+
   end
 
   def find_menu
