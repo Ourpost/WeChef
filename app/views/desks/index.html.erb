@@ -1,21 +1,14 @@
 <h1>desks#index</h1>
 <%= link_to "新增桌位", new_store_desk_path %>
-
-<table>
-  <tr>
-    <th>桌位</th>
-    <th>座位數量</th>
-    <th>編輯</th>
-    <th>刪除</th>
-    <th>QRCode</th>
-  </tr>
+<hr>
+<div>
   <% @desks.each do |desk| %>
-    <tr>
-      <td><%= desk.name %></td>
-      <td><%= desk.seat_amount %></td>
-      <td><%= link_to "編輯", edit_store_desk_path(@store, desk.id) %></td>
-      <td><%= link_to "刪除", store_desk_path(@store, desk.id), method: "delete", data: {confirm: "確定刪除？"} %></td>
-      <td><%= link_to "QRCode", store_desk_path(@store, desk.id) %></td>
-    </tr>
+    <section class="inline-block px-5 py-5 bg-red-100">
+      <div>桌位：<%= desk.name %></div>
+      <div>座位數量：<%= desk.seat_amount %></div>
+      <span class="bg-green-100"><%= link_to "編輯", edit_store_desk_path(@store, desk.id) %></span>
+      <span class="bg-blue-100"><%= link_to "刪除", store_desk_path(@store, desk.id), method: "delete", data: {confirm: "確定刪除？"} %></span>
+      <span class="bg-yellow-100"><%= link_to "QRCode", store_desk_path(@store, desk.id) %></span>
+    </section>
   <% end %>
-</table>
+</div>
