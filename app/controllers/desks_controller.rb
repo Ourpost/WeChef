@@ -1,6 +1,6 @@
 class DesksController < ApplicationController
   before_action :find_store, only: [:index, :new, :create]
-  before_action :find_desk, only: [:edit, :update, :destroy]
+  before_action :find_desk, only: [:edit, :update, :destroy, :show]
 
 
 

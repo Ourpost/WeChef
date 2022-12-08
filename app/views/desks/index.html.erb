@@ -7,6 +7,7 @@
     <th>座位數量</th>
     <th>編輯</th>
     <th>刪除</th>
+    <th>QRCode</th>
   </tr>
   <% @desks.each do |desk| %>
     <tr>
@@ -14,6 +15,7 @@
       <td><%= desk.seat_amount %></td>
       <td><%= link_to "編輯", edit_store_desk_path(@store, desk.id) %></td>
       <td><%= link_to "刪除", store_desk_path(@store, desk.id), method: "delete", data: {confirm: "確定刪除？"} %></td>
+      <td><%= link_to "QRCode", store_desk_path(@store, desk.id) %></td>
     </tr>
   <% end %>
 </table>
