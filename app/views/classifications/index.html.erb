@@ -1,17 +1,26 @@
-<h1>classifications#index</h1>
-<%= link_to "新增分類", new_store_classification_path %>
+<%= render "classnavbar"%>
 
-<table>
-  <tr>
-    <th>名稱</th>
-    <th>修改</th>
-    <th>刪除</th>
-  </tr>
-<% @classifications.each do |classification| %>
-  <tr>
-    <td><%= link_to classification.name, store_classification_path({store: classification.store, id: classification.id}) %></td>
-    <td><%= link_to "修改", edit_store_classification_path({store: classification.store, id: classification.id})  %></td>
-    <td><%= link_to "刪除", store_classification_path({store: classification.store, id: classification.id}), method: "delete", data: {confirm: "確定刪除？"}  %></td>
-  </tr>
-<% end %>
+
+<table class="block min-w-full border-collapse md:table">
+  <thead class="block md:table-header-group">
+    <tr class="absolute block border border-grey-500 md:border-none md:table-row -top-full md:top-auto -left-full md:left-auto md:relative ">
+      <th class="block p-2 font-bold text-center text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">分類項目</th>
+      <th class="block p-2 font-bold text-center text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Actions</th>
+    </tr>
+  </thead>
+  <tbody class="block md:table-row-group">
+    <% @classifications.each do |classification| %>
+      <tr class="block bg-gray-300 border border-grey-500 md:border-none md:table-row">
+        <td class="block p-2 text-center md:border md:border-grey-500 md:table-cell">
+          <span class="inline-block w-1/3 font-bold md:hidden">User Name</span>
+          <%= link_to classification.name, store_classification_path({store: classification.store, id: classification.id}) %>
+        </td>
+        <td class="block p-2 text-center md:border md:border-grey-500 md:table-cell">
+          <span class="inline-block w-1/3 font-bold md:hidden">Actions</span>
+          <button class="px-2 py-1 font-bold text-white bg-blue-500 border border-blue-500 rounded hover:bg-blue-700"><%= link_to "修改", edit_store_classification_path({store: classification.store, id: classification.id})  %></button>
+          <button class="px-2 py-1 font-bold text-white bg-red-500 border border-red-500 rounded hover:bg-red-700"><%= link_to "刪除", store_classification_path({store: classification.store, id: classification.id}), method: "delete", data: {confirm: "確定刪除？"}  %></button>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
