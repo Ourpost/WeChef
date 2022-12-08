@@ -1,6 +1,11 @@
 <%= form_with( model: [ store , menu ] ) do |f| %>
 
   <div>
+    <%= f.label :classification_id, "分類" %>
+    <%= f.select :classification_id, Classification.all.map{ |c| [c.name, c.id] } %>
+  </div>
+
+  <div>
     <%= f.label :photo ,"商品圖片"%>
     <%= f.file_field :photo %>
   </div>

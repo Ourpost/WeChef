@@ -45,7 +45,8 @@ before_action :find_store , only:[ :new, :create ,:index]
 private
 
   def menu_params
-    params.require(:menu).permit(:name , :price , :note , :photo , :delete_at , :photo)
+    params.require(:menu).permit(:name , :price , :note , :photo , :delete_at , :quantity, :classification_id)
+
   end
 
   def find_menu
