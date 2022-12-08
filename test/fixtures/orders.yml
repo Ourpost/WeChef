@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_number: MyString
+  create_tiime: MyString
+  quantity: 1
+  total_price: 1
+  note: MyText
+  delete_at: MyString
+  utensils: false
+
+two:
+  order_number: MyString
+  create_tiime: MyString
+  quantity: 1
+  total_price: 1
+  note: MyText
+  delete_at: MyString
+  utensils: false

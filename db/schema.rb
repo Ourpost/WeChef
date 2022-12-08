@@ -79,6 +79,18 @@ ActiveRecord::Schema.define(version: 2022_12_08_120244) do
     t.index ["delete_at"], name: "index_menus_on_delete_at"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "order_number"
+    t.string "create_tiime"
+    t.integer "quantity"
+    t.integer "total_price"
+    t.text "note"
+    t.string "delete_at"
+    t.boolean "utensils"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "stores", force: :cascade do |t|
     t.string "name"
     t.string "tel"
