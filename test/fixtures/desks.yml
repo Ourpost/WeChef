@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  seat_amount: 1
+  store: one
+  delete_at: 2022-12-08 20:02:44
+
+two:
+  name: MyString
+  seat_amount: 1
+  store: two
+  delete_at: 2022-12-08 20:02:44
