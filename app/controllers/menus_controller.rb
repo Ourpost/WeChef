@@ -43,7 +43,7 @@ before_action :find_store , only:[ :new, :create ,:index]
   end
 
   def order
-    @desk = Desk.find(params[:id])
+    @desk = Desk.find_by(serial_number: params[:serial_number])
     @menus = @desk.store.menus
   end
 

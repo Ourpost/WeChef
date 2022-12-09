@@ -1,4 +1,8 @@
 <h1>menus#order</h1>
 <% @menus.each do |m| %>
-<%= m.name %>
+  <div>
+    <%= m.name %>
+    <%= m.price %>
+    <%= m.note %>
+  </div>
 <% end %>

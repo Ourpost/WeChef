@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+@media print {
+  .noBreak {
+    break-inside: avoid;
+  }
+  .no-print {
+    display: none;
+  }
+}
+
+@page {
+  margin-top: 2cm;
+}
