@@ -8,12 +8,12 @@
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="px-8 py-6 ">
           <div class="field">
-            <%= f.label :email , "帳號使用信箱" ,class:"block font-semibold" %>
+            <%= f.label :email , "電子信箱" ,class:"block font-semibold" %>
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"w-full h-3 py-4 mt-2 border rounded-md hover:outline-none focus:outline-none focus:ring-indigo-500 focus:ring-1" ,placeholder:"Enter your email"%>
           </div>
           
           <div class="field">
-            <%= f.label :password , "帳號使用密碼" ,class:"block font-semibold mt-3" %>
+            <%= f.label :password , "帳號密碼" ,class:"block font-semibold mt-3" %>
             <%= f.password_field :password, autocomplete: "current-password",  class:"w-full h-3 mt-2 py-4 border rounded-md hover:outline-none focus:outline-none focus:ring-indigo-500 focus:ring-1" ,placeholder:"Password" %>
           </div>
 
@@ -26,7 +26,7 @@
           
           <div class="flex items-baseline justify-between">
             <div class="actions">
-              <%= f.submit "Login", class:"px-6 py-2 mt-4 text-white bg-green-500 rounded-md hover:bg-green-800 "%>
+              <%= f.submit "Login", class:"px-6 py-2 mt-4 text-white bg-green-200 rounded-md hover:bg-green-800 "%>
             </div>
             <%= render "devise/shared/links" %>
           </div>
