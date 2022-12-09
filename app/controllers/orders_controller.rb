@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
+  
     def index
+       @orders = order.all
     end
 
     def new
@@ -11,6 +13,6 @@ class OrdersController < ApplicationController
     def show
     end
 
-    def edit
-    end    
+    def edit  
+    end
 end

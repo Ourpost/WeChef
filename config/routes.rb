@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   resources :stores do 
     resources :classifications
-    resources :menus
-    resources :desks
+    resources :menus do
+      resources :orders  
+    end
   end
 
   root "stores#index"

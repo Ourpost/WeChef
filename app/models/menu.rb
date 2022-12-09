@@ -10,6 +10,7 @@ class Menu < ApplicationRecord
   # relationships
   belongs_to :store
   belongs_to :classification
+  belongs_to :order
 
 
   def image_resize(size)

@@ -1,1 +1,24 @@
 <h1>商家訂單新增頁面</h1>
+
+
+<% form_for(@order)do |order| %>
+  <%= order.label :name, "訂單名稱" %>
+  <% order.text_field :name %> <br />
+
+  <%= order.label :price, "訂單價格" %>
+  <% order.text_field :price %> <br />
+
+  <%= order.label :nnote, "訂單備註" %>
+  <% order.text_field :note %> <br />
+
+  <%= order.label :photo, "訂單圖片" %>
+  <% order.text_field :photo %> <br />
+
+  <%= order.label :quantity, "訂單數量" %>
+  <% order.text_field :quantity %> <br />
+
+
+  <% link_to" "%>
+
+
+

@@ -1,0 +1,33 @@
+<h1>訂單首頁</h1>
+
+<table>
+    <thead>
+        <tr>
+            <td>訂單名稱</td>
+            <td>訂單價格</td>
+            <td>訂單備註</td>
+            <td>訂單圖片</td>
+            <td>訂單數量</td>
+        </tr>
+    </thead> 
+    <tbody>
+        <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.name %></td>
+          <td><%= order.price %></td>
+          <td><%= order.note %></td>
+          <td><%= order.photo %></td>
+          <td><%= order.quantity %></td>
+        </tr>
+        <% end %>
+    </tbody>
+
+
+
+
+
+
+
+</table>
+
+
