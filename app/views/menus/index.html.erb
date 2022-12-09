@@ -1,26 +1,31 @@
 <%= render "shared/menunavbar" %>
 
 
-<section class="bg-white dark:bg-gray-900">
-  <div class="container px-6 py-10 mx-auto">
-  <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white"><%= @store.name %>Store Menu</h1>
-    <div class="grid grid-cols-1 gap-4 mt-8 md:mt-16 md:grid-cols-2">
-      <% @menus.each do |menu| %>
-        <div class="flex flex-col lg:flex-row">
-          <%= image_tag menu.image_resize("200x200"), class:"object-cover h-full rounded-lg"  %>
-            <div class="flex flex-col">
-              <div><%= link_to menu.name , store_menu_path(menu , @store) , class:"text-xl font-semibold text-gray-800 hover:underline dark:text-white "%></div>
-              <div><%= Classification.find(menu.classification_id).name %></div>
-              <div><%= menu.note %></div>
-              <div class="self-end justify-self-end text-md gray-500 dark:text-gray-100"><%= menu.price %></div>
-              <div class="flex">
-                <div class="text-white bg-blue-500 rounded" ><%= link_to "修改" , edit_store_menu_path(@store ,menu) ,class:"mx-2" %></div>
-                <div class="text-white bg-blue-500 rounded"><%= link_to "刪除" , store_menu_path(@store ,menu) ,method: "DELETE" , class:"mx-2" %></div>
-              </div>
-            </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</section>
 
+
+
+<nav></nav>
+
+
+<section class="px-10">
+  <h1 class="mb-2 text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white"><%= @store.name %>Store Menu</h1>
+  <div class="grid-cols-2 overflow-hidden bg-white max-w-fullmx-auto sm:grid ">
+    <% @menus.each do |menu| %>
+      <div class="w-full mb-2 shadow rounded-xl md:flex">
+        <div class="overflow-hidden rounded-xl md:flex-shrink-0">
+          <%= image_tag menu.image_resize("200x200"), class:"object-cover w-full h-48 md:w-48" %>
+        </div>
+        <div class="flex-col p-8 md:flex">
+          <div class="text-sm font-semibold tracking-wide text-indigo-500 uppercase">
+            <%= Classification.find(menu.classification_id).name %>
+          </div>
+          <div>
+            <%= link_to menu.name , store_menu_path(menu , @store) , class:"block mt-1 text-lg font-medium leading-tight hover:underline"%>
+          </div>
+          <p class="mt-2 text-gray-500"><%= menu.note %></p>
+          <div class=""><%= menu.price %></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section> 
