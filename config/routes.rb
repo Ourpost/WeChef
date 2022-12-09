@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   end
 
   root "stores#index"
+  
+  get '/desks/:id', to: 'menus#order'
 end
 
 
