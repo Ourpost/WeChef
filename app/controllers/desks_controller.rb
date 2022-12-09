@@ -5,7 +5,7 @@ class DesksController < ApplicationController
 
 
   def index
-    @desks = Desk.all
+    @desks = @store.desks
   end
 
   def new
@@ -46,6 +46,6 @@ class DesksController < ApplicationController
   end
 
   def desk_params
-    params.require(:desk).permit(:name, :seat_amount)
+    params.require(:desk).permit(:name, :seat_amount, :serial_number)
   end
 end
