@@ -1,5 +1,5 @@
 <h1>desks#show</h1>
-<% qrcode = RQRCode::QRCode.new("https://wechef.tw/desk/#{@desk.id}") %>
+<% qrcode = RQRCode::QRCode.new("localhost:3000/desks/#{@desk.id}") %>
 <%= 
 qrcode.as_svg(color: :black, offset: 15, shape_rendering: "optimizeSpeed", module_size: 10).html_safe
 %>

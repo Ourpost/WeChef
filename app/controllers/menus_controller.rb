@@ -42,6 +42,11 @@ before_action :find_store , only:[ :new, :create ,:index]
     redirect_to store_menus_path , alert: '品項移除成功'
   end
 
+  def order
+    @desk = Desk.find(params[:id])
+    @menus = @desk.store.menus
+  end
+
 private
 
   def menu_params

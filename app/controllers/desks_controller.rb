@@ -5,7 +5,7 @@ class DesksController < ApplicationController
 
 
   def index
-    @desks = @store.desks
+    @desks = Desk.all
   end
 
   def new
