@@ -1,0 +1,7 @@
+<%= form_with(model:[store, desk]) do |f| %>
+<%= f.label :name, "桌位" %>
+<%= f.text_field :name %>
+<%= f.label :seat_amount, "座位數量" %>
+<%= f.number_field :seat_amount, min: 1 %>
+<%= f.submit %>
+<% end %>
