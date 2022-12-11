@@ -1,7 +1,7 @@
 class DesksController < ApplicationController
   before_action :find_store, only: [:index, :new, :create]
   before_action :find_desk, only: [:edit, :update, :destroy, :show]
-
+  before_action :generate_qrcode, only: [:show]
 
 
   def index
@@ -18,6 +18,9 @@ class DesksController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
   end
 
   def edit
@@ -46,6 +49,11 @@ class DesksController < ApplicationController
   end
 
   def desk_params
-    params.require(:desk).permit(:name, :seat_amount)
+    params.require(:desk).permit(:name, :seat_amount, :serial_number)
+  end
+
+  def generate_qrcode
+    qrcode = RQRCode::QRCode.new("localhost:3000/foods?serial_number=#{@desk.serial_number}")
+    @qrcode = qrcode.as_svg(color: :black, offset: 15, shape_rendering: "optimizeSpeed", module_size: 8).html_safe
   end
 end

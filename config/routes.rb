@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   end
 
   root "stores#index"
+  
+  get '/foods', to: 'menus#order'
 end
 
 
