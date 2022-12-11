@@ -20,6 +20,8 @@ class StoresController < ApplicationController
   end
 
   def show
+    @store = Store.find_by!(id: params[:id])
+    @desks = @store.desks
   end
 
   def edit
