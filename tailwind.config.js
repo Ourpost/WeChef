@@ -1,6 +1,14 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
+  content: [
+    "./src/**/*.{html,js}",
+    "./node_modules/tw-elements/dist/js/**/*.js",
+  ],
+  plugins: [require("tw-elements/dist/plugin")],
+};
+
+module.exports = {
   purge: [
     "./app/**/*.html.erb",
     "./app/helpers/**/*.rb",
@@ -10,6 +18,19 @@ module.exports = {
   presets: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    extend: {
+      height: {
+        apple: "50%",
+      },
+      colors: {
+        tiffany: {
+          DEFAULT: "#2BBDB0",
+        },
+        pccific: {
+          DEFAULT: "#0FA3BD",
+        },
+      },
+    },
     screens: {
       sm: "640px",
       md: "768px",

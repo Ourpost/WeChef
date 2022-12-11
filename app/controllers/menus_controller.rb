@@ -5,6 +5,7 @@ before_action :find_store , only:[ :new, :create ,:index]
 
   def index
      @menus = @store.menus
+     @classifications = @store.classifications
   end
 
   def new
