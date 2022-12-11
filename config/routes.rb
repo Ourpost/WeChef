@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   root "stores#index"
   
-  get '/foods', to: 'menus#order'
+  get '/foods', to: 'menus#order_food'
 end
 
 
