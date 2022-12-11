@@ -6,3 +6,17 @@
 營業時間（迄）：<%= @store.business_hours_end %>
 商店LOGO：<%= @store.logo %>
 <%=link_to "返回", stores_path %>
+<hr>
+<%= link_to "新增桌位", new_store_desk_path(@store) %>
+
+<div>
+  <% @desks.each do |desk| %>
+    <section class="inline-block px-5 py-5 bg-red-100">
+      <div>桌位：<%= desk.name %></div>
+      <div>座位數量：<%= desk.seat_amount %></div>
+      <span class="bg-green-100"><%= link_to "編輯", edit_store_desk_path(@store, desk.id) %></span>
+      <span class="bg-blue-100"><%= link_to "刪除", store_desk_path(@store, desk.id), method: "delete", data: {confirm: "確定刪除？"} %></span>
+      <span class="bg-yellow-100"><%= link_to "QRCode", store_desk_path(@store, desk.id) %></span>
+    </section>
+  <% end %>
+</div>
