@@ -1,6 +1,6 @@
 class MenusController < ApplicationController
 before_action :find_menu , only:[ :show , :edit ,:update ,:destroy ]
-before_action :find_store , only:[ :new, :create ,:index ,:user_manus]
+before_action :find_store , only:[ :new, :create ,:index ]
 
 
   def index
