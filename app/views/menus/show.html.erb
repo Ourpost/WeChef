@@ -1,1 +1,12 @@
-<h1>顧客點菜頁面</h1>
+<h1>menus#show</h1>
+<div><%= @menu.name %></div>
+<div><%= @menu.note %></div>
+<div>$<%= @menu.price %></div>
+
+<div data-controller="update-quantity">
+  <button data-action="click->update-quantity#decrement" class="bg-gray-300">-</button>
+  <input data-update-quantity-target="quantity" class="border-2" type="number" name="quantity" value="1" min="1" max="10">
+  <button data-action="click->update-quantity#increment" class="bg-gray-300">+</button>
+
+<%= link_to "加入購物車", add_cart_path(@menu, {serial_number: params[:serial_number]}), method: "post", data: {update_quantity_target: "link", serial_number: params[:serial_number]} %> 
+</div>

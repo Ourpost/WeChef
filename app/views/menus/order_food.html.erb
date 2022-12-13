@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-  <!------------- banner ---------------->
+<!------------- banner ---------------->
   <div id="carouselExampleCaptions" class="relative carousel slide" data-bs-ride="carousel">
 
     <div class="box-border relative w-full overflow-hidden carousel-inner">
@@ -51,6 +50,14 @@
       <span class="inline-block bg-no-repeat carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
+=======
+<h1>menus#order_food</h1>
+<% @menus.each do |menu| %>
+  <div>
+    <%= link_to menu.name, store_menu_path(@desk.store, menu.id, {serial_number: params[:serial_number]}) %>
+    <%= menu.price %>
+    <%= menu.note %>
+>>>>>>> 28cdb54 (add update quantity button)
   </div>
 
 

@@ -1,18 +1,18 @@
 class Cart
   SessionKey = :cart8888
-  attr_reader :items
+  attr_reader :items #, :quantity
 
   def initialize(items = [])
     @items = items
   end
 
-  def add_item(menu_id)
+  def add_item(menu_id, quantity)#TODO
     # NOTE
     found_item = @items.find{|item| item.menu_id == menu_id}
     if found_item
       found_item.increment
     else
-      @items << CartItem.new(menu_id)
+      @items << CartItem.new(menu_id, quantity)
     end
   end
 

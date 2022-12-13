@@ -3,10 +3,11 @@ class CartItem
 
   def initialize(menu_id, quantity = 1)
     @menu_id = menu_id
-    @quantity = quantity
+    @quantity = quantity.to_i
   end
 
-  def increment(n = 1)
+  #TODO
+  def increment(n = 1)#BUGcan't find n
     @quantity += n
   end
 
@@ -15,6 +16,6 @@ class CartItem
   end
 
   def price
-    menu.price * quantity
+    menu.price * quantity.to_i
   end
 end
