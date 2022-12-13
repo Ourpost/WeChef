@@ -22,6 +22,6 @@
   </tr>
 </table>
 
-<%= link_to "繼續選購", foods_path %>
+<%= link_to "繼續選購", "/foods?serial_number=#{params[:serial_number]}" %>
 <%= link_to "結帳", "#" %>
-<%= link_to '清空購物車', cart_path, method: :delete, data: {confirm: "確定清空購物車？"} %>
+<%= link_to '清空購物車', cart_path({serial_number: params[:serial_number]}), method: :delete, data: {confirm: "確定清空購物車？"} %>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
   <!------------- banner ---------------->
   <div id="carouselExampleCaptions" class="relative carousel slide" data-bs-ride="carousel">
 
@@ -102,8 +103,10 @@
             </div>
           </div>
           <% end %>
+          <%= link_to "加入購物車", add_cart_path(menu, {serial_number: params[:serial_number]}), method: "post" %>
       </div>
       <% end %>
+      <%= link_to "購物車", cart_path({serial_number: params[:serial_number]}) %>
   </section>
 
   <%= render "shared/footer" %>
