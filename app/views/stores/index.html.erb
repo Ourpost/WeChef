@@ -1,43 +1,73 @@
-<%= render "shared/navbar"%>
+<%= render "shared/storenavbar" %>
 
-  <table class="block min-w-full border-collapse md:table">
-		<thead class="block md:table-header-group">
-			<tr class="absolute block border border-grey-500 md:border-none md:table-row -top-full md:top-auto -left-full md:left-auto md:relative ">
-				<th class="block p-2 font-bold text-center text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Update classifications</th>
-				<th class="block p-2 font-bold text-center text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">商店名稱</th>
-				<th class="block p-2 font-bold text-center text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">商店地址</th>
-				<th class="block p-2 font-bold text-center text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">電話</th>
-				<th class="block p-2 font-bold text-center text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Actions</th>
-			</tr>
-		</thead>
-		<tbody class="block md:table-row-group">
+  <table class="block min-w-full mt-12 border-collapse md:table">
+    <thead class="block md:table-header-group">
+      <tr
+        class="absolute block border border-red-300 md:border-none md:table-row -top-full md:top-auto -left-full md:left-auto md:relative ">
+        <th class="block p-2 font-bold text-center text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">
+          Update classifications</th>
+        <th class="block p-2 font-bold text-center text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">
+          商店名稱</th>
+        <th class="block p-2 font-bold text-center text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">
+          商店地址</th>
+        <th class="block p-2 font-bold text-center text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">電話
+        </th>
+        <th class="block p-2 font-bold text-center text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">
+          Actions</th>
+      </tr>
+    </thead>
+    <tbody class=" block md:table-row-group">
       <% @stores.each do |store| %>
-        <tr class="block bg-gray-300 border border-grey-500 md:border-none md:table-row">
-          <td class="block p-2 text-center md:border md:border-grey-500 md:table-cell">
-            <span class="inline-block w-1/3 font-bold md:hidden">Update Menu</span>
-            <button class="px-2 py-1 font-bold text-white bg-blue-500 border border-blue-500 rounded bg hover:bg-blue-700"><%= link_to "菜單分類", store_classifications_path(store.id) %>
-            </button>
-            <button class="px-2 py-1 font-bold text-white bg-blue-500 border border-blue-500 rounded bg hover:bg-blue-700"><%= link_to "新增菜單", store_menus_path(store.id) %>
-            </button>
-          </td>
-          <td class="block p-2 text-center md:border md:border-grey-500 md:table-cell">
-            <span class="inline-block w-1/3 font-bold md:hidden">User Name</span>
+        <tr class="block content-around justify-self-start bg-gray-300 border border-grey-500 md:border-none md:table-row">
+     
+
+          <td class="grid grid-cols-2 p-2 md:border md:border-grey-500 md:table-cell">
+            <span class="font-bold justify-self-end md:hidden">User Name:</span>
             <%= link_to store.name, store_path(store.id) %>
           </td>
-          <td class="block p-2 text-center md:border md:border-grey-500 md:table-cell">
-            <span class="inline-block w-1/3 font-bold md:hidden">Address</span>
-            <%= store.address %>
+
+          <td class="grid grid-cols-2 p-2 md:border md:border-grey-500 md:table-cell">
+            <span class="font-bold justify-self-end md:hidden">Address:</span>
+            <p><%= store.address %></p>
           </td>
-          <td class="block p-2 text-center md:border md:border-grey-500 md:table-cell">
-            <span class="inline-block w-1/3 font-bold md:hidden">phone</span>
+
+          <td class="grid grid-cols-2 p-2 md:border md:border-grey-500 md:table-cell">
+            <span class="font-bold justify-self-end md:hidden">Phone:</span>
             <%= store.tel %>
           </td>
-          <td class="block p-2 text-center md:border md:border-grey-500 md:table-cell">
-            <span class="inline-block w-1/3 font-bold md:hidden">Actions</span>
-            <button class="px-2 py-1 font-bold text-white bg-blue-500 border border-blue-500 rounded hover:bg-blue-700"><%= link_to "Edit", edit_store_path(store.id) %></button>
-            <button class="px-2 py-1 font-bold text-white bg-red-500 border border-red-500 rounded hover:bg-red-700"><%= link_to "Delete", store_path(store.id), method: "delete", data: {confirm: "確定刪除？"} %></button>
+
+          <td class="grid grid-cols-2 p-2 md:border md:border-grey-500 md:table-cell">
+            <span class="font-bold justify-self-end md:hidden">Actions:</span>
+            <div>
+              <button class="px-2 py-1 font-bold text-white bg-blue-500 border border-blue-500 rounded hover:bg-blue-700">
+                <%= link_to "Edit" , edit_store_path(id: store.id) %>
+              </button>
+              <button class="px-2 py-1 font-bold text-white bg-red-500 border border-red-500 rounded hover:bg-red-700">
+                <%= link_to "Delete" , store_path(id: store.id), method: "delete" , data: {confirm: "確定刪除？" } %>
+              </button>
+            </div>
           </td>
+
+          <td class="grid grid-cols-1 p-2 md:border md:border-grey-500 md:table-cell">
+            <span class="inline-block justify-self-end w-1/3 font-bold md:hidden">Update:</span>
+            <div>
+              <button
+                class="px-2 py-1 font-bold text-white bg-blue-500 border border-blue-500 rounded bg hover:bg-blue-700">
+                <%= link_to "菜單分類" , store_classifications_path(store.id) %>
+              </button>
+              <button
+                class="px-2 py-1 font-bold text-white bg-blue-500 border border-blue-500 rounded bg hover:bg-blue-700">
+                <%= link_to "新增菜單" , store_menus_path(store.id) %>
+              </button>
+            </div>
+          </td>
+
         </tr>
       <% end %>
-		</tbody>
-	</table>
+    </tbody>
+  </table>
+
+
+
+
+ 

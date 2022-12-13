@@ -14,3 +14,39 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+<h1 class="py-10 font-mono text-5xl font-bold text-center">Resend confirmation instructions</h1>
+
+<section class="max-w-xl mx-auto bg-gray-100 rounded-md shadow-md dark:bg-gray-800">
+<div class="h-4 bg-green-400 rounded-t-md w-full"></div>
+  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+    <div class=" p-6 grid grid-cols-1 gap-6 mt-4 sm:grid-cols-1">
+
+      <div class="field">
+        <%= f.label :email, class:"text-block dark:text-gray-200" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"%>
+      </div>
+      
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="flex justify-center mt-6">
+      <%= link_to "Back", root_path ,class:"px-6 py-2 mx-2 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600 hover:scale-105" %>
+
+      <%= f.submit 'Update' , class:"px-6 py-2 mx-2 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600 hover:scale-105 "%>
+    </div>
+
+    <div class="flex justify-center mt-6">
+      <%= render "devise/shared/links" %>
+    </div>
+
+    <div class="actions flex font-bold justify-center mt-3 font-mono">
+      <%= f.submit "Reset password" %>
+    </div>
+  <% end %>
+</section>

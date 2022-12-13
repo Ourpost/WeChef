@@ -15,13 +15,13 @@ class StoresController < ApplicationController
     if current_user.stores.create(stores_params)
       redirect_to stores_path, notice: "商店新增成功" 
     else
-      render :new
+      render :new 
     end 
   end
 
   def show
-    @store = Store.find_by!(id: params[:id])
-    @desks = @store.desks
+    # render html: params
+    @desks = Desk.all
   end
 
   def edit
@@ -37,8 +37,10 @@ class StoresController < ApplicationController
 
   def destroy
     @store.destroy
-    redirect_to stores_path, notice: "商店刪除成功" 
+    redirect_to stores_path, alert: "商店刪除成功" 
   end
+
+  
 
   private
   def stores_params
