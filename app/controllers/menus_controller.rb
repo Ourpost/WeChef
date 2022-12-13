@@ -1,6 +1,6 @@
 class MenusController < ApplicationController
 before_action :find_menu , only:[ :show , :edit ,:update ,:destroy ]
-before_action :find_store , only:[ :new, :create ,:index]
+before_action :find_store , only:[ :new, :create ,:index ,:user_manus]
 
 
   def index
@@ -9,7 +9,6 @@ before_action :find_store , only:[ :new, :create ,:index]
   end
 
   def new
-    # render html: params
     @menu = Menu.new
 
   end
@@ -46,8 +45,12 @@ before_action :find_store , only:[ :new, :create ,:index]
   def order_food
     @desk = Desk.find_by(serial_number: params[:serial_number])
     @menus = @desk.store.menus
+    @classifications = Classification.all
+    @store = current_user.stores
     # @order = Order.create
   end
+
+
 
 private
 
