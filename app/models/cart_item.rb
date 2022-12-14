@@ -6,9 +6,8 @@ class CartItem
     @quantity = quantity.to_i
   end
 
-  #TODO
-  def increment(n = 1)#BUGcan't find n
-    @quantity += n
+  def increment(n = 1)
+    @quantity += n.to_i
   end
 
   def menu

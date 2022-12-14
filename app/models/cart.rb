@@ -1,16 +1,15 @@
 class Cart
   SessionKey = :cart8888
-  attr_reader :items #, :quantity
+  attr_reader :items
 
   def initialize(items = [])
     @items = items
   end
 
-  def add_item(menu_id, quantity)#TODO
-    # NOTE
+  def add_item(menu_id, quantity)
     found_item = @items.find{|item| item.menu_id == menu_id}
     if found_item
-      found_item.increment
+      found_item.increment(quantity)
     else
       @items << CartItem.new(menu_id, quantity)
     end
@@ -21,12 +20,10 @@ class Cart
   end
 
   def total_price
-    # NOTE
     @items.reduce(0){|acc, item| acc + item.price}
   end
 
   def serialize
-    # NOTE
     all_items = @items.map {|item| {"menu_id" => item.menu_id, "quantity" => item.quantity}}
 
     {"items" => all_items}
