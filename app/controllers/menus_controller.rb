@@ -47,7 +47,7 @@ before_action :find_store , only:[ :new, :create ,:index ]
     @desk = Desk.find_by(serial_number: params[:serial_number])
     @menus = @desk.store.menus
     @classifications = Classification.all
-    @store = current_user.stores
+    @store = @desk.store
     # @order = Order.create
   end
 
