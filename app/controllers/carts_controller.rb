@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
 
   def show
+    @desk = Desk.find_by(serial_number: params[:serial_number])
     # render html: current_cart.items
   end
 
