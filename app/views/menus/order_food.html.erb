@@ -1,4 +1,4 @@
-  <!------------- banner ---------------->
+<!------------- banner ---------------->
   <div id="carouselExampleCaptions" class="relative carousel slide" data-bs-ride="carousel">
 
     <div class="box-border relative w-full overflow-hidden carousel-inner">
@@ -89,7 +89,7 @@
                 <%= Classification.find(menu.classification_id).name %>
               </div>
               <div>
-                <%= link_to menu.name , store_menu_path(menu , @store) , class:"block mt-1 text-lg font-medium
+                <%= link_to menu.name , store_menu_path(@store, menu.id, {serial_number: params[:serial_number]}) , class:"block mt-1 text-lg font-medium
                   leading-tight hover:underline"%>
               </div>
               <p class="py-2 mt-2 text-gray-500">
@@ -104,6 +104,9 @@
           <% end %>
       </div>
       <% end %>
+      <%= link_to "購物車", cart_path({serial_number: params[:serial_number]}) %>
   </section>
 
   <%= render "shared/footer" %>
+
+

@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   before_action :configure_permitted_parameters, if: :devise_controller?
   
-
+  include CartsHelper
 
   private
 

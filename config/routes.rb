@@ -10,6 +10,14 @@ Rails.application.routes.draw do
   root "stores#index"
   
   get '/foods', to: 'menus#order_food'
+
+  resource :cart, only: [:show, :destroy] do
+    collection do
+      post :add, path:'add/:id'
+    end
+  end
+
+
 end
 
 
