@@ -43,6 +43,7 @@ before_action :find_store , only:[ :new, :create ,:index ]
   end
 
   def order_food
+    # render html: params
     @desk = Desk.find_by(serial_number: params[:serial_number])
     @menus = @desk.store.menus
     @classifications = Classification.all
