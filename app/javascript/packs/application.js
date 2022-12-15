@@ -8,6 +8,9 @@ import Turbolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
 import "channels";
 import "stylesheets/application";
+import "flowbite/src/flowbite.turbo.js"
+
+
 
 Rails.start();
 Turbolinks.start();
@@ -15,3 +18,6 @@ ActiveStorage.start();
 
 import "controllers";
 import 'tw-elements';
+import 'flowbite';
+
+

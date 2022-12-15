@@ -1,5 +1,5 @@
 class DesksController < ApplicationController
-  before_action :find_store, only: [:new, :create, :update, :destroy]
+  before_action :find_store, only: [:new, :create, :update, :destroy ,:show]
   before_action :find_desk, only: [:edit, :update, :destroy, :show]
   before_action :generate_qrcode, only: [:show]
 
