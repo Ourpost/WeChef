@@ -20,8 +20,8 @@ class StoresController < ApplicationController
   end
 
   def show
-    # render html: params
-    @desks = Desk.all
+    # @store = Store.find_by(id: params[:id])
+    @desks = @store.desks
   end
 
   def edit
