@@ -3,6 +3,5 @@
 <%= f.text_field :name %>
 <%= f.label :seat_amount, "座位數量" %>
 <%= f.number_field :seat_amount, min: 1 %>
-<%= f.hidden_field :serial_number, value: "#{rand(10000000..99999999)}" %>
 <%= f.submit %>
 <% end %>

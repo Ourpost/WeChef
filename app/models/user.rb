@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   # relationships
   has_many :stores
+  has_many :orders
   
   enum role: {user: 0, vender:1}
 end

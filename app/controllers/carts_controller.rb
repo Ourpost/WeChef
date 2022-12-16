@@ -3,6 +3,7 @@ class CartsController < ApplicationController
   def show
     @desk = Desk.find_by(serial_number: params[:serial_number])
     # render html: current_cart.items
+    @items = current_cart.items.map{|item| {menu_id: item.menu_id, quantity: item.quantity}}
   end
 
   def add

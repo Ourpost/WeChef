@@ -17,6 +17,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :orders, only: [:create] do
+    member do
+      get :checkout
+    end
+  end
 
 end
 
