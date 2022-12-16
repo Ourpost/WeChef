@@ -1,1 +1,20 @@
-<h1>orders#checkout</h1>
+<h1>結帳</h1>
+
+<div >
+  <%= form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", method: 'post' do |f| %>
+
+    <input type="hidden" name="merchant_id" value="<%= ENV['MERCHANT_ID'] %>">
+    <input type="hidden" name="trade_info" value="<%= @trade_info %>">
+    <input type="hidden" name="trade_sha" value="<%= @trade_sha %>">
+    <input type="hidden" name="respond_type" value="JSON">
+    <input type="hidden" name="version" value="2.0">
+    <input type="hidden" name="time_stamp" value="<%= Time.now.to_i %>">
+    <input type="hidden" name="merchant_order_nos" value="<%= order.items %>">
+    <input type="hidden" name="amt" value="<%= order.amount %>">
+    <input type="hidden" name="item_desc" value="<%= order.name %>">
+    <input type="hidden" name="email" value="<%= order.email %>">
+    <input type="hidden" name="login_type" value="0">
+
+    <%= f.submit "確認付款" %>
+  <% end %>
+</div>
