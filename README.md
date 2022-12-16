@@ -28,7 +28,7 @@ devise
 
 1.  .env.sample檔案上面要再新增一個.env.development
 
-2. .env.development面貼上 DC上面有放
+2. .env.development貼上以下資訊，DC上面有放
 DOMAIN=
 MAILGUN_USERNAME=
 MAILGUN_PASSWORD=
@@ -38,3 +38,10 @@ MAILGUN_PASSWORD=
 4. bundle install
 
 5. yarn install 
+
+newebpay藍星
+
+1. .env.development貼上以下資訊，DC上面有放
+HASH_KEY=
+Hash_IV=
+MERCHANT_ID=
