@@ -1,20 +1,19 @@
 <h1>結帳</h1>
 
 <div >
-  <%= form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", method: 'post' do |f| %>
+  <%= form_with url: "https://ccore.spgateway.com/MPG/mpg_gateway" do |form| %>
+    <input type="hidden" id="MerchantID" name="MerchantID" value="MS146316875">
+    <input type="hidden" id="TradeInfo" name="TradeInfo" value="<%= @form_TradeInfo %>">
+    <input type="hidden" id="TradeSha" name="TradeSha" value="<%= @form_TradeSha %>">
+    <input type="hidden" id="RespondType" name="RespondType" value="JSON">
+    <input type="hidden" id="TimeStamp" name="TimeStamp" value="<%= @order.created_at %>">
+    <input type="hidden" id="Version" name="Version" value="1.5">
+    <input type="hidden" id="MerchantOrderNo" name="MerchantOrderNo" value="<%= @order.serial %>">
+    <input type="hidden" id="Amt" name="Amt" value="<%= @order.amount %>" >
+    <input type="hidden" id="ItemDesc" name="ItemDesc" value="<%= @order.name %>">
+    <input type="hidden" id="Email" name="Email" value="<%= @order.email %>">
+    <input type="hidden" id="LoginType" name="LoginType" value="0">
 
-    <input type="hidden" name="merchant_id" value="<%= ENV['MERCHANT_ID'] %>">
-    <input type="hidden" name="trade_info" value="<%= @trade_info %>">
-    <input type="hidden" name="trade_sha" value="<%= @trade_sha %>">
-    <input type="hidden" name="respond_type" value="JSON">
-    <input type="hidden" name="version" value="2.0">
-    <input type="hidden" name="time_stamp" value="<%= Time.now.to_i %>">
-    <input type="hidden" name="merchant_order_nos" value="<%= order.items %>">
-    <input type="hidden" name="amt" value="<%= order.amount %>">
-    <input type="hidden" name="item_desc" value="<%= order.name %>">
-    <input type="hidden" name="email" value="<%= order.email %>">
-    <input type="hidden" name="login_type" value="0">
-
-    <%= f.submit "確認付款" %>
+    <%= form.submit "藍新下單" %>
   <% end %>
 </div>

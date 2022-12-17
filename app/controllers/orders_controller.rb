@@ -18,7 +18,14 @@ class OrdersController < ApplicationController
   end
 
   def checkout
+
     # render html: params
+    @order = Order.find_by(serial: params[:id])
+    @form_info = Newebpay::Mpg.new(@order).form_info
+    @form_MerchantID = @form_info[:MerchantID]
+    @form_TradeInfo = @form_info[:TradeInfo]
+    @form_TradeSha = @form_info[:TradeSha]
+
   end
 
 end
