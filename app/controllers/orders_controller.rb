@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
       items: params[:items],
       name: "NAME~"  
     )
+    
     if order.save
       redirect_to checkout_order_path(id: order.serial)
     else

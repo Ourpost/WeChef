@@ -2,7 +2,7 @@
 
 <div >
   <%= form_with url: "https://ccore.spgateway.com/MPG/mpg_gateway" do |form| %>
-    <input type="hidden" id="MerchantID" name="MerchantID" value="MS146316875">
+    <input type="hidden" id="MerchantID" name="MerchantID" value="<%= @form_MerchantID %>">
     <input type="hidden" id="TradeInfo" name="TradeInfo" value="<%= @form_TradeInfo %>">
     <input type="hidden" id="TradeSha" name="TradeSha" value="<%= @form_TradeSha %>">
     <input type="hidden" id="RespondType" name="RespondType" value="JSON">
