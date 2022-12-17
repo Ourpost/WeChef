@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2022_12_15_153437) do
   create_table "orders", force: :cascade do |t|
     t.string "name"
     t.string "serial"
-    t.decimal "amount"
+    t.integer "amount"
     t.string "email"
     t.jsonb "items", default: [], null: false
     t.datetime "pay_at"

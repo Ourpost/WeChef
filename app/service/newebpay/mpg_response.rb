@@ -4,8 +4,8 @@ module Newebpay
       attr_reader :status, :message, :result, :order_no, :trans_no
   
       def initialize(params)
-        @key = "<%=ENV['HASH_KEY']%>"
-        @iv = "<%=ENV['Hash_IV']%>"
+        @key = "DqLcqy05LtUmKOwwTRsYM0kshJtIPWHw"
+        @iv = "C27Y3qTM0w2n1JwP"
   
         response = decrypy(params)
         @status = response['Status']

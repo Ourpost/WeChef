@@ -3,19 +3,19 @@ module Newebpay
       attr_accessor :info
   
       def initialize(params)
-        @key = "<%=ENV['HASH_KEY']%>"
-        @iv = "<%=ENV['Hash_IV']%>"
-        @merchant_id = "<%=ENV['MERCHANT_ID']%>"
+        @key = "DqLcqy05LtUmKOwwTRsYM0kshJtIPWHw"
+        @iv = "C27Y3qTM0w2n1JwP"
+        @merchant_id = "MS146316875"
         @info = {}  # 使用 attr_accessor 讓 info 方便存取
         set_info(params)
       end
   
       def form_info
         {
-          MerchantID: @merchant_id
+          MerchantID: @merchant_id,
           TradeInfo: trade_info,
           TradeSha: trade_sha,
-          Version: "1.6"
+          Version: "1.5"
         }
       end
   
@@ -31,13 +31,13 @@ module Newebpay
   
       def set_info(order)  
         info[:MerchantID] = @merchant_id #訂單id
-        info[:MerchantOrderNo] = order.slug #訂單serial
+        info[:MerchantOrderNo] = order.serial #訂單serial
         info[:Amt] = order.amount # 總金額
         info[:ItemDesc] = order.name # 訂單名稱
         info[:Email] = order.email # 訂單使用者email
         info[:TimeStamp] = Time.now.to_i 
         info[:RespondType] = "JSON"
-        info[:Version] = "1.6"
+        info[:Version] = "1.5"
         info[:ReturnURL] = "https://c980-61-220-182-115.jp.ngrok.io"
         #info[:NotifyURL] = "https://...."
         info[:LoginType] = 0 
