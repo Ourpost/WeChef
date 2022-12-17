@@ -1,11 +1,11 @@
 module Newebpay
     class MpgResponse
-      # 使用 attr_reader 可以更方便取用這些資訊
+
       attr_reader :status, :message, :result, :order_no, :trans_no
   
       def initialize(params)
-        @key = "DqLcqy05LtUmKOwwTRsYM0kshJtIPWHw"
-        @iv = "C27Y3qTM0w2n1JwP"
+        @key =  ENV['HASH_KEY']
+        @iv = ENV['HASH_IV']
   
         response = decrypy(params)
         @status = response['Status']
@@ -13,7 +13,6 @@ module Newebpay
         @result = response['Result']
         @order_no = @result["MerchantOrderNo"]
         @trans_no = @result["TradeNo"]
-        # etc...
       end
   
       def success?
@@ -21,7 +20,6 @@ module Newebpay
       end
   
       private
-        # AES 解密
         def decrypy(encrypted_data)
           encrypted_data = [encrypted_data].pack('H*')
           decipher = OpenSSL::Cipher::AES256.new(:CBC)

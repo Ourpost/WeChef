@@ -3,10 +3,10 @@ module Newebpay
       attr_accessor :info
   
       def initialize(params)
-        @key = "DqLcqy05LtUmKOwwTRsYM0kshJtIPWHw"
-        @iv = "C27Y3qTM0w2n1JwP"
-        @merchant_id = "MS146316875"
-        @info = {}  # 使用 attr_accessor 讓 info 方便存取
+        @key = ENV['HASH_KEY']
+        @iv = ENV['HASH_IV']
+        @merchant_id = ENV['MERCHANT_ID']
+        @info = {}  
         set_info(params)
       end
   
@@ -30,11 +30,11 @@ module Newebpay
       end
   
       def set_info(order)  
-        info[:MerchantID] = @merchant_id #訂單id
-        info[:MerchantOrderNo] = order.serial #訂單serial
-        info[:Amt] = order.amount # 總金額
-        info[:ItemDesc] = order.name # 訂單名稱
-        info[:Email] = order.email # 訂單使用者email
+        info[:MerchantID] = @merchant_id 
+        info[:MerchantOrderNo] = order.serial 
+        info[:Amt] = order.amount 
+        info[:ItemDesc] = order.name 
+        info[:Email] = order.email 
         info[:TimeStamp] = Time.now.to_i 
         info[:RespondType] = "JSON"
         info[:Version] = "1.5"
