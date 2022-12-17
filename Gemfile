@@ -66,3 +66,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "rqrcode", "~> 2.0"
 
+
+gem "redis", "< 5.0"
