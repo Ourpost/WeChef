@@ -1,71 +1,149 @@
-<%= render "shared/storenavbar" %>
+<div class=" max-h-screen box-boreder">
+  <header class="flex flex-shrink-0">
+    <div class="flex-shrink-0 px-4 py-3 bg-gray-800 sm:w-3/12">
+      <button class="flex items-center block w-full">
+        <img src="/photo/lutsjtdb.png" class="w-5 h-8 rounded-full mr-2 sm:h-10 w-10" alt="Flowbite Logo">
+        <span class="ml-4 text-lg font-medium text-white">WeChef</span>
+        <svg class=" ml-auto h-6 w-6 ml-10 stroke-current text-gray-400" viewBox="0 0 24 24" fill="none">
+          <path d="M16 10l-4 4-4-4" stroke="4A5568" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+    <div class="flex w-full bg-gray-700 px-3 md:px-6 items-center justify-between">
+      <nav class="hidden md:block">
+        <div
+          class="hover:bg-gray-400 rounded-lg inline-block text-md font-medium text-white px-3 py-2 leading-none">
+          <%= link_to '關於我們',"#"%>
+        </div>
+        <div
+          class="ml-2 hover:bg-gray-400 rounded-lg inline-block text-md font-medium text-white px-3 py-2 leading-none">
+          <%= link_to "聯絡我們","#" %>
+        </div>
+        <div
+          class="hover:bg-gray-400 rounded-lg inline-block text-md font-medium text-white px-3 py-2 leading-none">
+          <%= link_to "回首頁", root_path %>
+        </div>
+      </nav>
+      <div>
+        <input
+        class="focus:bg-white focus:text-gray-900 px-3  focus:placeholder-gray-600 md:px-4 py-2 leading-none bg-gray-900 rounded-lg text-sm placeholder-gray-400 text-white"
+        placeholder="Search">
+      </div>
+    </div>
+  </header>
+  <div class="flex overflow-x-hidden h-screen">
+    <div class="sm:w-4/12 py-2 box-border bg-gray-100 overflow-y-auto hidden md:block">
+      <nav>
+       <h2 class="w-full text-xl mb-2 text-center font-semibold text-gray-700 uppercase tracking-wide"><%= current_user.nickname %></h2>
+        <h2 class="font-semibold text-md text-center text-gray-600 uppercase tracking-wide">Store Inf</h2>
+        
+        <div class="mt-3">
+          <span class=" text-gray-700 py-2 px-2 text-md font-medium flex items-center justify-between hover:bg-gray-300 rounded-lg">電話：
+          </span>
+        </div>
+        
+          <div class="mt-3">
+            <span class=" text-gray-700 py-2 px-2 text-md font-medium flex items-center justify-between hover:bg-gray-300 rounded-lg">地址：
+            </span>
+        </div>
 
-  <table class="block min-w-full mt-12 border-collapse sm:table">
-    <thead class="block sm:table-header-group">
-      <tr class="absolute block border border-red-300 sm:border-none sm:table-row -top-full sm:top-auto -left-full sm:left-auto sm:relative ">
-        <th class="block p-2 font-bold text-center text-white bg-gray-600 sm:border sm:border-grey-500 sm:table-cell">商店名稱
-          </th>
-        <th class="block p-2 font-bold text-center text-white bg-gray-600 sm:border sm:border-grey-500 sm:table-cell">商店地址
-          </th>
-        <th class="block p-2 font-bold text-center text-white bg-gray-600 sm:border sm:border-grey-500 sm:table-cell">商店電話
-          </th>
-        <th class="block p-2 font-bold text-center text-white sm:hidden bg-gray-600 sm:border sm:border-grey-500 sm:table-cell">Actions
-        </th>
-        <th class="block p-2 font-bold text-center text-white bg-gray-600 sm:border sm:border-grey-500 sm:table-cell">
-          Update classifications</th>
-      </tr>
-    </thead>
-    <tbody class="block sm:table-row-group">
-      <% @stores.each do |store| %>
-        <tr class="block content-around justify-self-start bg-gray-300 border border-grey-500 sm:border-none sm:table-row">
+        <div class="mt-3">
+          <div
+            class=" px-2 text-md font-medium flex flex-wrap items-center hover:bg-gray-300 rounded-lg">
+            <span class="w-full text-gray-700 ">營業時間（起）：</span>
+          </div>
+        </div>
 
-          <td class="grid grid-cols-2 p-2 sm:border sm:border-grey-500 sm:table-cell">
-            <span class="mx-2 font-bold justify-self-end sm:hidden">Store Name:</span>
-            <p class="text-center"><%= link_to store.name, store_path(store.id) %></p>
-          </td>
+        <div class="mt-3">
+          <div
+            class=" px-2 text-md font-medium flex flex-wrap items-center hover:bg-gray-300 rounded-lg">
+            <span class="w-full text-gray-700 ">營業時間（迄）：</span>
+          </div>
+        </div>
 
-          <td class="grid grid-cols-2 p-2 sm:border sm:border-grey-500 sm:table-cell">
-            <span class="mx-2 font-bold justify-self-end sm:hidden">Address:</span>
-            <p class="text-center"><%= store.address %></p>
-          </td>
 
-          <td class="grid grid-cols-2 p-2 sm:border sm:border-grey-500 sm:table-cell">
-            <span class="mx-2 font-bold justify-self-end sm:hidden">Phone:</span>
-            <p class="text-center"><%= store.tel %></p>
-          </td>
 
-          <td class=" p-2 sm:hidden sm:border sm:border-grey-500 sm:table-cell">
-            <span class="mx-2 font-bold justify-self-end sm:hidden">Actions:</span>
-            <div>
-              <button class="px-2 py-1 font-bold sm:hidden text-white bg-blue-500 border border-blue-500 rounded hover:bg-blue-700">
-                <%= link_to "Edit" , edit_store_path(id: store.id) %>
-              </button>
-              <button class="px-2 py-1 font-bold sm:hidden text-white bg-red-500 border border-red-500 rounded hover:bg-red-700">
-                <%= link_to "Delete" , store_path(id: store.id), method: "delete" , data: {confirm: "確定刪除？" } %>
-              </button>
+        <div class="mt-8">
+          <h2 class="font-semibold text-center text-gray-600 uppercase tracking-wide">Edit store</h2>
+          
+          <div class="mt-3">
+            <div
+              class="py-1 px-2 text-md text-gray-600 font-medium flex items-center hover:bg-gray-300 rounded-lg">
+              <%= link_to "修改使用者資料" , edit_user_registration_path%>
             </div>
-          </td>
+          </div>
 
-          <td class="p-2 sm: sm:border sm:border-grey-500 sm:table-cell">
-            <span class="mx-2 justify-self-end font-bold sm:hidden">Update:</span>
-            <div class="text-center">
-              <button
-                class="px-2 py-1 font-bold text-white bg-tiffany border border-blue-500 rounded bg hover:bg-blue-500">
-                <%= link_to "菜單分類" , store_classifications_path(store.id) %>
-              </button>
-              <button
-                class="px-2 py-1 font-bold text-white bg-blue-500 border border-blue-500 rounded bg hover:bg-pccific">
-                <%= link_to "新增菜單" , store_menus_path(store.id) %>
-              </button>
-              <button
-                class="px-2 py-1 font-bold text-white bg-tiffany border border-blue-500 rounded bg hover:bg-blue-500">
-                <%= link_to "新增餐桌" , store_menus_path(store.id) %>
-              </button>
+          <div class="mt-3">
+            <div
+              class="py-1 px-2 text-md text-gray-600 font-medium flex items-center hover:bg-gray-300 rounded-lg">
+              <%= link_to "使用者註冊" , user_session_path %>
             </div>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+          </div>
 
+          <div class="mt-3">
+            <div
+              class="py-1 px-2 text-md text-red-600 font-medium flex items-center hover:bg-gray-300 rounded-lg">
+              <%= link_to "使用者登出" , destroy_user_session_path , method: 'DELETE' , data:{confirm: "Are you sure? "} %>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <main class="w-full items-center text-sm xl:text-lg  bg-gray-200">
+     <table class="block min-w-full border-collapse sm:table">
+        <thead class="block sm:table-header-group">
+          <tr class="absolute block border border-red-300 sm:border-none sm:table-row -top-full sm:top-auto -left-full sm:left-auto sm:relative ">
+            <th class="block p-2 font-bold text-center text-white bg-gray-600 sm:border sm:border-grey-500 sm:table-cell">商店名稱
+              </th>
+            <th class="block p-2 font-bold text-center text-white bg-gray-600 sm:border sm:border-grey-500 sm:table-cell">商店地址
+              </th>
+            <th class="block p-2 font-bold text-center text-white bg-gray-600 sm:border sm:border-grey-500 sm:table-cell">商店電話
+              </th>
+            <th class="block p-2 font-bold text-center text-white bg-gray-600 sm:border sm:border-grey-500 sm:table-cell">Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody class="block sm:table-row-group">
+          <% @stores.each do |store| %>
+            <tr class="block content-around justify-self-start bg-gray-300 border border-grey-500 sm:border-none sm:table-row">
 
+              <td class="grid grid-cols-2 p-2 sm:border sm:border-grey-500 sm:table-cell">
+                <span class="mx-2 font-bold justify-self-end sm:hidden">Store Name:</span>
+                <p class="text-center"><%= link_to store.name, store_path(store.id) %></p>
+              </td>
+
+              <td class="grid grid-cols-2 p-2 sm:border sm:border-grey-500 sm:table-cell">
+                <span class="mx-2 font-bold justify-self-end sm:hidden">Address:</span>
+                <p class="text-center"><%= store.address %></p>
+              </td>
+
+              <td class="grid grid-cols-2 p-2 sm:border sm:border-grey-500 sm:table-cell">
+                <span class="mx-2 font-bold justify-self-end sm:hidden">Phone:</span>
+                <p class="text-center"><%= store.tel %></p>
+              </td>
+
+              <td class=" p-2 sm:hidden sm:border sm:border-grey-500 sm:table-cell">
+                <span class="mx-2 font-bold justify-self-end sm:hidden">Actions:</span>
+     
+              </td>
+
+              <td class="p-2 sm: sm:border sm:border-grey-500 sm:table-cell">
+                <span class="mx-2 justify-self-end font-bold sm:hidden">Update:</span>
+                <div class="text-center">
+                  <div>
+                    <button class="px-2 py-1 font-bold text-gray-100 bg-blue-400 rounded-md hover:bg-blue-500">
+                      <%= link_to "Edit" , edit_store_path(id: store.id) %>
+                    </button>
+                    <button class="px-2 py-1 font-bold text-gray-100 bg-red-400 rounded-md hover:bg-red-500">
+                      <%= link_to "Delete" , store_path(id: store.id), method: "delete" , data: {confirm: "確定刪除？" } %>
+                    </button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </main>
+  </div>
+</div>
