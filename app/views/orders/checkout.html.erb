@@ -4,7 +4,7 @@
 <div class="h-3 bg-green-400 rounded-t-md"></div>
   <div class="flex py-6 pt-6 justify-evenly">
     <button class="px-6 py-2 mx-2 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600 hover:scale-105">
-      <%= link_to "現金支付", "/foods?serial_number=#{params[:serial_number]}" %>
+      <%= link_to "現金支付", url:"#" %>
     </button>
   
     <%= form_with url: "https://ccore.spgateway.com/MPG/mpg_gateway" do |form| %>
