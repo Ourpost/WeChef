@@ -1,7 +1,22 @@
-<%= form_with(model:[store, desk]) do |f| %>
-<%= f.label :name, "桌位" %>
-<%= f.text_field :name %>
-<%= f.label :seat_amount, "座位數量" %>
-<%= f.number_field :seat_amount, min: 1 %>
-<%= f.submit %>
-<% end %>
+<section class="max-w-4xl mx-auto bg-gray-100 rounded-md shadow-md dark:bg-gray-800">
+<div class="h-3 bg-green-400 rounded-t-md"></div>
+
+    <%= form_with(model:[store, desk]) do |f| %>
+    <div class="flex justify-around py-3">
+        <div >
+            <%= f.label :name, "桌位號碼", class:"text-xl dark:text-gray-200" %>
+            <%= f.text_field :name, class:"px-4 py-2 mt-2 text-center text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" %>
+        </div>
+    
+        <div>
+            <%= f.label :seat_amount, "座位數量", class:"text-xl dark:text-gray-200" %>
+            <%= f.number_field :seat_amount, min: 1, class:"px-4 py-2 mt-2 text-center text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" %>
+        </div>
+        <div class="flex items-center px-6 mx-2 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600 hover:scale-105">
+            <%= f.submit %>
+        </div>
+    </div>
+
+    <% end %>
+</section>
+
