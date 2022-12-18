@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
       items: params[:items],
       name: "NAME~"  
     )
+    
     if order.save
       new_order = render_to_string partial: "stores/order", locals: { order: order}
       DesksChannel.broadcast_to(@desk, new_order)
@@ -26,7 +27,14 @@ class OrdersController < ApplicationController
   end
 
   def checkout
+
     # render html: params
+    @order = Order.find_by(serial: params[:id])
+    @form_info = Newebpay::Mpg.new(@order).form_info
+    @form_MerchantID = @form_info[:MerchantID]
+    @form_TradeInfo = @form_info[:TradeInfo]
+    @form_TradeSha = @form_info[:TradeSha]
+
   end
 
   private

@@ -1,1 +1,19 @@
-<h1>orders#checkout</h1>
+<h1>結帳</h1>
+
+<div >
+  <%= form_with url: "https://ccore.spgateway.com/MPG/mpg_gateway" do |form| %>
+    <input type="hidden" id="MerchantID" name="MerchantID" value="<%= @form_MerchantID %>">
+    <input type="hidden" id="TradeInfo" name="TradeInfo" value="<%= @form_TradeInfo %>">
+    <input type="hidden" id="TradeSha" name="TradeSha" value="<%= @form_TradeSha %>">
+    <input type="hidden" id="RespondType" name="RespondType" value="JSON">
+    <input type="hidden" id="TimeStamp" name="TimeStamp" value="<%= @order.created_at %>">
+    <input type="hidden" id="Version" name="Version" value="1.5">
+    <input type="hidden" id="MerchantOrderNo" name="MerchantOrderNo" value="<%= @order.serial %>">
+    <input type="hidden" id="Amt" name="Amt" value="<%= @order.amount %>" >
+    <input type="hidden" id="ItemDesc" name="ItemDesc" value="<%= @order.name %>">
+    <input type="hidden" id="Email" name="Email" value="<%= @order.email %>">
+    <input type="hidden" id="LoginType" name="LoginType" value="0">
+
+    <%= form.submit "藍新下單" %>
+  <% end %>
+</div>

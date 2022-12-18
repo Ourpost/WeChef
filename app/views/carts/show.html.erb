@@ -1,28 +1,54 @@
-<h1>carts#show</h1>
-<h1>桌位：<%=@desk.name%></h1>
-<h1>訂購人：<%= @nickname %></h1>
-<table>
-  
-  <tr>
-    <td>商品名稱</td>
-    <td>數量</td>
-    <td>單價</td>
-    <td>小計</td>
-  </tr>
-  <% current_cart.items.each do |item| %>
-    <tr>
-      <td><%= item.menu.name %></td>
-      <td><%= item.quantity %></td>
-      <td><%= item.menu.price %></td>
-      <td><%= item.price %></td>
-    </tr>
-  <% end %>
-  <tr>
-    <td>總計</td>
-    <td><%= current_cart.total_price %></td>
-  </tr>
-</table>
+<h1 class="py-10 mt-12 font-mono text-5xl font-bold text-center">購物車</h1>
+<section class="max-w-4xl mx-auto bg-gray-100 rounded-md shadow-md dark:bg-gray-800">
+<div class="h-3 bg-green-400 rounded-t-md"></div>
+  <div class="flex justify-evenly ">
+    <div class="px-6 py-6 pt-6 text-xl font-bold capitalize text-block dark:text-block">桌位：<%=@desk.name%></div>
+    <div class="px-6 py-6 pt-6 text-xl font-bold capitalize text-block dark:text-block">訂購人：<%= @nickname %></div>
+  </div>
 
-<%= link_to "繼續選購", "/foods?serial_number=#{params[:serial_number]}" %>
-<%= link_to "結帳", orders_path({desk_id: @desk.id, items: @items}), method: "post" %>
-<%= link_to '清空購物車', cart_path({serial_number: params[:serial_number]}), method: :delete, data: {confirm: "確定清空購物車？"} %>
+  <hr class="w-3/4 h-1 mx-auto bg-green-400 bg-opacity-50"></hr>
+  
+  <div class="">
+    <table class="w-3/4 mx-auto table-auto">
+      <thead class="font-medium leading-8 text-center text-blue-600">
+        <tr>
+          <td >商品名稱</td>
+          <td >數量</td>
+          <td >單價</td>
+          <td >小計</td>
+        </tr>
+      </thead>
+      <tbody class="leading-10 text-center ">
+        <% current_cart.items.each do |item| %>
+        <tr>
+          <td><%= item.menu.name %></td>
+          <td><%= item.quantity %></td>
+          <td><%= item.menu.price %></td>
+          <td><%= item.price %></td>
+        </tr>
+        <% end %>
+      </tbody>
+  
+    </table>
+  
+  </div>
+
+  <hr class="w-3/4 h-1 mx-auto bg-green-400 bg-opacity-50"></hr>
+
+  <div class="flex justify-around py-6 pt-6">
+    <button class="px-6 py-2 mx-2 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600 hover:scale-105">
+      <%= link_to "繼續選購", "/foods?serial_number=#{params[:serial_number]}" %>
+    </button >
+    <button class="px-6 py-2 mx-2 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600 hover:scale-105">
+      <%= link_to '清空購物車', cart_path({serial_number: params[:serial_number]}), method: :delete, data: {confirm: "確定清空購物車？"} %>
+    </button>
+    <button class="px-6 py-2 mx-2 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600 hover:scale-105">
+      <%= link_to "結帳", orders_path({desk_id: @desk.id, items: current_cart.items}), method: "post" %>
+      $<%= current_cart.total_price %>
+    </button>
+
+
+  </div>
+
+</section>
+

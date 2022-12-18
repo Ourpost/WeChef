@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
     create_table :orders do |t|
       t.string :name
       t.string :serial
-      t.decimal :amount
+      t.integer :amount
       t.string :email
       t.jsonb :items, null: false, default: []
       t.datetime :pay_at
