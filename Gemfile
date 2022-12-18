@@ -33,7 +33,7 @@ gem "paranoia", "~> 2.2"
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem "image_processing"
 gem 'mini_magick', '~> 4.8'
-gem 'ransack'
+gem "ransack"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -3,7 +3,8 @@ class StoresController < ApplicationController
   before_action :find_store, only: [:show, :edit, :update, :destroy]
 
   def index
-    @stores = current_user.stores
+    @q = Store.ransack(params[:q])
+    @stores = @q.result
   end
 
   def new
@@ -21,7 +22,8 @@ class StoresController < ApplicationController
 
   def show
     # @store = Store.find_by(id: params[:id])
-    @desks = @store.desks
+    @d = @store.desks.ransack(params[:q])
+    @desks = @d.result
   end
 
   def edit

@@ -20,14 +20,15 @@
           <%= link_to "聯絡我們","#" %>
         </div>
         <div
-          class="hover:bg-gray-400 rounded-lg inline-block text-md font-medium text-white px-3 py-2 leading-none">
+          class="hover:bg-gray-400 rounded-lg  inline-block text-md font-medium text-white px-3 py-2 leading-none">
           <%= link_to "回首頁", root_path %>
         </div>
       </nav>
       <div>
-        <input
-        class="focus:bg-white focus:text-gray-900 px-3  focus:placeholder-gray-600 md:px-4 py-2 leading-none bg-gray-900 rounded-lg text-sm placeholder-gray-400 text-white"
-        placeholder="Search">
+        <%= search_form_for @q do |f| %>
+          <%= f.search_field :name_cont ,placeholder:"Search....", class:"rounded-sm px-2 py-1" %>
+          <%= f.submit '搜尋', class: 'text-white py-1 px-5 bg-gray-500 rounded-md' %>
+        <% end %>
       </div>
     </div>
   </header>
@@ -105,7 +106,9 @@
         </thead>
         <tbody class="block sm:table-row-group">
           <% @stores.each do |store| %>
+           
             <tr class="block content-around justify-self-start bg-gray-300 border border-grey-500 sm:border-none sm:table-row">
+
 
               <td class="grid grid-cols-2 p-2 sm:border sm:border-grey-500 sm:table-cell">
                 <span class="mx-2 font-bold justify-self-end sm:hidden">Store Name:</span>
