@@ -70,3 +70,4 @@ gem "rqrcode", "~> 2.0"
 
 
 gem "redis", "< 5.0"
+gem 'aasm', '~> 5.4'
