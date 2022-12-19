@@ -3,7 +3,8 @@ class StoresController < ApplicationController
   before_action :find_store, only: [:show, :edit, :update, :destroy]
 
   def index
-    @stores = current_user.stores
+    @q = Store.ransack(params[:q])
+    @stores = @q.result
   end
 
   def new
@@ -11,7 +12,6 @@ class StoresController < ApplicationController
   end
 
   def create
-    # curre_user 如果沒有家 before_action :authenticate_user!就無法使用
     if current_user.stores.create(stores_params)
       redirect_to stores_path, notice: "商店新增成功" 
     else
@@ -20,8 +20,11 @@ class StoresController < ApplicationController
   end
 
   def show
+
     # @store = Store.find_by(id: params[:id])
-    @desks = @store.desks
+    @d = @store.desks.ransack(params[:q])
+    @desks = @d.result
+
   end
 
   def edit

@@ -1,26 +1,14 @@
 class MenusController < ApplicationController
 before_action :find_menu , only:[ :show , :edit ,:update ,:destroy ]
-before_action :find_store , only:[ :new, :create ,:index ]
+before_action :find_store , only:[ :new, :create ,:index]
 
 
   def index
-    @menus = @store.menus
+
+    @q = @store.menus.ransack(params[:q])
+    @menus = @q.result
     @classifications = @store.classifications
-   
-    # sreach bar build not finish
-    
-    @q = Menu.ransack(params[:q])
-    @menu = @q.result
-    # render html: params[:search]
 
-    #  if params[:search]
-    #   @menuss = Menu.where("name LINK ?", "%#{params[:search]}%")
-    #  else
-    #   @menuss = Menu.all
-    #  end
-
-
-    
   end
 
   def new
@@ -30,7 +18,6 @@ before_action :find_store , only:[ :new, :create ,:index ]
   # create 因為有關連所以要用store的角度去建立
   # save 後面加驚嘆號就可以看到 save的錯誤
   def create
-    # render html: params
     if @store.menus.create(menu_params)
       redirect_to store_menus_path , notice: '品項新增成功'  
     else
@@ -58,10 +45,11 @@ before_action :find_store , only:[ :new, :create ,:index ]
   end
 
   def order_food
-    # render html: params
 
-    @desk = Desk.find_by!(serial_number: params[:serial_number])
-    @menus = @desk.store.menus
+    @desk = Desk.find_by(serial_number: params[:serial_number])
+    @d =@desk.store.menus.ransack(params[:q])
+    @menus = @d.result
+    # @menus = @desk.store.menus
     @classifications = Classification.all
 
     @store = @desk.store

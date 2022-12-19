@@ -35,10 +35,10 @@ gem "image_processing"
 gem 'mini_magick', '~> 4.8'
 gem 'ransack'
 gem 'irb'
-
 gem 'net-smtp', require: false
 gem 'net-imap', require: false
 gem 'net-pop', require: false
+
 
 
 group :development, :test do
@@ -74,3 +74,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "rqrcode", "~> 2.0"
 #gem 'newebpay-turbo', '~> 0.7.0'
 
+
+gem "redis", "< 5.0"
