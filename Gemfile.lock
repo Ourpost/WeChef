@@ -260,8 +260,6 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 6.1.7)
 
-  redis (< 5.0)
-
   ransack
 
   rqrcode (~> 2.0)
