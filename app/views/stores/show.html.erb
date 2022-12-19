@@ -153,10 +153,14 @@
 
     <main class="w-full p-3 lg:p-5 grid grid-cols-1 items-center gap-1 text-sm xl:text-lg md:grid-cols-4 md:grid-rows-6 lg:grid-cols-6 lg:grid-rows-8 md:gap-3 bg-gray-200">
       <% @desks.each do |desk| %>
-        <section class="w-full h-full box-border p-4 text-center md:rounded-lg bg-red-100 hover:bg-red-200 hover:scale-110" >
+        <section class="mt-auto box-border p-4 text-center md:rounded-lg bg-red-100 hover:bg-red-200 hover:scale-110" data-controller="update-order" data-update-order-desk-id-value="<%= desk.id %>">
           <div>桌位：<%= desk.name %></div>
           <div>座位數量：<%= desk.seat_amount %></div>
-
+          <ul id="<%= dom_id desk %>">
+            <% desk.orders.each do |order| %>
+              <%= render "order", order: order %> 
+            <% end %>
+          </ul>
           <span class="bg-green-100" >
             <%= link_to "編輯" , edit_store_desk_path(@store, desk.id) %>
           </span>
