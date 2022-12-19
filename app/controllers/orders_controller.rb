@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token, only: [:checkou, :response]
 
   def create
     # render html: params
@@ -28,5 +29,7 @@ class OrdersController < ApplicationController
     @form_TradeSha = @form_info[:TradeSha]
 
   end
+
+
 
 end
