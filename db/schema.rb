@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_09_054446) do
+ActiveRecord::Schema.define(version: 2022_12_15_153437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,23 @@ ActiveRecord::Schema.define(version: 2022_12_09_054446) do
     t.index ["delete_at"], name: "index_menus_on_delete_at"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "name"
+    t.string "serial"
+    t.integer "amount"
+    t.string "email"
+    t.jsonb "items", default: [], null: false
+    t.datetime "pay_at"
+    t.datetime "delete_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "desk_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["delete_at"], name: "index_orders_on_delete_at"
+    t.index ["desk_id"], name: "index_orders_on_desk_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "stores", force: :cascade do |t|
     t.string "name"
     t.string "tel"
@@ -115,4 +132,6 @@ ActiveRecord::Schema.define(version: 2022_12_09_054446) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "classifications", "stores"
   add_foreign_key "desks", "stores"
+  add_foreign_key "orders", "desks"
+  add_foreign_key "orders", "users"
 end

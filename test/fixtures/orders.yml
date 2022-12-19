@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  serial: MyString
+  amount: 9.99
+  email: MyString
+  items: MyString
+  pay_at: 2022-12-15 23:24:15
+  delete_at: 2022-12-15 23:24:15
+
+two:
+  name: MyString
+  serial: MyString
+  amount: 9.99
+  email: MyString
+  items: MyString
+  pay_at: 2022-12-15 23:24:15
+  delete_at: 2022-12-15 23:24:15

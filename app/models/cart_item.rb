@@ -1,12 +1,9 @@
 class CartItem
-  attr_reader :menu_id, :quantity, :desk_id, :user_id#TODO
+  attr_reader :menu_id, :quantity
 
-  def initialize(menu_id, quantity = 1, desk_id, user_id)#TODO
+  def initialize(menu_id, quantity = 1)
     @menu_id = menu_id
     @quantity = quantity.to_i
-    @desk_id = desk_id
-    @user_id = user_id
-    #TODO
   end
 
   def increment(n = 1)
