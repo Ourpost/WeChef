@@ -8,14 +8,19 @@ class Order < ApplicationRecord
 
   aasm do
     state :pending, initial: true
-    state :paid, :refunded
+    state :paid, :refunded, :served
+    # , :sent
 
     event :pay do
       transitions from: :pending, to: :paid
     end
 
+    event :serve do
+      transitions from: :paid, to: :served
+    end
+
     event :refund do
-      transitions from: :paid, to: :refunded
+      transitions from: [:paid, :served], to: :refunded
     end
   end
   
