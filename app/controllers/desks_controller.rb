@@ -52,3 +52,5 @@ class DesksController < ApplicationController
     @qrcode = qrcode.as_svg(color: :black, offset: 15, shape_rendering: "optimizeSpeed", module_size: 8).html_safe
   end
 end
+
+

@@ -59,13 +59,16 @@ before_action :find_store , only:[ :new, :create ,:index ]
 
   def order_food
     # render html: params
-    @desk = Desk.find_by(serial_number: params[:serial_number])
+
+    @desk = Desk.find_by!(serial_number: params[:serial_number])
     @menus = @desk.store.menus
     @classifications = Classification.all
-    @store = @desk.store
-    # @order = Order.create
-  end
 
+    @store = @desk.store
+    @menus = Menu.include(:classification).where(classifications:{name: "#{params[:query]}"}) if params[:query]
+    # @order = Order.create
+    
+  end
 
 
 private

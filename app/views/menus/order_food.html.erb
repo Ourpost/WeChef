@@ -58,10 +58,12 @@
   <div class="flex w-full py-8 space-x-2 justify-evenly">
     <% @classifications.each do |classification|%>
       <button
-        class="inline-block px-10 py-4 text-xl font-bold text-center rounded-md text-block pleading-none whitespace-nowrap hover:bg-tiffany hover:text-white ">
-        <%= classification.name%>
+        class="inline-block px-10 py-4 text-xl font-bold text-center rounded-md text-block pleading-none whitespace-nowrap hover:bg-tiffany hover:text-white">
+        <%#= classification.name%>
+        <%#= link_to "美式" , store_classifications_path(@store)(query: "美式")%>
+        <%= link_to classification.name , foods_path(serial_number: params[:serial_number], query: classification.name)%>
       </button>
-      <% end %>
+    <% end %>
   </div>
 
   <hr class="">
