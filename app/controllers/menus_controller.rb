@@ -4,8 +4,23 @@ before_action :find_store , only:[ :new, :create ,:index ]
 
 
   def index
-     @menus = @store.menus
-     @classifications = @store.classifications
+    @menus = @store.menus
+    @classifications = @store.classifications
+   
+    # sreach bar build not finish
+    
+    @q = Menu.ransack(params[:q])
+    @menu = @q.result
+    # render html: params[:search]
+
+    #  if params[:search]
+    #   @menuss = Menu.where("name LINK ?", "%#{params[:search]}%")
+    #  else
+    #   @menuss = Menu.all
+    #  end
+
+
+    
   end
 
   def new

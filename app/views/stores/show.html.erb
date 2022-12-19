@@ -1,6 +1,8 @@
 <div class="h-screen flex flex-col">
   <header class="flex flex-shrink-0">
-    <div class="flex-shrink-0 px-4 py-3 bg-gray-800 md:w-60">
+
+    <div class="flex-shrink-0 px-4 py-3 bg-gray-800 sm:w-3/12">
+
       <button class="flex items-center block w-full">
         <img src="/photo/lutsjtdb.png" class="w-5 h-8 rounded-full mr-2 sm:h-10 w-10" alt="Flowbite Logo">
         <span class="ml-4 text-lg font-medium text-white">WeChef</span>
@@ -9,19 +11,17 @@
         </svg>
       </button>
     </div>
-    <div class="flex-1 flex bg-gray-700 px-3 md:px-6 items-center justify-between">
+
+    <div class="flex w-full bg-gray-700 px-3 md:px-6 items-center justify-between">
       <nav class="hidden md:block">
         <div
           class="hover:bg-gray-400 rounded-lg inline-block text-md font-medium text-white px-3 py-2 leading-none">
-          <%= link_to '新增商店', new_store_path%>
+          <%= link_to '關於我們',"#"%>
         </div>
         <div
           class="ml-2 hover:bg-gray-400 rounded-lg inline-block text-md font-medium text-white px-3 py-2 leading-none">
-          <%= link_to "新增分類",new_store_classification_path(@store) %>
-        </div>
-        <div
-          class="hover:bg-gray-400 rounded-lg inline-block text-md font-medium text-white px-3 py-2 leading-none">
-          <%= link_to "新增菜單", new_store_menu_path(@store) %>
+          <%= link_to "聯絡我們","#" %>
+
         </div>
         <div
           class="hover:bg-gray-400 rounded-lg inline-block text-md font-medium text-white px-3 py-2 leading-none">
@@ -35,67 +35,121 @@
       </div>
     </div>
   </header>
-  <div class="flex-1 flex overflow-x-hidden">
-    <div class="sm:p-6 md:6 lg:p-2 bg-gray-100 overflow-y-auto hidden box-border md:block">
+
+  <div class="flex overflow-x-hidden">
+    <div class="sm:w-4/12 py-2 box-border bg-gray-100 overflow-y-auto hidden md:block">
       <nav>
-        <h2 class="w-full text-xl text-center font-semibold text-gray-700 uppercase tracking-wide"><%= @store.name %></h2>
-        <h2 class="font-semibold text-center text-gray-600 uppercase tracking-wide">Store Inf</h2>
+        <h2 class="w-full text-xl mb-2 text-center font-semibold text-gray-700 uppercase tracking-wide"><%= @store.name %></h2>
+        <h2 class="font-semibold text-md text-center text-gray-600 uppercase tracking-wide">Store Inf</h2>
         <div class="mt-3">
-          <span class=" text-gray-700 py-1 px-3 text-sm font-medium flex items-center justify-between hover:bg-gray-300 rounded-lg">電話：<%= @store.tel %>
+          <span class=" text-gray-700 py-2 px-2 text-md font-medium hover:bg-gray-300 rounded-lg">電話：<%= @store.tel %>
+
           </span>
         </div>
         
         <div class="mt-3">
-            <span class=" text-gray-700 py-1 px-3 text-sm font-medium flex items-center justify-between hover:bg-gray-300 rounded-lg">地址：<%= @store.address %>
+
+            <span class=" text-gray-700 py-2 px-2 text-md font-medium hover:bg-gray-300 rounded-lg">地址：<%= @store.address %>
+
             </span>
         </div>
         <div class="mt-3">
           <div
-            class=" px-3 text-sm font-medium flex flex-wrap items-center hover:bg-gray-300 rounded-lg">
+
+            class=" px-2 text-md font-medium flex flex-wrap items-center hover:bg-gray-300 rounded-lg">
+
             <span class="w-full text-gray-700 ">營業時間（起）：</span>
             <span class="w-full"><%= @store.business_hours_start %></span>
           </div>
         </div>
         <div class="mt-3">
           <div
-            class=" px-3 text-sm font-medium flex flex-wrap items-center hover:bg-gray-300 rounded-lg">
+
+            class=" px-2 text-md font-medium flex flex-wrap items-center hover:bg-gray-300 rounded-lg">
+
             <span class="w-full text-gray-700 ">營業時間（迄）：</span>
             <span class="w-full"><%= @store.business_hours_end %></span>
           </div>
+        </div
+
+        <div class="mt-3">
+          <button type="button" class="flex font-medium items-center w-full text-base font-normal text-gray-700 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example-1">
+            <span class="flex-1 text-left p-2 whitespace-nowrap" sidebar-toggle-item>單店頁面</span>
+            <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
+              </path>
+            </svg>
+          </button>
+          <ul id="dropdown-example-1" class="hidden py-2 space-y-2">
+            <li>
+                <div class="flex items-center"><%= link_to "點餐頁面",store_menus_path(@store) ,class:'p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white dark:hover:bg-gray-700'%>
+                </div>
+            </li>
+            <li>
+                <div class="flex"><%= link_to "分類頁面",store_classifications_path(@store) ,class:'p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white dark:hover:bg-gray-700'%>
+                </div>
+            </li>
+          </ul>
         </div>
         <div class="mt-8">
-          <h2 class="font-semibold text-center text-gray-600 uppercase tracking-wide">Edit store</h2>
+          <h2 class="font-semibold text-center text-gray-600 uppercase tracking-wide">Create Element</h2>
           <div class="mt-3">
             <div
-              class="py-1 px-3 text-sm text-tiffany font-medium flex items-center hover:bg-gray-300 rounded-lg">
+              class="py-1 px-2 text-md text-gray-700 font-medium flex items-center hover:bg-gray-300 rounded-lg">
               <%= link_to "新增桌位" , new_store_desk_path(@store) %>
             </div>
           </div>
 
           <div class="mt-3">
-            <a href=""
-              class="  py-1 px-3 text-sm font-medium flex items-center justify-between hover:bg-gray-300 rounded-lg">
-              <span class=" text-gray-700">Refunds</span>
-            </a>
+            <div
+              class="  py-1 px-2 text-md text-gray-700 font-medium hover:bg-gray-300 rounded-lg">
+              <%= link_to '新增商店', new_store_path%>
+            </div>
           </div>
 
           <div class="mt-3">
-            <a href=""
-              class="  py-1 px-3 text-sm font-medium flex items-center justify-between hover:bg-gray-300 rounded-lg">
-              <span class=" text-gray-700">Discounts</span>
-            </a>
+            <div 
+              class="  py-1 px-2 text-md text-gray-700 font-medium hover:bg-gray-300 rounded-lg">
+              <%= link_to "新增分類",new_store_classification_path(@store) %>
+            </div>
           </div>
 
           <div class="mt-3">
-            <a href=""
-              class="  py-1 px-3 text-sm font-medium flex items-center justify-between hover:bg-gray-300 rounded-lg">
-              <span class=" text-gray-700">Bugs</span>
-            </a>
+            <div 
+              class="py-1 px-2 text-md text-gray-700 font-medium hover:bg-gray-300 rounded-lg">
+              <%= link_to "新增菜單", new_store_menu_path(@store) %>
+            </div>
+          </div>
+        </div>
+        <div class="mt-8">
+          <h2 class="font-semibold text-center text-gray-600 uppercase tracking-wide">User Edit</h2>
+          
+          <div class="mt-3">
+            <div
+              class="py-1 px-2 text-md text-gray-600 font-medium flex items-center hover:bg-gray-300 rounded-lg">
+              <%= link_to "修改使用者資料" , edit_user_registration_path%>
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <div
+              class="py-1 px-2 text-md text-gray-600 font-medium flex items-center hover:bg-gray-300 rounded-lg">
+              <%= link_to "使用者註冊" , user_session_path %>
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <div
+              class="py-1 px-2 text-md text-red-600 font-medium flex items-center hover:bg-gray-300 rounded-lg">
+              <%= link_to "使用者登出" , destroy_user_session_path , method: 'DELETE' , data:{confirm: "Are you sure? "} %>
+            </div>
+
           </div>
         </div>
       </nav>
     </div>
-    <main class="w-full p-3 lg:p-5 grid grid-cols-1 items-center gap-1 text-sm md:text-lg md:grid-cols-4 md:grid-rows-6 lg:grid-cols-6 lg:grid-rows-8 md:gap-3 bg-gray-200">
+
+    <main class="w-full p-3 lg:p-5 grid grid-cols-1 items-center gap-1 text-sm xl:text-lg md:grid-cols-4 md:grid-rows-6 lg:grid-cols-6 lg:grid-rows-8 md:gap-3 bg-gray-200">
       <% @desks.each do |desk| %>
         <section class="w-full h-full box-border p-4 text-center md:rounded-lg bg-red-100 hover:bg-red-200 hover:scale-110" >
           <div>桌位：<%= desk.name %></div>
@@ -110,7 +164,8 @@
             data: {confirm: "確定刪除？"} %>
           </span>
           <span class="bg-yellow-100">
-            <%= link_to "QRCode" , store_desk_path(@store, desk.id) %>
+
+            <%= link_to "QR" , store_desk_path(@store, desk.id) %>
           </span>
         </section>
       <% end %>
