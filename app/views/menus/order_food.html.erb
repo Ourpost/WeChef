@@ -88,7 +88,7 @@
             </div>
             <div class="flex-col px-8 py-6 md:flex">
               <div class="text-sm font-semibold tracking-wide text-indigo-500 uppercase">
-                <%= Classification.find(menu.classification_id).name %>
+                
               </div>
               <div>
                 <%= link_to menu.name , store_menu_path(@store, menu.id, {serial_number: params[:serial_number]}) , class:"block mt-1 text-lg font-medium

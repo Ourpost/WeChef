@@ -20,15 +20,19 @@
           <%= link_to "聯絡我們","#" %>
         </div>
         <div
+
           class="hover:bg-gray-400 rounded-lg  inline-block text-md font-medium text-white px-3 py-2 leading-none">
+
           <%= link_to "回首頁", root_path %>
         </div>
       </nav>
       <div>
+
         <%= search_form_for @q do |f| %>
           <%= f.search_field :name_cont ,placeholder:"Search....", class:"rounded-sm px-2 py-1" %>
           <%= f.submit '搜尋', class: 'text-white py-1 px-5 bg-gray-500 rounded-md' %>
         <% end %>
+
       </div>
     </div>
   </header>
@@ -62,8 +66,6 @@
           </div>
         </div>
 
-
-
         <div class="mt-8">
           <h2 class="font-semibold text-center text-gray-600 uppercase tracking-wide">Edit store</h2>
           
@@ -71,6 +73,7 @@
             <div
               class="py-1 px-2 text-md text-gray-600 font-medium flex items-center hover:bg-gray-300 rounded-lg">
               <%= link_to "修改使用者資料" , edit_user_registration_path%>
+
             </div>
           </div>
 
@@ -78,11 +81,13 @@
             <div
               class="py-1 px-2 text-md text-gray-600 font-medium flex items-center hover:bg-gray-300 rounded-lg">
               <%= link_to "使用者註冊" , user_session_path %>
+
             </div>
           </div>
 
           <div class="mt-3">
             <div
+
               class="py-1 px-2 text-md text-red-600 font-medium flex items-center hover:bg-gray-300 rounded-lg">
               <%= link_to "使用者登出" , destroy_user_session_path , method: 'DELETE' , data:{confirm: "Are you sure? "} %>
             </div>
@@ -110,10 +115,12 @@
             <tr class="block content-around justify-self-start bg-gray-300 border border-grey-500 sm:border-none sm:table-row">
 
 
+
               <td class="grid grid-cols-2 p-2 sm:border sm:border-grey-500 sm:table-cell">
                 <span class="mx-2 font-bold justify-self-end sm:hidden">Store Name:</span>
                 <p class="text-center"><%= link_to store.name, store_path(store.id) %></p>
               </td>
+
 
               <td class="grid grid-cols-2 p-2 sm:border sm:border-grey-500 sm:table-cell">
                 <span class="mx-2 font-bold justify-self-end sm:hidden">Address:</span>
@@ -129,6 +136,7 @@
                 <span class="mx-2 font-bold justify-self-end sm:hidden">Actions:</span>
      
               </td>
+
 
               <td class="p-2 sm: sm:border sm:border-grey-500 sm:table-cell">
                 <span class="mx-2 justify-self-end font-bold sm:hidden">Update:</span>

@@ -1,3 +1,4 @@
+
 <div class=" max-h-screen box-boreder">
   <header class="flex flex-shrink-0">
     <div class="flex-shrink-0 px-4 py-3 bg-gray-800 sm:w-3/12">
@@ -25,10 +26,12 @@
         </div>
       </nav>
       <div>
+
         <%= search_form_for @q ,url: store_classifications_path(@store) do |f| %>
           <%= f.search_field :name_cont ,placeholder:"Search....", class:"rounded-sm px-2 py-1" %>
           <%= f.submit '搜尋', class: 'text-white py-1 px-5 bg-gray-500 rounded-md' %>
         <% end %>
+
       </div>
     </div>
   </header>

@@ -4,9 +4,11 @@ before_action :find_store , only:[ :new, :create ,:index]
 
 
   def index
+
     @q = @store.menus.ransack(params[:q])
     @menus = @q.result
     @classifications = @store.classifications
+
   end
 
   def new
