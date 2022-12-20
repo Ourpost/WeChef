@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   # before_action :authenticate_user!
-  skip_before_action :verify_authenticity_token, only: [:checkou, :response]
+  skip_before_action :verify_authenticity_token, only: [:checkout, :response]
 
   def create
     # render html: params
