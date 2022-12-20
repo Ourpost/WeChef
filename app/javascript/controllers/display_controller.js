@@ -1,7 +1,9 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = [];
+  static values = {
+    orderId: String,
+  };
 
   connect() {
     console.log("display");

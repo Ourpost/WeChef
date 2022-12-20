@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :find_desk, only: [:create]
-  before_action :find_order, only: [:destroy]
+  before_action :find_order, only: [:destroy, :pay, :serve]
 
   def create
     # render html: params
@@ -24,6 +24,24 @@ class OrdersController < ApplicationController
 
   def destroy
     @order.destroy
+  end
+
+  def pay
+    if @order.may_pay?
+      @order.pay!
+    end
+  end
+
+  def serve
+    if @order.paid?
+      @order.serve!
+    end
+  end
+
+  def order_state
+    @state = Order.find(params[:id]).aasm_state
+    @state
+    render json: {state: @state}
   end
 
   def checkout
