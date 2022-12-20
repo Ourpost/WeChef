@@ -2,28 +2,30 @@
 <section class="max-w-4xl mx-auto bg-gray-100 rounded-md shadow-md dark:bg-gray-800">
 <div class="h-3 bg-green-400 rounded-t-md"></div>
 
-<table>
-    <thead>
-        <tr>
-            <td>訂單編號</td>
-            <td>商品名稱</td>
-            <td>交易結果</td>
-            <td>交易金額</td>
-            <td>付款時間</td>
-        </tr>
-    </thead>
+<div>
+    <table class="w-3/4 mx-auto table-auto">
+        <thead class="font-medium leading-8 text-center text-blue-600">
+            <tr>
+                <td>訂單編號</td>
+                <td>商品名稱</td>
+                <td>交易結果</td>
+                <td>交易金額</td>
+                <td>付款時間</td>
+            </tr>
+        </thead>
 
-    <tbody>
-        <tr>
-            <td><%= @order_no %></td>
-            <td><%= @response_hash["ItemDesc"] %></td>
-            <td>交易成功(<%= @status %>)</td>
-            <td><%= @response_hash["Amt"] %></td>
-            <td><%= @response_hash["PayTime"] %></td>
-        </tr>
-    </tbody>
+        <tbody class="leading-10 text-center">
+            <tr>
+                <td><%= @order_no %></td>
+                <td><%= @response_hash["ItemDesc"] %></td>
+                <td>交易成功(<%= @status %>)</td>
+                <td><%= @response_hash["Amt"] %></td>
+                <td><%= @response_hash["PayTime"] %></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 
-</table>
 
 
