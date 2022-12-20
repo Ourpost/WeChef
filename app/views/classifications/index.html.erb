@@ -26,9 +26,12 @@
         </div>
       </nav>
       <div>
-        <input
-        class="focus:bg-white focus:text-gray-900 px-3  focus:placeholder-gray-600 md:px-4 py-2 leading-none bg-gray-900 rounded-lg text-sm placeholder-gray-400 text-white"
-        placeholder="Search">
+
+        <%= search_form_for @q ,url: store_classifications_path(@store) do |f| %>
+          <%= f.search_field :name_cont ,placeholder:"Search....", class:"rounded-sm px-2 py-1" %>
+          <%= f.submit '搜尋', class: 'text-white py-1 px-5 bg-gray-500 rounded-md' %>
+        <% end %>
+
       </div>
     </div>
   </header>

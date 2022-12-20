@@ -4,7 +4,8 @@ class ClassificationsController < ApplicationController
 
 
   def index
-     @classifications = @store.classifications
+    @q = @store.classifications.ransack(params[:q])
+    @classifications = @q.result
   end
 
   def new

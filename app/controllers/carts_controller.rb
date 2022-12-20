@@ -4,6 +4,7 @@ class CartsController < ApplicationController
     # render html: current_cart.items[1].quantity
     @desk = Desk.find_by(serial_number: params[:serial_number])
     @nickname = current_user ? current_user.nickname : "親愛的顧客"
+    @items = current_cart.items.map{|item| {menu_id: item.menu_id, quantity: item.quantity}}
   end
 
   def add

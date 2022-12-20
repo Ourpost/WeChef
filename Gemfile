@@ -33,7 +33,9 @@ gem "paranoia", "~> 2.2"
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem "image_processing"
 gem 'mini_magick', '~> 4.8'
-gem 'ransack'
+
+gem "ransack"
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -68,3 +70,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "rqrcode", "~> 2.0"
 #gem 'newebpay-turbo', '~> 0.7.0'
 
+
+gem "redis", "< 5.0"
+gem 'aasm', '~> 5.4'

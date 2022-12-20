@@ -1,0 +1,21 @@
+<li data-controller="display">
+  <div  class="bg-white border-2 border-black"> 
+
+    <div>訂單編號：<%= order.id %></div>
+    <ul>
+      <% order.items.each do |item| %>
+        <li>
+          <%= menu_id_to_name(item["menu_id"]) %>：<%= item["quantity"] %>份
+        </li>
+      <% end %>
+    </ul>
+    <div data-controller="state" data-state-order-id-value="<%=order.id%>">
+      <%= link_to "已付款", pay_order_path(order), method: "post", data: {action: "click->state#pay", }, class: "bg-purple-200" %>
+    </div>
+    <%= link_to "已出餐", serve_order_path(order), method: "post", data: {action: "click->display#hide"}, class: "bg-purple-200" %>
+  </div>
+</li>
+
+
+
+
