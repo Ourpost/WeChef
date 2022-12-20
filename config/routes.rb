@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   resources :orders, only: [:create, :destroy] do
     member do
       get :checkout
+      get :order_state
+      post :pay
+      post :serve
     end
   end
 

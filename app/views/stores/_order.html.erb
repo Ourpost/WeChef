@@ -9,7 +9,10 @@
         </li>
       <% end %>
     </ul>
-    <%= link_to "已出餐", order_path(order), method: "delete", data: {action: "click->display#hide"}, class: "bg-purple-200" %>
+    <div data-controller="state" data-state-order-id-value="<%=order.id%>">
+      <%= link_to "已付款", pay_order_path(order), method: "post", data: {action: "click->state#pay", }, class: "bg-purple-200" %>
+    </div>
+    <%= link_to "已出餐", serve_order_path(order), method: "post", data: {action: "click->display#hide"}, class: "bg-purple-200" %>
   </div>
 </li>
 
