@@ -38,8 +38,8 @@ module Newebpay
         info[:TimeStamp] = Time.now.to_i 
         info[:RespondType] = "JSON"
         info[:Version] = "1.5"
-        info[:ReturnURL] = "https://c980-61-220-182-115.jp.ngrok.io"
-        #info[:NotifyURL] = "https://...."
+        info[:ReturnURL] = ENV['RETURN_URL']
+        info[:NotifyURL] = ENV['NOTIFY_URL']
         info[:LoginType] = 0 
         info[:CREDIT] =  1,
         info[:VACC] = 1

@@ -1,6 +1,7 @@
 class StoresController < ApplicationController
   before_action :authenticate_user! , only: [ :index ,:create ,:new]
   before_action :find_store, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   def index
     @q = Store.ransack(params[:q])
