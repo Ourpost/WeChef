@@ -1,8 +1,6 @@
-<%= render "foodnavbar" %>
 
 <!------------- banner ---------------->
   <div id="carouselExampleCaptions" class="relative carousel slide" data-bs-ride="carousel">
-
     <div class="box-border relative w-full overflow-hidden carousel-inner">
       <div class="relative float-left w-full h-md carousel-item active">
         <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg" class="block w-full object-cover" alt="..."
@@ -32,12 +30,11 @@
 
 
     <div class="absolute bottom-0 left-0 right-0 flex justify-center p-0 mb-4 carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-        aria-label="Slide 2"></button>
+      aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-        aria-label="Slide 3"></button>
+      aria-label="Slide 3"></button>
     </div>
 
     <button
@@ -53,8 +50,6 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-
-
 
   <!------------- classcafication_item ---------------->
   <div class="flex w-full py-8 space-x-2 justify-evenly">
@@ -77,7 +72,7 @@
         <%= classification.name %>
       </h2>
       <div class="max-w-full grid-cols-2 p-5 mx-auto overflow-hidden bg-white md:grid ">
-        <% @menus.each do |menu| %>
+        <% classification.menus.each do |menu| %>
           <div
             class="mx-5 mb-5 transition duration-700 ease-out transform shadow-xl hover:scale-105 rounded-xl hover:shadow-2xl md:flex ">
             <div class="overflow-hidden rounded-xl md:flex-shrink-0">
@@ -88,7 +83,6 @@
             </div>
             <div class="flex-col px-8 py-6 md:flex">
               <div class="text-sm font-semibold tracking-wide text-indigo-500 uppercase">
-                
               </div>
               <div>
                 <%= link_to menu.name , store_menu_path(@store, menu.id, {serial_number: params[:serial_number]}) , class:"block mt-1 text-lg font-medium
@@ -103,9 +97,9 @@
               </div>
             </div>
           </div>
-          <% end %>
+        <% end %>
       </div>
-      <% end %>
+    <% end %>
       <%= link_to "購物車", cart_path({serial_number: params[:serial_number]}) %>
   </section>
 

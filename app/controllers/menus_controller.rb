@@ -4,7 +4,6 @@ before_action :find_store , only:[ :new, :create ,:index]
 
 
   def index
-
     @q = @store.menus.ransack(params[:q])
     @menus = @q.result
     @classifications = @store.classifications
@@ -45,21 +44,12 @@ before_action :find_store , only:[ :new, :create ,:index]
   end
 
   def order_food
-    
-
     @desk = Desk.find_by(serial_number: params[:serial_number])
-    @d =@desk.store.menus.ransack(params[:q])
-    @menus = @d.result
-    # @menus = @desk.store.menus
-    @classifications = Classification.all
     @store = @desk.store
-    # @order = Order.create
+    @classifications = @store.classifications.includes(menus: { photo_attachment: :blob })
   end
 
-
-
 private
-
   def menu_params
     params.require(:menu).permit(:name , :price , :note , :photo , :delete_at , :quantity, :classification_id)
 

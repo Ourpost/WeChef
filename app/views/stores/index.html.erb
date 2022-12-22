@@ -121,18 +121,15 @@
 
 
               <td class="grid grid-cols-2 p-2 sm:border sm:border-grey-500 sm:table-cell">
-                <span class="mx-2 font-bold justify-self-end sm:hidden">Store Name:</span>
                 <p class="text-center"><%= link_to store.name, store_path(store.id) %></p>
               </td>
 
 
               <td class="grid grid-cols-2 p-2 sm:border sm:border-grey-500 sm:table-cell">
-                <span class="mx-2 font-bold justify-self-end sm:hidden">Address:</span>
                 <p class="text-center"><%= store.address %></p>
               </td>
 
               <td class="grid grid-cols-2 p-2 sm:border sm:border-grey-500 sm:table-cell">
-                <span class="mx-2 font-bold justify-self-end sm:hidden">Phone:</span>
                 <p class="text-center"><%= store.tel %></p>
               </td>
 
@@ -147,10 +144,10 @@
                 <div class="text-center">
                   <div>
                     <button class="px-2 py-1 font-bold text-gray-100 bg-blue-400 rounded-md hover:bg-blue-500">
-                      <%= link_to "Edit" , edit_store_path(id: store.id) %>
+                      <%= link_to "編輯" , edit_store_path(id: store.id) %>
                     </button>
                     <button class="px-2 py-1 font-bold text-gray-100 bg-red-400 rounded-md hover:bg-red-500">
-                      <%= link_to "Delete" , store_path(id: store.id), method: "delete" , data: {confirm: "確定刪除？" } %>
+                      <%= link_to "刪除" , store_path(id: store.id), method: "delete" , data: {confirm: "確定刪除？" } %>
                     </button>
                   </div>
                 </div>

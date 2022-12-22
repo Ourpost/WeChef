@@ -62,7 +62,7 @@
           <div
             class=" px-2 text-md font-medium flex flex-wrap items-center hover:bg-gray-300 rounded-lg">
             <span class="w-full text-gray-700 ">營業時間（迄）：</span>
-            <span class="w-full"><%= @store.business_hours_end %></span>
+            <span class="w-full"><%= @store.business_end %></span>
           </div>
         </div>
 
@@ -159,11 +159,11 @@
               <div class="flex justify-end">
                 <button class="transition
                         text-white duration-200 ease-in-out bg-pccific p-1 mx-1 rounded-md hover:bg-red-400">
-                        <%= link_to 'Eidt' , edit_store_menu_path(@store , menu)%>
+                        <%= link_to '編輯' , edit_store_menu_path(@store , menu)%>
                 </button>
                 <button class="transition 
                         text-white duration-200 ease-in-out bg-pccific p-1 mx-1 rounded-md hover:bg-red-400">
-                        <%= link_to 'Delete' , store_menu_path(@store, menu) , method:'DELETE' , data:{confirm:"確認刪除？"}%>
+                        <%= link_to '刪除' , store_menu_path(@store, menu) , method:'DELETE' , data:{confirm:"確認刪除？"}%>
                 </button>
               </div>
             </div>
