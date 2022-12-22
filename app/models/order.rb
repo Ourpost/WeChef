@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   acts_as_paranoid 
 
+
   validates :serial, presence: true, uniqueness: true
   before_validation :generate_serial
 

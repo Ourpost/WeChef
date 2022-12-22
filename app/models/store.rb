@@ -7,8 +7,8 @@ class Store < ApplicationRecord
   validates :tel, presence: true ,numericality: { only_integer: true }
 
   # relationships
-  has_many :menus
-  has_many :classifications
-  has_many :desks
+  has_many :menus , dependent: :destroy
+  has_many :classifications, dependent: :destroy
+  has_many :desks, dependent: :destroy
   belongs_to :user
 end
