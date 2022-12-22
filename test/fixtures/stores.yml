@@ -5,7 +5,7 @@ one:
   tel: MyString
   address: MyString
   business_hours_start: MyString
-  business_hours_endd: MyString
+  business_hours_end: MyString
   delete_at: 2022-12-05 12:44:57
   logo: MyString
 
@@ -14,6 +14,6 @@ two:
   tel: MyString
   address: MyString
   business_hours_start: MyString
-  business_hours_endd: MyString
+  business_hours_end: MyString
   delete_at: 2022-12-05 12:44:57
   logo: MyString
