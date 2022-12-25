@@ -26,9 +26,9 @@ Rails.application.routes.draw do
     end
   end
 
-  #get '/response', to: 'response#index'
-  post '/response/aaa', to: 'response#aaa'
-  post '/response/bbb', to: 'response#bbb'
+
+  post '/response/mpg', to: 'response#mpg'
+
 
 end
 
