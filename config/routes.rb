@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   end
 
 
-  post '/response/mpg', to: 'response#mpg'
+  post '/response/index', to: 'response#index'
 
 
 end
