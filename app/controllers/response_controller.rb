@@ -1,7 +1,7 @@
 class ResponseController < ApplicationController
-    skip_before_action :verify_authenticity_token, only:[:mpg]
+    skip_before_action :verify_authenticity_token, only:[:index]
 
-    def mpg
+    def index
         response = Newebpay::MpgResponse.new(params[:TradeInfo])
         @response_hash = response.result
         @order_no = response.order_no
