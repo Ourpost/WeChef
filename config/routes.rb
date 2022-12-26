@@ -17,6 +17,18 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :orders, only: [:create, :destroy] do
+    member do
+      get :checkout
+      get :order_state
+      post :pay
+      post :serve
+    end
+  end
+
+
+  post '/response/mpg', to: 'response#mpg'
+
 
 end
 

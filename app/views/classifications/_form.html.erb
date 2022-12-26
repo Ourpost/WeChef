@@ -2,19 +2,19 @@
 <div class="h-3 bg-green-400 rounded-t-md"></div>
 
   <%= form_with(model: [store, classification]) do |f| %>
-      <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2 p-6">
+      <div class="grid grid-cols-1 gap-6 p-6 mt-4 sm:grid-cols-2">
         <div>
           <%= f.label :name ,'新增分類' ,class:"text-xl text-block dark:text-gray-200" %>
           <%= f.text_field :name ,class:"block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"%>
         </div>
         
         <div class="flex justify-end mt-6">
-          <div class="flex items-center px-6  mx-2 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600 hover:scale-105">
-            <%= link_to 'Back Classification' ,store_classifications_path %>
+          <div class="flex items-center px-6 mx-2 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600 hover:scale-105">
+            <%= link_to '回分類' ,store_classifications_path %>
           </div>
 
           <div class="flex items-center px-6 mx-2 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600 hover:scale-105">
-            <%= f.submit 'Add Classification'%>
+            <%= f.submit '新增分類'%>
           </div>
         </div>
       </div>

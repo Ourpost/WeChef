@@ -1,26 +1,51 @@
+
+  <header class="flex flex-shrink-0">
+    <div class="flex items-center justify-between w-full p-3 bg-maingray md:px-6">
+      <nav class="flex">
+        <button class="flex items-center mx-auto w-48 h-7 mr-4">
+          <img src="/photo/wechef-logo-nbg.png" class="mr-2" alt="Flowbite Logo" style="aspect-ratio:auto">
+        </button>
+        <div class="inline-block">
+          <%= link_to '關於我們' ,"#" ,class:"px-3 py-2 font-medium leading-none text-white rounded-lg hover:bg-gray-400
+            text-md"%>
+        </div>
+        <div class="inline-block">
+          <%= link_to "聯絡我們" ,"#" ,class:"px-3 py-2 font-medium leading-none text-white rounded-lg hover:bg-gray-400
+            text-md"%>
+        </div>
+        <div class="inline-block">
+          <%= link_to "回首頁" , root_path ,class:"px-3 py-2 font-medium leading-none text-white rounded-lg
+            hover:bg-gray-400 text-md"%>
+        </div>
+      </nav>
+      <div class="inline-block">
+          <%= link_to "登出" , root_path ,class:"px-3 py-2 font-medium leading-none text-white rounded-lg
+            hover:bg-gray-400 text-md"%>
+      </div>
+    </div>
+  </header>
+
 <!------------- banner ---------------->
   <div id="carouselExampleCaptions" class="relative carousel slide" data-bs-ride="carousel">
-
     <div class="box-border relative w-full overflow-hidden carousel-inner">
       <div class="relative float-left w-full h-md carousel-item active">
-        <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg" class="block w-full object-cover" alt="..."
-          style="aspect-ratio: 4 / 1" />
+        <img src="https://c.pxhere.com/photos/e1/24/wine_table_food_vegetable_cutlery-67342.jpg!d" srcset="https://c.pxhere.com/photos/e1/24/wine_table_food_vegetable_cutlery-67342.jpg!d" alt="表, 刀具, 红酒, 餐厅, 碟, 膳食, 餐饮, 生产, 蔬菜, 早餐, 午餐, 美食, 晚餐, 早午餐, 感, 图片素材 In PxHere" class="block w-full object-cover" alt="..."
+          style="aspect-ratio: auto">
         <div class="absolute hidden text-center carousel-caption md:block">
           <h5 class="text-xl">First slide label</h5>
           <p>Some representative placeholder content for the first slide.</p>
         </div>
       </div>
       <div class="relative float-left w-full carousel-item">
-        <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg" class="block w-full" alt="..."
-          style="aspect-ratio: 4 / 1" />
+        <img src="https://c.pxhere.com/photos/5a/94/abstract_barbecue_barbeque_bbq_beauty_beef_bread_bun-819864.jpg!d" class="block w-full" alt="..."
+          style="aspect-ratio: auto ">
         <div class="absolute hidden text-center carousel-caption md:block">
           <h5 class="text-xl">Second slide label</h5>
           <p>Some representative placeholder content for the second slide.</p>
         </div>
       </div>
       <div class="relative float-left w-full carousel-item">
-        <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg" class="block w-full" alt="..."
-          style="aspect-ratio: 4 / 1" />
+        <img src="https://c.pxhere.com/photos/a8/16/eating_restaurant_food_meal_lunch_dinner_table_drinks-913533.jpg!d"  class="block w-full" alt="..." style="aspect-ratio: auto ">
         <div class="absolute hidden text-center carousel-caption md:block">
           <h5 class="text-xl">Third slide label</h5>
           <p>Some representative placeholder content for the third slide.</p>
@@ -30,12 +55,11 @@
 
 
     <div class="absolute bottom-0 left-0 right-0 flex justify-center p-0 mb-4 carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-        aria-label="Slide 2"></button>
+      aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-        aria-label="Slide 3"></button>
+      aria-label="Slide 3"></button>
     </div>
 
     <button
@@ -52,10 +76,8 @@
     </button>
   </div>
 
-
-
   <!------------- classcafication_item ---------------->
-  <div class="flex w-full py-8 space-x-2 justify-evenly">
+  <div class="flex w-full py-8 space-x-2 justify-evenly bg-maingray text-mainorange">
     <% @classifications.each do |classification|%>
       <button
         class="inline-block px-10 py-4 text-xl font-bold text-center rounded-md text-block pleading-none whitespace-nowrap hover:bg-tiffany hover:text-white ">
@@ -75,7 +97,7 @@
         <%= classification.name %>
       </h2>
       <div class="max-w-full grid-cols-2 p-5 mx-auto overflow-hidden bg-white md:grid ">
-        <% @menus.each do |menu| %>
+        <% classification.menus.each do |menu| %>
           <div
             class="mx-5 mb-5 transition duration-700 ease-out transform shadow-xl hover:scale-105 rounded-xl hover:shadow-2xl md:flex ">
             <div class="overflow-hidden rounded-xl md:flex-shrink-0">
@@ -86,25 +108,23 @@
             </div>
             <div class="flex-col px-8 py-6 md:flex">
               <div class="text-sm font-semibold tracking-wide text-indigo-500 uppercase">
-                <%= Classification.find(menu.classification_id).name %>
               </div>
               <div>
                 <%= link_to menu.name , store_menu_path(@store, menu.id, {serial_number: params[:serial_number]}) , class:"block mt-1 text-lg font-medium
                   leading-tight hover:underline"%>
               </div>
-              <p class="py-2 mt-2 text-gray-500">
-                <%= menu.note %>
-              </p>
+              <p class="py-2 mt-2 text-gray-500"><%= menu.note %></p>
               <div class="flex justify-end ">
-                <div class="text-xl">$<%= menu.price %>
-                </div>
+                <div class="text-xl">$<%= menu.price %></div>
               </div>
             </div>
           </div>
-          <% end %>
+        <% end %>
       </div>
-      <% end %>
-      <%= link_to "購物車", cart_path({serial_number: params[:serial_number]}) %>
+    <% end %>
+    <div class="flex w-2/3 m-auto">
+      <%= link_to "購物車", cart_path({serial_number: params[:serial_number]}) ,class:" transition duration-700 ease-out py-2 mb-10 shadow-xl text-center rounded-md text-mainorange bg-maingray w-full hover:scale-110 hover:text-gray-300"%>
+    </div>
   </section>
 
   <%= render "shared/footer" %>

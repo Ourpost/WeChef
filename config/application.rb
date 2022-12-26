@@ -10,7 +10,7 @@ module WeChef
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
-
+    config.i18n.default_locale = "zh-TW"
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -18,5 +18,7 @@ module WeChef
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    # ngrok setting
+    config.hosts << ENV['NGROK_URL']
   end
 end

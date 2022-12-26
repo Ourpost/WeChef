@@ -1,25 +1,201 @@
-<%= render "shared/classificationnavbar" %>
+<div class=" max-h-screen box-boreder">
+  <header class="flex flex-shrink-0">
+    <div class="flex items-center justify-between w-full p-3 bg-maingray md:px-6">
+      <nav class="flex">
+        <button class="flex items-center mx-auto w-48 h-7 mr-4">
+          <img src="/photo/wechef-logo-nbg.png" class="mr-2" alt="Flowbite Logo" style="aspect-ratio:auto">
+        </button>
+        <div class="inline-block">
+          <%= link_to '關於我們' ,"#" ,class:"px-3 py-2 font-medium leading-none text-white rounded-lg hover:bg-gray-400
+            text-md"%>
+        </div>
+        <div class="inline-block">
+          <%= link_to "聯絡我們" ,"#" ,class:"px-3 py-2 font-medium leading-none text-white rounded-lg hover:bg-gray-400
+            text-md"%>
+        </div>
+        <div class="inline-block">
+          <%= link_to "回首頁" , root_path ,class:"px-3 py-2 font-medium leading-none text-white rounded-lg
+            hover:bg-gray-400 text-md"%>
+        </div>
+      </nav>
+      <%= search_form_for @q , url: store_menus_path do |f| %>
+        <%= f.search_field :name_cont,placeholder:"Search....", class:"rounded-sm px-2 py-1"%>
+          <%= f.submit '搜尋' , class: 'text-white py-1 px-5 bg-gray-500 rounded-sm' %>
+      <% end %>
+    </div>
+  </header>
+  <div class="flex overflow-x-hidden h-screen">
+    <div class="w-1/5 bg-gray-100 ">
+      <nav>
+        <h2 class="w-full my-4 text-xl font-semibold tracking-wide text-center text-gray-700 uppercase">
+          <%= @store.name %>
+        </h2>
+        <h2 class="font-semibold tracking-wide text-center text-gray-600 uppercase text-md">Store Inf</h2>
 
-<table class="block min-w-full border-collapse md:table">
-  <thead class="block md:table-header-group">
-    <tr class="absolute block border border-grey-500 md:border-none md:table-row -top-full md:top-auto -left-full md:left-auto md:relative ">
-      <th class="block p-2 font-bold text-center text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">分類項目</th>
-      <th class="block p-2 font-bold text-center text-white bg-gray-600 md:border md:border-grey-500 md:table-cell">Actions</th>
-    </tr>
-  </thead>
-  <tbody class="block md:table-row-group">
-    <% @classifications.each do |classification| %>
-      <tr class="block bg-gray-300 border border-grey-500 md:border-none md:table-row">
-        <td class="block p-2 text-center md:border md:border-grey-500 md:table-cell">
-          <span class="inline-block w-1/3 font-bold md:hidden">User Name</span>
-          <%= link_to classification.name, store_classification_path({store: classification.store, id: classification.id}) %>
-        </td>
-        <td class="block p-2 text-center md:border md:border-grey-500 md:table-cell">
-          <span class="inline-block w-1/3 font-bold md:hidden">Actions</span>
-          <button class="px-2 py-1 font-bold text-white bg-blue-500 border border-blue-500 rounded hover:bg-blue-700"><%= link_to "修改", edit_store_classification_path({store: classification.store, id: classification.id})  %></button>
-          <button class="px-2 py-1 font-bold text-white bg-red-500 border border-red-500 rounded hover:bg-red-700"><%= link_to "刪除", store_classification_path({store: classification.store, id: classification.id}), method: "delete", data: {confirm: "確定刪除？"}  %></button>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <div class="mb-1">
+          <span class="flex items-center px-2 py-1 font-medium text-gray-700 rounded-lg
+            text-md hover:bg-gray-300">電話：<%= @store.tel %>
+        </div>
+
+        <div class="mb-1">
+          <span class="flex items-center px-2 py-1 font-medium text-gray-700 rounded-lg
+            text-md hover:bg-gray-300">地址：<%= @store.address %>
+        </div>
+
+        <div class="mb-1 flex flex-col items-start px-2 py-1 font-medium text-gray-700 rounded-lg
+            text-md">
+          <span>營業時間（起）： </span>
+          <span>
+            <%= @store.business_start %>
+          </span>
+        </div>
+
+        <div class="mb-1 flex flex-col items-start px-2 py-1 font-medium text-gray-700 rounded-lg
+            text-md">
+          <span>營業時間（迄）： </span>
+          <span>
+            <%= @store.business_end %>
+          </span>
+        </div>
+
+        <div class="mb-1">
+          <button type="button"
+            class="flex font-medium items-center w-full text-base font-normal text-gray-700 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white dark:hover:bg-gray-700"
+            aria-controls="dropdown-example" data-collapse-toggle="dropdown-example-1">
+            <span class="flex-1 text-left p-2 whitespace-nowrap" sidebar-toggle-item>單店頁面</span>
+            <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd">
+              </path>
+            </svg>
+          </button>
+          <ul id="dropdown-example-1" class="hidden py-2 space-y-2">
+            <li>
+              <div class="flex items-center">
+                <%= link_to "點餐頁面" ,store_menus_path(@store) ,class:'p-2 pl-11 w-full text-base font-normal
+                  text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white
+                  dark:hover:bg-gray-700'%>
+              </div>
+            </li>
+            <li>
+              <div class="flex">
+                <%= link_to "分類頁面" ,store_classifications_path(@store) ,class:'p-2 pl-11 w-full text-base font-normal
+                  text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white
+                  dark:hover:bg-gray-700'%>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <hr>
+
+        <div class="mt-8">
+          <h2 class="font-semibold text-center text-gray-600 uppercase tracking-wide">新增</h2>
+          <div class="mb-1">
+            <button type="button"
+              class="flex font-medium items-center w-full text-base font-normal text-gray-700 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white dark:hover:bg-gray-700"
+              aria-controls="dropdown-example" data-collapse-toggle="dropdown-example-2">
+              <span class="flex-1 text-left p-2 whitespace-nowrap" sidebar-toggle-item>單店頁面</span>
+              <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clip-rule="evenodd">
+                </path>
+              </svg>
+            </button>
+            <ul id="dropdown-example-2" class="hidden py-2 space-y-2">
+              <li>
+                <div class="flex">
+                  <%= link_to "新增菜單" , new_store_menu_path(@store) ,class:'p-2 pl-11 w-full text-base font-normal
+                    text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white
+                    dark:hover:bg-gray-700'%>
+                </div>
+              </li>
+              <li>
+                <div class="flex items-center">
+                  <%= link_to "新增桌位" , new_store_desk_path(@store) ,class:'p-2 pl-11 w-full text-base font-normal
+                    text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white
+                    dark:hover:bg-gray-700'%>
+                </div>
+              </li>
+              <li>
+                <div class="flex">
+                  <%= link_to '新增商店' , new_store_path ,class:'p-2 pl-11 w-full text-base font-normal text-gray-900
+                    rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white dark:hover:bg-gray-700'%>
+                </div>
+              </li>
+              <li>
+                <div class="flex">
+                  <%= link_to "新增分類" ,new_store_classification_path(@store) ,class:'p-2 pl-11 w-full text-base
+                    font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white
+                    dark:hover:bg-gray-700'%>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mb-1">
+          <h2 class="font-semibold tracking-wide text-center text-gray-600 uppercase">Edit store</h2>
+          <div class="mb-1">
+            <%= link_to "修改使用者資料" , edit_user_registration_path , class:"flex items-center px-2 py-1 font-medium
+              text-gray-700 rounded-lg text-md hover:bg-gray-300"%>
+          </div>
+          <div class="mb-1">
+            <%= link_to "使用者登出" , destroy_user_session_path , method: 'DELETE' , data:{confirm: "Are you sure? "
+              },class:"flex text-red-600 items-center px-2 py-1 font-medium text-gray-600 rounded-lg text-md
+              hover:bg-gray-300" %>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <main
+      class="w-full box-border items-start content-start bg-gray-200 p-2 grid grid-cols-4 lg:grid-cols-5 gap-4 h-full">
+      <table class=" w-full border-collpse table">
+        <thead>
+          <tr class="bg-gray-200 text-gray-600 uppercase text-base  leading-normal">
+            <th class="py-3 px-6 text-center">商品分類</th>
+            <th class="py-3 px-6 text-center">分類設定</th>
+          </tr>
+        </thead>
+        <tbody class="block sm:table-row-group">
+          <% @classifications.each do |classification| %>
+            <tr class="content-around bg-gray-300 text-gray-600 text-sm border border-grey-600 sborder-none table-row">
+              <td class="py-3 px-6 text-center borde bg-maingray">
+                <div class="flex items-center text-base text-gray-50 font-bold justify-center">
+                  <span>
+                    <%= classification.name %>
+                  </span>
+                </div>
+              </td>
+
+              <td class="py-3 px-6 text-center border">
+                <div class="flex item-center justify-center">
+                  <button class="w-4 mr-2 transform hover:scale-110">
+                    <a
+                      href="<%= edit_store_classification_path({store: classification.store, id: classification.id})%>">
+                      <img src="/photo/8675035_ic_fluent_edit_regular_icon.png" alt="">
+                    </a>
+                  </button>
+
+                  <button class="w-4 mr-2 transform hover:scale-110">
+                    <a href="<%=  store_classification_path({store: classification.store, id: classification.id}) %>">
+                      <img src="/photo/4781812_bin_delete_file_garbage_recycle_icon.png" alt="">
+                    </a>
+                  </button>
+
+                  <button class="px-2 py-1 font-bold text-gray-100 bg-red-400 rounded-md hover:bg-red-500">
+                    <%= link_to "Delete" , store_classification_path({store: classification.store, id:
+                      classification.id}), method: "delete" , data: {confirm: "確定刪除？" } %>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </main>
+  </div>
+</div>

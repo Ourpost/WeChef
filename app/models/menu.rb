@@ -3,6 +3,7 @@ class Menu < ApplicationRecord
   #   p.variant :thumb, resize_to_limit: [50, 50]
   # end
 
+  # active
   has_one_attached :photo 
 
 

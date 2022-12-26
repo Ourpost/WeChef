@@ -3,9 +3,11 @@ const colors = require("tailwindcss/colors");
 module.exports = {
   content: [
     "./src/**/*.{html,js}",
-    "./node_modules/tw-elements/dist/js/**/*.js",
+    "./node_modules/flowbite/**/*.js",
   ],
-  plugins: [require("tw-elements/dist/plugin")],
+  plugins: [
+    require("tw-elements/dist/plugin"),
+  ],
 };
 
 module.exports = {
@@ -23,11 +25,14 @@ module.exports = {
         apple: "50%",
       },
       colors: {
-        tiffany: {
-          DEFAULT: "#2BBDB0",
+        mainorange: {
+          DEFAULT: "#FB8705",
         },
         pccific: {
           DEFAULT: "#0FA3BD",
+        },
+        maingray: {
+          DEFAULT: "#314C54",
         },
       },
     },

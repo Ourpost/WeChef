@@ -27,9 +27,13 @@ export default class extends Controller {
     }
   }
 
+  addOne() {
+    const q = +this.quantityTarget.value;
+    this.setQuantity(q);
+  }
+
   setQuantity(n) {
     this.quantityTarget.value = n;
-    this.linkTarget.search = `?quantity=${n}&serial_number=${this.serialNumber}`;
 
     // const evt = new CustomEvent("update-quantity", {
     //   detail: { quantity: n },
