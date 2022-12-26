@@ -25,11 +25,14 @@ module.exports = {
         apple: "50%",
       },
       colors: {
-        tiffany: {
-          DEFAULT: "#2BBDB0",
+        mainorange: {
+          DEFAULT: "#FB8705",
         },
         pccific: {
           DEFAULT: "#0FA3BD",
+        },
+        maingray: {
+          DEFAULT: "#314C54",
         },
       },
     },

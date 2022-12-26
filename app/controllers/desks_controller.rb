@@ -50,7 +50,8 @@ class DesksController < ApplicationController
   end
 
   def generate_qrcode
-    qrcode = RQRCode::QRCode.new("https://#{ENV['NGROK_URL']}/foods?serial_number=#{@desk.serial_number}")
+    # qrcode = RQRCode::QRCode.new("https://#{ENV['NGROK_URL']}/foods?serial_number=#{@desk.serial_number}")
+    qrcode = RQRCode::QRCode.new("localhost:3000/foods?serial_number=#{@desk.serial_number}")
     @qrcode = qrcode.as_svg(color: :black, offset: 15, shape_rendering: "optimizeSpeed", module_size: 8).html_safe
   end
 

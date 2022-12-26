@@ -1,40 +1,24 @@
 <div class="flex flex-col h-screen">
-  <header class="flex flex-shrink-0">
-
-    <div class="flex-shrink-0 px-4 py-3 bg-gray-800 sm:w-3/12">
-
-      <button class="flex items-center block w-full">
-        <img src="/photo/lutsjtdb.png" class="w-5 w-10 h-8 mr-2 rounded-full sm:h-10" alt="Flowbite Logo">
-        <span class="ml-4 text-lg font-medium text-white">WeChef</span>
-        <svg class="w-6 h-6 ml-10 ml-auto text-gray-400 stroke-current " viewBox="0 0 24 24" fill="none">
-          <path d="M16 10l-4 4-4-4" stroke="4A5568" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
-    </div>
-
-    <div class="flex items-center justify-between w-full px-3 bg-gray-700 md:px-6">
-      <nav class="hidden md:block">
-        <div
-          class="inline-block px-3 py-2 font-medium leading-none text-white rounded-lg hover:bg-gray-400 text-md">
-          <%= link_to '關於我們',"#"%>
+    <header class="flex flex-shrink-0">
+    <div class="flex items-center justify-between w-full p-3 bg-maingray md:px-6">
+      <nav class="flex">
+        <button class="flex items-center mx-auto w-48 h-7 mr-4">
+          <img src="/photo/wechef-logo-nbg.png" class="mr-2" alt="Flowbite Logo" style="aspect-ratio:auto">
+        </button>
+        <div class="inline-block">
+          <%= link_to '關於我們' ,"#" ,class:"px-3 py-2 font-medium leading-none text-white rounded-lg hover:bg-gray-400
+            text-md"%>
         </div>
-        <div
-          class="inline-block px-3 py-2 ml-2 font-medium leading-none text-white rounded-lg hover:bg-gray-400 text-md">
-          <%= link_to "聯絡我們","#" %>
-
+        <div class="inline-block">
+          <%= link_to "聯絡我們" ,"#" ,class:"px-3 py-2 font-medium leading-none text-white rounded-lg hover:bg-gray-400
+            text-md"%>
         </div>
-        <div
-          class="inline-block px-3 py-2 font-medium leading-none text-white rounded-lg hover:bg-gray-400 text-md">
-          <%= link_to "回首頁", root_path %>
+        <div class="inline-block">
+          <%= link_to "回首頁" , root_path ,class:"px-3 py-2 font-medium leading-none text-white rounded-lg
+            hover:bg-gray-400 text-md"%>
         </div>
       </nav>
-      <div>
-
-        <%= search_form_for @d ,url: store_path(@store) do |f| %>
-          <%= f.search_field :name_cont ,placeholder:"Search....", class:"rounded-sm px-2 py-1" %>
-          <%= f.submit '搜尋', class: 'text-white py-1 px-5 bg-gray-500 rounded-md' %>
-        <% end %>
-      </div>
+   
     </div>
   </header>
 
