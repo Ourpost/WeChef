@@ -21,11 +21,8 @@ class StoresController < ApplicationController
   end
 
   def show
-
-    # @store = Store.find_by(id: params[:id])
     @d = @store.desks.ransack(params[:q])
     @desks = @d.result
-
   end
 
   def edit
