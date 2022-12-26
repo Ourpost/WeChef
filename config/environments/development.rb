@@ -79,6 +79,6 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = config_for(:email).symbolize_keys
 
   # ngrok
-  
+  config.hosts << ENV['NGROK_URL']
   #config.hosts.clear
 end

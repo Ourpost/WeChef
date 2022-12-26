@@ -19,6 +19,6 @@ module WeChef
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     # ngrok setting
-    config.hosts << ENV['NGROK_URL']
+    
   end
 end
