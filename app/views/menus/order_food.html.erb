@@ -29,23 +29,23 @@
   <div id="carouselExampleCaptions" class="relative carousel slide" data-bs-ride="carousel">
     <div class="box-border relative w-full overflow-hidden carousel-inner">
       <div class="relative float-left w-full h-md carousel-item active">
-        <img src="https://c.pxhere.com/photos/e1/24/wine_table_food_vegetable_cutlery-67342.jpg!d" srcset="https://c.pxhere.com/photos/e1/24/wine_table_food_vegetable_cutlery-67342.jpg!d" alt="表, 刀具, 红酒, 餐厅, 碟, 膳食, 餐饮, 生产, 蔬菜, 早餐, 午餐, 美食, 晚餐, 早午餐, 感, 图片素材 In PxHere" class="block w-full object-cover" alt="..."
-          style="aspect-ratio: auto">
+        <img src="https://c.pxhere.com/photos/e1/24/wine_table_food_vegetable_cutlery-67342.jpg!d" class="block w-full object-cover object-bottom" alt="..."
+          style="aspect-ratio: 12/ 3">
         <div class="absolute hidden text-center carousel-caption md:block">
           <h5 class="text-xl">First slide label</h5>
           <p>Some representative placeholder content for the first slide.</p>
         </div>
       </div>
       <div class="relative float-left w-full carousel-item">
-        <img src="https://c.pxhere.com/photos/5a/94/abstract_barbecue_barbeque_bbq_beauty_beef_bread_bun-819864.jpg!d" class="block w-full" alt="..."
-          style="aspect-ratio: auto ">
+        <img src="https://c.pxhere.com/photos/5a/94/abstract_barbecue_barbeque_bbq_beauty_beef_bread_bun-819864.jpg!d" class="block w-full object-contain object-bottom" alt="..."
+          style="aspect-ratio: 12/3">
         <div class="absolute hidden text-center carousel-caption md:block">
           <h5 class="text-xl">Second slide label</h5>
           <p>Some representative placeholder content for the second slide.</p>
         </div>
       </div>
       <div class="relative float-left w-full carousel-item">
-        <img src="https://c.pxhere.com/photos/a8/16/eating_restaurant_food_meal_lunch_dinner_table_drinks-913533.jpg!d"  class="block w-full" alt="..." style="aspect-ratio: auto ">
+        <img src="https://c.pxhere.com/photos/a8/16/eating_restaurant_food_meal_lunch_dinner_table_drinks-913533.jpg!d"  class="block w-full object-cover object-center" alt="..." style="aspect-ratio: 12/ 3 ">
         <div class="absolute hidden text-center carousel-caption md:block">
           <h5 class="text-xl">Third slide label</h5>
           <p>Some representative placeholder content for the third slide.</p>
@@ -96,9 +96,13 @@
       <h2 class=" text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">
         <%= classification.name %>
       </h2>
-      <div class="max-w-full grid-cols-2 p-5 mx-auto overflow-hidden bg-white md:grid ">
+      <div class="max-w-full  grid-cols-2 p-5 mx-auto overflow-hidden bg-white md:grid ">
         <% classification.menus.each do |menu| %>
-          <div
+          <div 
+            data-controller="hello"
+            data-action="click->hello#order"
+            data-hello-target="output"
+
             class="mx-5 mb-5 transition duration-700 ease-out transform shadow-xl hover:scale-105 rounded-xl hover:shadow-2xl md:flex ">
             <div class="overflow-hidden rounded-xl md:flex-shrink-0">
               <%= image_tag menu.image_resize("200x200"), class:"object-cover w-full h-full rounded-lg lg:w-64" %>
