@@ -30,16 +30,14 @@ gem "net-smtp"
 gem "bootsnap", '>= 1.4.4', require: false
 gem "foreman", "~> 0.87.2"
 gem "paranoia", "~> 2.2"
-
+gem "aws-sdk-s3", require: false
 
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem "rails-i18n"
 
 gem "image_processing"
 gem 'mini_magick', '~> 4.8'
-gem 'net-smtp', require: false
-gem 'net-imap', require: false
-gem 'net-pop', require: false
+
 
 
 # search bar

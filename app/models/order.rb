@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   acts_as_paranoid 
+  has_one_attached :avatar
 
 
   validates :serial, presence: true, uniqueness: true
