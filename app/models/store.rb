@@ -1,5 +1,5 @@
 class Store < ApplicationRecord
-  
+  has_one_attached :avatar
 
   # vailbel
   validates :name, presence: true

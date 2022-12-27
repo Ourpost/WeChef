@@ -99,9 +99,9 @@
                   </button>
 
                   <button class="w-4 mr-2 transform hover:scale-110">
-                    <a href="<%= store_path(id: store.id) %>">
+                    <%= link_to store_path(id: store.id), method: "delete" , data: {confirm: "確定刪除？" } do %>
                       <img src="/photo/4781812_bin_delete_file_garbage_recycle_icon.png" alt="" >
-                    </a>
+                    <% end %>
                   </button>
 
                   <button class="px-2 py-1 font-bold text-gray-100 bg-red-400 rounded-md hover:bg-red-500">
