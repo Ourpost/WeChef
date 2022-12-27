@@ -88,8 +88,7 @@
                   <%= store.tel %>
                 </p>
               </td>
-
-
+              
               <td class="py-3 px-6 text-center border">
                 <div class="flex item-center justify-center">
                   <button class="w-4 mr-2 transform hover:scale-110">
@@ -103,10 +102,6 @@
                       <img src="/photo/4781812_bin_delete_file_garbage_recycle_icon.png" alt="" >
                     <% end %>
                   </button>
-
-                  <button class="px-2 py-1 font-bold text-gray-100 bg-red-400 rounded-md hover:bg-red-500">
-                      <%= link_to "刪除" , store_path(id: store.id), method: "delete" , data: {confirm: "確定刪除？" } %>
-                    </button>
                 </div>
               </td>
             </tr>
