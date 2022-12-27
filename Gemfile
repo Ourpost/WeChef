@@ -37,6 +37,7 @@ gem "rails-i18n"
 
 gem "image_processing"
 gem 'mini_magick', '~> 4.8'
+gem 'net-pop', require: false
 
 
 
