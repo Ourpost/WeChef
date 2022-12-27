@@ -7,6 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
         #  :confirmable
 
+
   # relationships
   has_many :stores
   has_many :orders
