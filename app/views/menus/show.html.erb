@@ -17,7 +17,7 @@
 
         <div class="flex">
           <button data-action="click->update-quantity#decrement" class="px-2 bg-gray-300">-</button>
-          <%= f.text_field :quantity, class:"bg-green-100 border-2 text-center ", value: 1, min: 1, max: 10, data: {update_quantity_target: "quantity"} %>
+          <%= f.text_field :quantity, class:"bg-white-100 border-2 text-center ", value: 1, min: 1, max: 10, data: {update_quantity_target: "quantity"} %>
           <button data-action="click->update-quantity#increment" class="px-2 bg-gray-300">+</button>
         </div>
         
