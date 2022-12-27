@@ -25,7 +25,7 @@
     </div>
   </header>
   <div class="flex overflow-x-hidden h-screen">
-    <div class="w-1/5 bg-gray-100 ">
+     <div class="w-1/5 bg-gray-100 ">
       <nav>
         <h2 class="w-full my-4 text-xl font-semibold tracking-wide text-center text-gray-700 uppercase"><%= @store.name %></h2>
         <h2 class="font-semibold tracking-wide text-center mb-4 text-gray-600 uppercase text-md">餐廳資訊</h2>
@@ -51,11 +51,11 @@
           <span>營業時間（迄）： </span>
           <span><%= @store.business_end %></span>
         </div>
-        <div class="mb-4">
+        <div class="mb-2">
           <button type="button"
             class="flex font-medium items-center w-full text-base font-normal text-gray-700 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white dark:hover:bg-gray-700"
             aria-controls="dropdown-example" data-collapse-toggle="dropdown-example-1">
-            <span class="flex-1 text-left p-2 whitespace-nowrap" sidebar-toggle-item>單店頁面</span>
+            <span class="flex-1 text-left p-2 whitespace-nowrap" sidebar-toggle-item>頁面連結</span>
             <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd"
@@ -67,21 +67,21 @@
           <ul id="dropdown-example-1" class="hidden py-2 space-y-2">
             <li>
               <div class="flex items-center">
-                <%= link_to "點餐頁面" ,store_menus_path(@store) ,class:'p-2 pl-11 w-full text-base font-normal
+                <%= link_to "菜單管理" ,store_menus_path(@store) ,class:'p-2 pl-11 w-full text-base font-normal
                   text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white
                   dark:hover:bg-gray-700'%>
               </div>
             </li>
             <li>
               <div class="flex">
-                <%= link_to "分類頁面" ,store_classifications_path(@store) ,class:'p-2 pl-11 w-full text-base font-normal
+                <%= link_to "分類管理" ,store_classifications_path(@store) ,class:'p-2 pl-11 w-full text-base font-normal
                   text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white
                   dark:hover:bg-gray-700'%>
               </div>
             </li>
             <li>
               <div class="flex">
-                <%= link_to "餐桌頁面" ,store_classifications_path(@store) ,class:'p-2 pl-11 w-full text-base font-normal
+                <%= link_to "餐桌管理" ,store_path(@store) ,class:'p-2 pl-11 w-full text-base font-normal
                   text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white
                   dark:hover:bg-gray-700'%>
               </div>
@@ -89,48 +89,46 @@
           </ul>
         </div>
 
-        <div class="mt-4">
-          <h2 class="font-semibold text-center text-gray-600 uppercase tracking-wide">新增</h2>
-          <div class="mb-1">
-            <button type="button"
-              class="flex font-medium items-center w-full text-base font-normal text-gray-700 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white dark:hover:bg-gray-700"
-              aria-controls="dropdown-example" data-collapse-toggle="dropdown-example-2">
-              <span class="flex-1 text-left p-2 whitespace-nowrap" sidebar-toggle-item>新增項目</span>
-              <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clip-rule="evenodd">
-                </path>
-              </svg>
-            </button>
-            <ul id="dropdown-example-2" class="hidden py-2 space-y-2">
-              <li>
-                <div class="flex">
-                  <%= link_to "新增菜單" , new_store_menu_path(@store) ,class:'p-2 pl-11 w-full text-base font-normal
-                    text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white
-                    dark:hover:bg-gray-700'%>
-                </div>
-              </li>
-              <li>
-                <div class="flex items-center">
-                  <%= link_to "新增桌位" , new_store_desk_path(@store) ,class:'p-2 pl-11 w-full text-base font-normal
-                    text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white
-                    dark:hover:bg-gray-700'%>
-                </div>
-              </li>
-              <li>
-                <div class="flex">
-                  <%= link_to "新增分類" ,new_store_classification_path(@store) ,class:'p-2 pl-11 w-full text-base
-                    font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white
-                    dark:hover:bg-gray-700'%>
-                </div>
-              </li>
-            </ul>
-          </div>
+        <div class="mb-1">
+          <button type="button"
+            class="flex font-medium items-center w-full text-base font-normal text-gray-700 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white dark:hover:bg-gray-700"
+            aria-controls="dropdown-example" data-collapse-toggle="dropdown-example-2">
+            <span class="flex-1 text-left p-2 whitespace-nowrap" sidebar-toggle-item>主要功能</span>
+            <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd">
+              </path>
+            </svg>
+          </button>
+          <ul id="dropdown-example-2" class="hidden py-2 space-y-2">
+            <li>
+              <div class="flex">
+                <%= link_to "新增菜單" , new_store_menu_path(@store) ,class:'p-2 pl-11 w-full text-base font-normal
+                  text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white
+                  dark:hover:bg-gray-700'%>
+              </div>
+            </li>
+            <li>
+              <div class="flex">
+                <%= link_to "新增分類" ,new_store_classification_path(@store) ,class:'p-2 pl-11 w-full text-base
+                  font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white
+                  dark:hover:bg-gray-700'%>
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center">
+                <%= link_to "新增桌位" , new_store_desk_path(@store) ,class:'p-2 pl-11 w-full text-base font-normal
+                  text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white
+                  dark:hover:bg-gray-700'%>
+              </div>
+            </li>
+          </ul>
         </div>
+        
         <div class="mt-4">
-          <h2 class="font-semibold tracking-wide text-center text-gray-600 uppercase">系統編輯</h2>
+          <h2 class="font-semibold mb-4 tracking-wide text-center text-gray-600 uppercase">會員管理</h2>
           <div class="mb-1">
             <%= link_to "修改使用者資料" , edit_user_registration_path , class:"flex items-center px-2 py-1 font-medium
               text-gray-700 rounded-lg text-md hover:bg-gray-300"%>

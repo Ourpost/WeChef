@@ -30,22 +30,18 @@
     <div class="w-1/5 bg-gray-100 ">
       <nav>
         <h2 class="w-full mb-2 text-xl font-semibold tracking-wide text-center text-gray-700 uppercase">
-          <%= current_user.nickname %>
+          <%= current_user.nickname %> 先生 / 小姐
         </h2>
-        <h2 class="font-semibold tracking-wide text-center text-gray-600 uppercase text-md">Store Inf</h2>
+        <h2 class="font-semibold mb-4 tracking-wide text-center text-gray-600 uppercase text-md">店家管理</h2>
           <div class="mb-1">
             <%= link_to '新增商店' , new_store_path ,class:"flex items-center px-2 py-1 font-medium text-gray-700 rounded-lg
               text-md hover:bg-gray-300"%>
           </div>
         <div class="mb-1">
-          <h2 class="font-semibold tracking-wide text-center text-gray-600 uppercase">Edit store</h2>
+          <h2 class="font-semibold mb-4 tracking-wide text-center text-gray-600 uppercase">會員管理</h2>
           <div class="mb-1">
             <%= link_to "修改使用者資料" , edit_user_registration_path , class:"flex items-center px-2 py-1 font-medium
               text-gray-700 rounded-lg text-md hover:bg-gray-300"%>
-          </div>
-          <div class="mb-1">
-            <%= link_to "使用者註冊" , user_session_path ,class:"flex items-center px-2 py-1 font-medium text-gray-600
-              rounded-lg text-md hover:bg-gray-300"%>
           </div>
           <div class="mb-1">
             <%= link_to "使用者登出" , destroy_user_session_path , method: 'DELETE' , data:{confirm: "Are you sure? "
@@ -88,7 +84,7 @@
                   <%= store.tel %>
                 </p>
               </td>
-              
+
               <td class="py-3 px-6 text-center border">
                 <div class="flex item-center justify-center">
                   <button class="w-4 mr-2 transform hover:scale-110">
