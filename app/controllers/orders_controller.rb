@@ -5,7 +5,6 @@ class OrdersController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:checkout, :response]
 
   def create
-    # render html: params
     order = current_user.orders.new( 
       desk_id: params[:desk_id], 
       email: current_user.email, 
@@ -47,7 +46,6 @@ class OrdersController < ApplicationController
 
   def checkout
 
-    # render html: params
     @order = Order.find_by(serial: params[:id])
     @form_info = Newebpay::Mpg.new(@order).form_info
     @form_MerchantID = @form_info[:MerchantID]

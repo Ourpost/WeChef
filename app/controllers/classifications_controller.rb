@@ -10,7 +10,6 @@ class ClassificationsController < ApplicationController
 
   def new
     @classification = Classification.new
-    # render html: params
   end
   
   def create

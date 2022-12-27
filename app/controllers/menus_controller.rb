@@ -12,7 +12,6 @@ before_action :find_store , only:[ :new, :create ,:index]
 
   def new
     @menu = Menu.new
-
   end
   # create 因為有關連所以要用store的角度去建立
   # save 後面加驚嘆號就可以看到 save的錯誤
