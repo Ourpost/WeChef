@@ -63,6 +63,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "rqrcode", "~> 2.0"
 
-gem 'nokogiri', '~> 1.6', '>= 1.6.8'
+gem 'nokogiri', '~> 1.13', '>= 1.13.9'
 gem "redis", "< 5.0"
 gem 'aasm', '~> 5.4'
