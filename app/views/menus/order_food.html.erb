@@ -1,26 +1,31 @@
 <header class="flex flex-shrink-0">
-  <div class="flex items-center justify-between w-full p-3 bg-maingray md:px-6">
-    <nav class="flex">
-      <button class="flex items-center mx-auto w-48 h-7 mr-4">
+  <div class="flex items-center justify-between w-full  md:p-3 bg-maingray md:px-6">
+    <nav class="flex w-full items-center justify-between ">
+      <button class="flex items-center w-48 h-7 mr-4">
         <img src="/photo/wechef-logo-nbg.png" class="mr-2" alt="Flowbite Logo" style="aspect-ratio:auto">
       </button>
-      <div class="inline-block">
-        <%= link_to '關於我們' ,"#" ,class:"px-3 py-2 font-medium leading-none text-white rounded-lg hover:bg-gray-400
-          text-md"%>
-      </div>
-      <div class="inline-block">
-        <%= link_to "聯絡我們" ,"#" ,class:"px-3 py-2 font-medium leading-none text-white rounded-lg hover:bg-gray-400
-          text-md"%>
-      </div>
-      <div class="inline-block">
-        <%= link_to "回首頁" , root_path ,class:"px-3 py-2 font-medium leading-none text-white rounded-lg hover:bg-gray-400
-          text-md"%>
+
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-3 text-sm text-mainorange rounded-lg md:hidden focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+        </svg>
+      </button>
+
+      <div class="hidden w-full md:block md:w-auto z-40 " id="navbar-default">
+        <ul class="flex flex-col mt-4 border border-gray-50 rounded-lg bg-maingray md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-sm md:text-lg text-mainorange rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-gray-300 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" aria-current="page">關於我們</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-sm md:text-lg text-mainorange rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-gray-300 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">聯絡我們</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-sm md:text-lg text-mainorange rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-gray-300 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">回首頁</a>
+          </li>
+        </ul>
       </div>
     </nav>
-    <div class="inline-block">
-      <%= link_to "登出" , root_path ,class:"px-3 py-2 font-medium leading-none text-white rounded-lg hover:bg-gray-400
-        text-md"%>
-    </div>
   </div>
 </header>
 
@@ -35,16 +40,16 @@
         <p>Some representative placeholder content for the first slide.</p>
       </div>
     </div>
-    <div class="relative float-left w-full carousel-item">
-      <img src="https://c.pxhere.com/photos/5a/94/abstract_barbecue_barbeque_bbq_beauty_beef_bread_bun-819864.jpg!d"
-        class="block w-full object-contain object-bottom" alt="..." style="aspect-ratio: 12/3">
+    <div class="relative float-left w-full carousel-item ">
+      <img src="https://c.pxhere.com/photos/03/1d/restaurant_food_lunch_dinner_salmon_fish_salad_plates-892507.jpg!d"
+        class="block w-full object-cover object-center" alt="..." style="aspect-ratio: 12/3">
       <div class="absolute hidden text-center carousel-caption md:block">
         <h5 class="text-xl">Second slide label</h5>
         <p>Some representative placeholder content for the second slide.</p>
       </div>
     </div>
     <div class="relative float-left w-full carousel-item">
-      <img src="https://c.pxhere.com/photos/a8/16/eating_restaurant_food_meal_lunch_dinner_table_drinks-913533.jpg!d"
+      <img src="https://c.pxhere.com/photos/a1/a7/bottle_wine_red_alcohol_couple_dinner_romance_romantic-722584.jpg!d"
         class="block w-full object-cover object-center" alt="..." style="aspect-ratio: 12/ 3 ">
       <div class="absolute hidden text-center carousel-caption md:block">
         <h5 class="text-xl">Third slide label</h5>
@@ -76,10 +81,10 @@
 </div>
 
 <!------------- classcafication_item ---------------->
-<div class="flex w-full py-8 space-x-2 justify-evenly bg-maingray text-mainorange">
+<div class="flex w-full py-2 space-x-2 justify-evenly bg-maingray text-mainorange">
   <% @classifications.each do |classification|%>
     <button
-      class="inline-block px-10 py-4 text-xl font-bold text-center rounded-md text-block pleading-none whitespace-nowrap hover:bg-tiffany hover:text-white ">
+      class="inline-block px-5 py-2 md:px-10 md:py-4 transition duration-300 ease-out text-sm md:text-xl font-bold text-center rounded-md text-block pleading-none whitespace-nowrap hover:bg-gray-300 ">
       <%= classification.name%>
     </button>
   <% end %>
@@ -87,17 +92,17 @@
 <hr class="">
 <!------------- meun_card ---------------->
 <section class="px-5">
-  <h1 class="my-16 text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white"><%= @store.name %></h1>
+  <h1 class="pb-2 mb-3 mt-6 md:my-12 md:pb-5 text-2xl md:text-3xl border-b-2 border-maingray font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white"><%= @store.name %></h1>
   <% @classifications.each do |classification| %>
-    <h2 class=" text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">
+    <h2 class=" text-xl mb-4 md:text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">
       <%= classification.name %>
     </h2>
-    <div class="max-w-full p-5 mx-auto overflow-hidden bg-white grid grid-cols-2">
+    <div class="max-w-full md:p-5 mx-auto overflow-hidden bg-white grid  md:grid-cols-2">
       <% classification.menus.each do |menu| %>
         <div class="mx-5 mb-5 transition duration-300 ease-out transform shadow-md hover:scale-105  rounded-xl hover:shadow-xl md:flex ">
-          <div class="overflow-hidden rounded-xl md:flex-shrink-0">
+          <div class="overflow-hidden rounded-t-md md:rounded-xl md:flex-shrink-0">
             <% if menu.avatar.attached? %>
-              <%= image_tag menu.avatar ,class:'object-cover w-52 h-52' %>
+              <%= image_tag menu.avatar ,class:'w-full object-cover md:w-52 md:h-52' %>
             <% end %>
           </div>
           <div class="w-full flex-col px-8 py-6 md:flex">
