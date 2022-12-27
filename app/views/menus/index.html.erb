@@ -20,20 +20,15 @@
       </nav>
       <%= search_form_for @q , url: store_menus_path do |f| %>
         <%= f.search_field :name_cont,placeholder:"Search....", class:"rounded-sm px-2 py-1"%>
-          <%= f.submit '搜尋' , class: 'text-white py-1 px-5 bg-gray-500 rounded-sm' %>
-            <% end %>
+        <%= f.submit '搜尋' , class: 'text-white py-1 px-5 bg-gray-500 rounded-sm' %>
+      <% end %>
     </div>
-
-
-
   </header>
   <div class="flex overflow-x-hidden h-screen">
     <div class="w-1/5 bg-gray-100 ">
       <nav>
-        <h2 class="w-full my-4 text-xl font-semibold tracking-wide text-center text-gray-700 uppercase">
-          <%= @store.name %>
-        </h2>
-        <h2 class="font-semibold tracking-wide text-center text-gray-600 uppercase text-md">Store Inf</h2>
+        <h2 class="w-full my-4 text-xl font-semibold tracking-wide text-center text-gray-700 uppercase"><%= @store.name %></h2>
+        <h2 class="font-semibold tracking-wide text-center mb-4 text-gray-600 uppercase text-md">餐廳資訊</h2>
 
         <div class="mb-1">
           <span class="flex items-center px-2 py-1 font-medium text-gray-700 rounded-lg
@@ -48,20 +43,15 @@
         <div class="mb-1 flex flex-col items-start px-2 py-1 font-medium text-gray-700 rounded-lg
             text-md">
           <span>營業時間（起）： </span>
-          <span>
-            <%= @store.business_start %>
-          </span>
+          <span><%= @store.business_start %></span>
         </div>
 
         <div class="mb-1 flex flex-col items-start px-2 py-1 font-medium text-gray-700 rounded-lg
             text-md">
           <span>營業時間（迄）： </span>
-          <span>
-            <%= @store.business_end %>
-          </span>
+          <span><%= @store.business_end %></span>
         </div>
-
-        <div class="mb-1">
+        <div class="mb-4">
           <button type="button"
             class="flex font-medium items-center w-full text-base font-normal text-gray-700 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white dark:hover:bg-gray-700"
             aria-controls="dropdown-example" data-collapse-toggle="dropdown-example-1">
@@ -89,17 +79,23 @@
                   dark:hover:bg-gray-700'%>
               </div>
             </li>
+            <li>
+              <div class="flex">
+                <%= link_to "餐桌頁面" ,store_classifications_path(@store) ,class:'p-2 pl-11 w-full text-base font-normal
+                  text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white
+                  dark:hover:bg-gray-700'%>
+              </div>
+            </li>
           </ul>
         </div>
-        <hr>
 
-        <div class="mt-8">
+        <div class="mt-4">
           <h2 class="font-semibold text-center text-gray-600 uppercase tracking-wide">新增</h2>
           <div class="mb-1">
             <button type="button"
               class="flex font-medium items-center w-full text-base font-normal text-gray-700 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white dark:hover:bg-gray-700"
               aria-controls="dropdown-example" data-collapse-toggle="dropdown-example-2">
-              <span class="flex-1 text-left p-2 whitespace-nowrap" sidebar-toggle-item>單店頁面</span>
+              <span class="flex-1 text-left p-2 whitespace-nowrap" sidebar-toggle-item>新增項目</span>
               <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
@@ -125,12 +121,6 @@
               </li>
               <li>
                 <div class="flex">
-                  <%= link_to '新增商店' , new_store_path ,class:'p-2 pl-11 w-full text-base font-normal text-gray-900
-                    rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white dark:hover:bg-gray-700'%>
-                </div>
-              </li>
-              <li>
-                <div class="flex">
                   <%= link_to "新增分類" ,new_store_classification_path(@store) ,class:'p-2 pl-11 w-full text-base
                     font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white
                     dark:hover:bg-gray-700'%>
@@ -139,9 +129,8 @@
             </ul>
           </div>
         </div>
-
-        <div class="mb-1">
-          <h2 class="font-semibold tracking-wide text-center text-gray-600 uppercase">Edit store</h2>
+        <div class="mt-4">
+          <h2 class="font-semibold tracking-wide text-center text-gray-600 uppercase">系統編輯</h2>
           <div class="mb-1">
             <%= link_to "修改使用者資料" , edit_user_registration_path , class:"flex items-center px-2 py-1 font-medium
               text-gray-700 rounded-lg text-md hover:bg-gray-300"%>
