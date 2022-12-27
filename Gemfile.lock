@@ -155,8 +155,6 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
-    nokogiri (1.13.9-x86_64-linux)
-      racc (~> 1.4)
     orm_adapter (0.5.0)
     paranoia (2.6.1)
       activerecord (>= 5.1, < 7.1)
@@ -295,6 +293,7 @@ DEPENDENCIES
   net-imap
   net-pop
   net-smtp
+  nokogiri (~> 1.6, >= 1.6.8)
   paranoia (~> 2.2)
   pg (~> 1.1)
   puma (~> 5.0)
