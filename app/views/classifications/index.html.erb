@@ -1,29 +1,4 @@
 <div class=" max-h-screen box-boreder">
-  <header class="flex flex-shrink-0">
-    <div class="flex items-center justify-between w-full p-3 bg-maingray md:px-6">
-      <nav class="flex">
-        <button class="flex items-center mx-auto w-48 h-7 mr-4">
-          <img src="/photo/wechef-logo-nbg.png" class="mr-2" alt="Flowbite Logo" style="aspect-ratio:auto">
-        </button>
-        <div class="inline-block">
-          <%= link_to '關於我們' ,"#" ,class:"px-3 py-2 font-medium leading-none text-white rounded-lg hover:bg-gray-400
-            text-md"%>
-        </div>
-        <div class="inline-block">
-          <%= link_to "聯絡我們" ,"#" ,class:"px-3 py-2 font-medium leading-none text-white rounded-lg hover:bg-gray-400
-            text-md"%>
-        </div>
-        <div class="inline-block">
-          <%= link_to "回首頁" , root_path ,class:"px-3 py-2 font-medium leading-none text-white rounded-lg
-            hover:bg-gray-400 text-md"%>
-        </div>
-      </nav>
-      <%= search_form_for @q , url: store_menus_path do |f| %>
-        <%= f.search_field :name_cont,placeholder:"Search....", class:"rounded-sm px-2 py-1"%>
-          <%= f.submit '搜尋' , class: 'text-white py-1 px-5 bg-gray-500 rounded-sm' %>
-      <% end %>
-    </div>
-  </header>
   <div class="flex overflow-x-hidden h-screen">
     <div class="w-1/5 bg-gray-100 ">
       <nav>

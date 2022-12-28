@@ -1,9 +1,7 @@
 class Menu < ApplicationRecord
-  has_one_attached :avatar
-
   # active
   has_one_attached :photo 
-
+  has_one_attached :avatar
 
   # validate
   validates :name, presence: true
