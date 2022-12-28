@@ -1,0 +1,36 @@
+<div class="flex flex-col md:flex-row w-full items-center">
+  <img src="/photo/wechef-low-resolution-color-logo_1.png" alt="" class="w-full md:hidden">
+  <div class="bg-white max-h-screen p-4 w-full h-full md:w-1/3 mx-auto md:px-8 rounded-md">
+    <%= form_with( model: store ) do |f| %>
+      <div class="mb-12">
+        <div class="bg-gray-300 rounded-md">
+          <%= f.label :name ,'店家名稱' ,class:"block text-md font-bold text-maingray px-2 py-1" %>
+          <%= f.text_field :name ,autofocus: true, autocomplete: "name", class:"px-4 w-full border-2 py-2 rounded-b-lg text-sm outline-none border-gray-300 focus:border-mainorange " ,placeholder:"請輸入店家名稱"%>
+        </div>
+        <div class="my-3 bg-gray-300 rounded-md">
+          <%= f.label :tel ,'店家電話' ,class:"block text-md font-bold text-maingray px-2 py-1 " %>
+          <%= f.phone_field :tel , class:"px-4 w-full border-2 py-2 rounded-b-lg text-sm outline-none border-gray-300 focus:border-mainorange " ,placeholder:"請輸入店家電話"%>
+        </div>
+        <div class="my-3 bg-gray-300 rounded-md">
+          <%= f.label :address ,'店家地址' ,class:"block text-md font-bold text-maingray px-2 py-1" %>
+          <%= f.text_field :address ,class:"px-4 w-full border-2 py-2 rounded-b-lg text-sm outline-none border-gray-300 focus:border-mainorange",placeholder:"請輸入店家地址"%>
+        </div>
+      </div>
+
+      <div >
+        <div class="my-3 bg-gray-300 rounded-md">
+          <%= f.label :business_start ,'開始營業時間' ,class:"block text-md font-bold text-maingray px-2 py-1 " %>
+          <%= f.datetime_field :business_start ,class:"px-4 w-full border-2 py-2 rounded-b-lg text-sm outline-none border-gray-300 focus:border-mainorange "%>
+        </div>
+          <div class="my-3 bg-gray-300 rounded-md">
+          <%= f.label :business_end ,'結束營業時間' ,class:"block text-md font-bold text-maingray px-2 py-1 " %>
+          <%= f.datetime_field :business_end ,class:"px-4 w-full border-2 py-2 rounded-b-lg text-sm outline-none border-gray-300 focus:border-mainorange "%>
+        </div>
+        <div class="flex justify-end mt-6">
+          <%= f.submit '回商店頁' , class:"mt-4 mb-3 w-full bg-gray-300 text-maingray mr-2 py-2 rounded-md transition duration-100 hover:bg-gray-200 "%>
+          <%= f.submit '新增商店' , class:"mt-4 mb-3 w-full bg-mainorange text-white py-2 rounded-md transition duration-100 hover:bg-yellow-500 "%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,26 +1,5 @@
 <div class="flex flex-col h-screen">
-  <header class="flex flex-shrink-0">
-    <div class="flex items-center justify-between w-full p-3 bg-maingray md:px-6">
-      <nav class="flex">
-        <button class="flex items-center mx-auto w-48 h-7 mr-4">
-          <img src="/photo/wechef-logo-nbg.png" class="mr-2" alt="Flowbite Logo" style="aspect-ratio:auto">
-        </button>
-        <div class="inline-block">
-          <%= link_to '關於我們' ,"#" ,class:"px-3 py-2 font-medium leading-none text-white rounded-lg hover:bg-gray-400
-            text-md"%>
-        </div>
-        <div class="inline-block">
-          <%= link_to "聯絡我們" ,"#" ,class:"px-3 py-2 font-medium leading-none text-white rounded-lg hover:bg-gray-400
-            text-md"%>
-        </div>
-        <div class="inline-block">
-          <%= link_to "回首頁" , root_path ,class:"px-3 py-2 font-medium leading-none text-white rounded-lg
-            hover:bg-gray-400 text-md"%>
-        </div>
-      </nav>
-    </div>
-  </header>
- <div class="flex overflow-x-hidden h-screen">
+  <div class="flex overflow-x-hidden h-screen">
     <div class="w-1/5 bg-gray-100 ">
       <nav>
         <h2 class="w-full my-4 text-xl font-semibold tracking-wide text-center text-gray-700 uppercase"><%= @store.name %></h2>
