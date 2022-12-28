@@ -18,13 +18,11 @@
       </div>
 
       <div>
-        <div>
           <%= f.label :classification_id, "分類" ,class:"text-block dark:text-gray-200"%>
-            <%= f.select :classification_id, store.classifications.map{ |c| [c.name, c.id] }%>
-        </div>
-        <select
+          <%= f.select :classification_id, store.classifications.map{ |c| [c.name, c.id] }%>
+           <select
           class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-        </select>
+          </select>
       </div>
 
       <div>
@@ -32,6 +30,7 @@
         <%= f.file_field :avatar , class:"w-full mt-2 py-2 leading-5 text-block transition-colors duration-200
         transform rounded-md focus:outline-none focus:bg-gray-600 " %> 
       </div>
+
       <div>
         <%= f.label :note ,'備註' , class:" text-block dark:text-gray-200"%>
         <%= f.text_area :note ,class:"block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300
