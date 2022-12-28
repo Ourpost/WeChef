@@ -39,7 +39,7 @@ MAILGUN_PASSWORD=
 
 5. yarn install 
 
-# newebpay藍星
+# newebpay藍新
 
 1. .env.development貼上以下資訊，DC上面有放
 HASH_KEY=
