@@ -4,8 +4,7 @@ class StoresController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @q = Store.ransack(params[:q])
-    @stores = @q.result
+    @stores = current_user.stores
   end
 
   def new
