@@ -39,13 +39,17 @@ gem 'net-smtp', require: false
 gem 'net-imap', require: false
 gem 'net-pop', require: false
 gem "ransack"
-
+gem 'nokogiri', '~> 1.13', '>= 1.13.9'
+gem "redis", "< 5.0"
+gem 'aasm', '~> 5.4'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "rqrcode", "~> 2.0"
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem "dotenv-rails", "~> 2.8"
-
-
 end
 
 group :development do
@@ -60,9 +64,5 @@ group :test do
   gem 'webdrivers'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem "rqrcode", "~> 2.0"
 
-gem 'nokogiri', '~> 1.13', '>= 1.13.9'
-gem "redis", "< 5.0"
-gem 'aasm', '~> 5.4'
+
