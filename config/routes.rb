@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users , controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   resources :stores do 
     resources :classifications
@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   end
 
   root "stores#index"
-  
   get '/foods', to: 'menus#order_food'
 
   resource :cart, only: [:show, :destroy] do
@@ -26,10 +25,7 @@ Rails.application.routes.draw do
     end
   end
 
-
   post '/response/index', to: 'response#index'
-
-
 end
 
 
