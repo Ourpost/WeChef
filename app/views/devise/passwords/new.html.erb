@@ -1,34 +1,35 @@
-<h1 class="py-10 font-mono text-5xl font-bold text-center">Forgot your password?</h1>
+<div class="w-full min-h-screen flex px-10 bg-maingray">
+  <div class="hidden md:flex w-full h-full my-auto rounded-xl  overflow-hidden">
+    <img src="/photo/wechef-low-resolution-color-logo_1.png" alt="" class="w-full">
+  </div>
 
-<section class="max-w-xl mx-auto bg-gray-100 rounded-md shadow-md dark:bg-gray-800">
-<div class="h-4 bg-green-400 rounded-t-md w-full"></div>
-  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-    <div class=" p-6 grid grid-cols-1 gap-6 mt-4 sm:grid-cols-1">
+  <section class="flex flex-col md:flex-row w-full items-center">
+    <img src="/photo/wechef-low-resolution-color-logo_1.png" alt="" class="w-full md:hidden">
+    <div class="bg-white max-h-screen p-4 w-full md:w-2/3 mx-auto md:p-12 rounded-md">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <h1 class="text-2xl font-bold">忘記您的密碼了嗎？</h1>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="field">
-        <%= f.label :email, class:"text-block dark:text-gray-200" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"%>
-      </div>
-      
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %>
-      </div>
+        <div class="mb-6">
+
+          <div class="mt-5">
+            <%= f.label :email, class:"block text-md mb-2" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"px-4 w-full border-2 py-2 rounded-md text-md outline-none focus:border-mainorange " ,placeholder:"請輸入電子信箱"%>
+          </div>
+          
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+          </div>
+          <% end %>
+        </div>
+
+        <div class="">
+          <%= link_to "返回", root_path ,class:"flex mb-3 space-x-2 justify-center items-end bg-maingray hover:bg-gray-600 text-white py-2 rounded-md transition duration-100" %>
+
+          <%= f.submit '寄送電子郵件' , class:"w-full bg-mainorange text-white py-2 rounded-md transition duration-100 hover:bg-yellow-500" %>
+        </div>
+
       <% end %>
     </div>
-
-    <div class="flex justify-center mt-6">
-      <%= link_to "Back", root_path ,class:"px-6 py-2 mx-2 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600 hover:scale-105" %>
-
-      <%= f.submit 'Update' , class:"px-6 py-2 mx-2 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600 hover:scale-105 "%>
-    </div>
-
-    <div class="flex justify-center mt-6">
-      <%= render "devise/shared/links" %>
-    </div>
-
-    <div class="actions flex font-bold justify-center mt-3 font-mono">
-      <%= f.submit "Reset password" %>
-    </div>
-  <% end %>
-</section>
+  </section>
+</div>
