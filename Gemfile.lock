@@ -121,9 +121,6 @@ GEM
     hashie (5.0.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    image_processing (1.12.2)
-      mini_magick (>= 4.9.5, < 5)
-      ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -143,7 +140,6 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
-    mini_magick (4.12.0)
     mini_mime (1.1.2)
     minitest (5.16.3)
     msgpack (1.6.0)
@@ -219,9 +215,6 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.4)
       loofah (~> 2.19, >= 2.19.1)
-    rails-i18n (7.0.6)
-      i18n (>= 0.7, < 2)
-      railties (>= 6.0.0, < 8)
     railties (6.1.7)
       actionpack (= 6.1.7)
       activesupport (= 6.1.7)
@@ -246,8 +239,6 @@ GEM
       chunky_png (~> 1.0)
       rqrcode_core (~> 1.0)
     rqrcode_core (1.2.0)
-    ruby-vips (2.1.4)
-      ffi (~> 1.12)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
@@ -322,10 +313,8 @@ DEPENDENCIES
   devise (~> 4.8, >= 4.8.1)
   dotenv-rails (~> 2.8)
   foreman (~> 0.87.2)
-  image_processing
   jbuilder (~> 2.7)
   listen (~> 3.3)
-  mini_magick (~> 4.8)
   net-imap
   net-pop
   net-smtp
@@ -336,7 +325,6 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 6.1.7)
-  rails-i18n
   ransack
   redis (< 5.0)
   rqrcode (~> 2.0)
