@@ -2,7 +2,6 @@ class ClassificationsController < ApplicationController
   before_action :find_classification , only:[ :show , :edit ,:update ,:destroy ]
   before_action :find_store , only:[ :new, :create ,:index]
 
-
   def index
     @q = @store.classifications.ransack(params[:q])
     @classifications = @q.result
@@ -39,8 +38,7 @@ class ClassificationsController < ApplicationController
     redirect_to store_classifications_path , alert: '分類移除成功'
   end
 
-private
-
+  private
   def classification_params
     params.require(:classification).permit(:name)
   end
@@ -52,5 +50,4 @@ private
   def find_store
     @store = Store.find(params[:store_id])
   end
-
 end
