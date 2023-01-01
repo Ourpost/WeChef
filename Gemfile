@@ -28,13 +28,9 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem "net-smtp"
 gem "bootsnap", '>= 1.4.4', require: false
-gem "foreman", "~> 0.87.2"
 gem "paranoia", "~> 2.2"
 gem "aws-sdk-s3", require: false
 gem 'devise', '~> 4.8', '>= 4.8.1'
-gem "rails-i18n"
-gem "image_processing"
-gem 'mini_magick', '~> 4.8'
 gem 'net-smtp', require: false
 gem 'net-imap', require: false
 gem 'net-pop', require: false
@@ -50,6 +46,7 @@ gem 'omniauth-rails_csrf_protection'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem "dotenv-rails", "~> 2.8"
+  gem "foreman", "~> 0.87.2"
 end
 
 group :development do
