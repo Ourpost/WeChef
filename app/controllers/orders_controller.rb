@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
       email: current_user.email, 
       amount: current_cart.total_price,
       items: params[:items],
-      name: "NAME~"  
+      name: current_user.nickname
     )
     
     if order.save
@@ -45,21 +45,19 @@ class OrdersController < ApplicationController
   end
 
   def checkout
-
     @order = Order.find_by(serial: params[:id])
     @form_info = Newebpay::Mpg.new(@order).form_info
     @form_MerchantID = @form_info[:MerchantID]
     @form_TradeInfo = @form_info[:TradeInfo]
     @form_TradeSha = @form_info[:TradeSha]
-
   end
 
   private
   def find_desk
     @desk = Desk.find(params[:desk_id])
   end
+
   def find_order
     @order = Order.find(params[:id])
   end
-
 end
