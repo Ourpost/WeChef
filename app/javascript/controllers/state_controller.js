@@ -6,7 +6,6 @@ export default class extends Controller {
   };
 
   pay() {
-    // rails root
     fetch(`/orders/${this.orderIdValue}/order_state`)
       .then((resp) => {
         return resp.json();
