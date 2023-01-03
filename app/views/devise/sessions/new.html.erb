@@ -10,17 +10,14 @@
           <span class="text-sm text-gray-900">Welcome Wechef</span>
           <h1 class="text-2xl font-bold">餐廳後台管理系統登入</h1>
         </div>
-
         <div class="mt-5">
           <%= f.label :email , "信箱" ,class:"block text-md mb-2" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"px-4 w-full border-2 py-2 rounded-md text-sm outline-none focus:border-mainorange " ,placeholder:"請輸入電子信箱"%>
         </div>
-
         <div class="my-3">
           <%= f.label :password , "密碼" ,class:"block text-md mb-2" %>
           <%= f.password_field :password, autocomplete: "current-password",  class:"px-4 w-full border-2 py-2 rounded-md text-sm outline-none focus:border-mainorange " ,placeholder:"請輸入6位數密碼" %>
         </div>
-
         <div class="flex justify-between">
           <div>
             <% if devise_mapping.rememberable? %>
@@ -30,27 +27,24 @@
               </div>
             <% end %>
           </div>
-
           <div>
             <% if devise_mapping.registerable? && controller_name != 'registrations' %>
               <%= link_to "註冊", new_registration_path(resource_name) ,class:"text-mainorange hover:text-yellow-500"%>
             <% end %>
           </div>
-
         </div>
-            <div class="">
-              <%= f.submit "登入", class:"mt-4 mb-3 w-full bg-mainorange text-white py-2 rounded-md transition duration-100 hover:bg-yellow-500 " %>
-              <div class="flex  space-x-2 justify-center items-end bg-maingray hover:bg-gray-600 text-white py-2 rounded-md transition duration-100">
-              <%= link_to "google", user_google_oauth2_omniauth_authorize_path, method: :post%>
-              <img class=" h-5 cursor-pointer" src="https://i.imgur.com/arC60SB.png" alt="">
-              </div>
-            </div>
+        <div>
+          <%= f.submit "登入", class:"mt-4 mb-3 w-full bg-mainorange text-white py-2 rounded-md transition duration-100 hover:bg-yellow-500 " %>
+          <div class="flex  space-x-2 justify-center items-end bg-maingray hover:bg-gray-600 text-white py-2 rounded-md transition duration-100">
+          <%= link_to "google", user_google_oauth2_omniauth_authorize_path, method: :post%>
+          <img class=" h-5 cursor-pointer" src="https://i.imgur.com/arC60SB.png" alt="">
+          </div>
+        </div>
       <% end %>
       <div class="flex justify-between">
         <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
           <%= link_to "忘記密碼？", new_password_path(resource_name) %>
         <% end %>
-
         <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
           <%= link_to "重寄確認信", new_user_confirmation_path(resource_name) %>
         <% end %>
@@ -58,4 +52,3 @@
 		</div>
 	</div>
 </div>
-

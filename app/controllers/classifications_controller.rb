@@ -1,7 +1,8 @@
-class ClassificationsController < ApplicationController
-  before_action :find_classification , only:[ :show , :edit ,:update ,:destroy ]
-  before_action :find_store , only:[ :new, :create ,:index]
+# frozen_string_literal: true
 
+class ClassificationsController < ApplicationController
+  before_action :find_classification, only: %i[show edit update destroy]
+  before_action :find_store, only: %i[new create index]
 
   def index
     @q = @store.classifications.ransack(params[:q])
@@ -11,24 +12,22 @@ class ClassificationsController < ApplicationController
   def new
     @classification = Classification.new
   end
-  
+
   def create
     if @store.classifications.create(classification_params)
-      redirect_to store_classifications_path , notice: '分類新增成功'  
+      redirect_to store_classifications_path, notice: '分類新增成功'
     else
       render :new
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @classification.update(classification_params)
-      redirect_to store_classifications_path({store: @classification.store}) , notice: '分類更新成功'
+      redirect_to store_classifications_path({ store: @classification.store }), notice: '分類更新成功'
     else
       render :edit
     end
@@ -36,10 +35,10 @@ class ClassificationsController < ApplicationController
 
   def destroy
     @classification.destroy
-    redirect_to store_classifications_path , alert: '分類移除成功'
+    redirect_to store_classifications_path, alert: '分類移除成功'
   end
 
-private
+  private
 
   def classification_params
     params.require(:classification).permit(:name)
@@ -52,5 +51,4 @@ private
   def find_store
     @store = Store.find(params[:store_id])
   end
-
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Cart
   SessionKey = :cart8888
   attr_reader :items
@@ -7,7 +9,7 @@ class Cart
   end
 
   def add_item(menu_id, quantity)
-    found_item = @items.find{|item| item.menu_id == menu_id}
+    found_item = @items.find { |item| item.menu_id == menu_id }
     if found_item
       found_item.increment(quantity)
     else
@@ -20,20 +22,20 @@ class Cart
   end
 
   def total_price
-    @items.reduce(0){|acc, item| acc + item.price}
+    @items.reduce(0) { |acc, item| acc + item.price }
   end
 
   def serialize
-    all_items = @items.map {|item| {"menu_id" => item.menu_id, "quantity" => item.quantity}}
+    all_items = @items.map { |item| { 'menu_id' => item.menu_id, 'quantity' => item.quantity } }
 
-    {"items" => all_items}
+    { 'items' => all_items }
   end
 
   def self.from_hash(hash)
     if hash.nil?
       new []
     else
-      new hash["items"].map{|item_hash| CartItem.new(item_hash["menu_id"], item_hash["quantity"])}
+      new hash['items'].map { |item_hash| CartItem.new(item_hash['menu_id'], item_hash['quantity']) }
     end
   end
 end

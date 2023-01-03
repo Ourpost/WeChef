@@ -5,10 +5,8 @@
     <div class="px-6 py-6 pt-6 text-xl font-bold capitalize text-block dark:text-block">桌位：<%=@desk.name%></div>
     <div class="px-6 py-6 pt-6 text-xl font-bold capitalize text-block dark:text-block">訂購人：<%= @nickname %></div>
   </div>
-
-  <hr class="w-3/4 h-1 mx-auto bg-green-400 bg-opacity-50"></hr>
-  
-  <div class="">
+  <hr class="w-3/4 h-1 mx-auto bg-green-400 bg-opacity-50">
+  <div>
     <table class="w-3/4 mx-auto table-auto">
       <thead class="font-medium leading-8 text-center text-blue-600">
         <tr>
@@ -28,13 +26,9 @@
         </tr>
         <% end %>
       </tbody>
-  
     </table>
-  
   </div>
-
-  <hr class="w-3/4 h-1 mx-auto bg-green-400 bg-opacity-50"></hr>
-
+  <hr class="w-3/4 h-1 mx-auto bg-green-400 bg-opacity-50">
   <div class="flex justify-around py-6 pt-6">
     <button class="px-6 py-2 mx-2 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600 hover:scale-105">
       <%= link_to "繼續選購", "/foods?serial_number=#{params[:serial_number]}" %>
@@ -46,9 +40,5 @@
       <%= link_to "結帳", orders_path({desk_id: @desk.id, items: @items}), method: "post" %>
       $<%= current_cart.total_price %>
     </button>
-
-
   </div>
-
 </section>
-

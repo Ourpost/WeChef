@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -26,36 +28,36 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "net-smtp"
-gem "bootsnap", '>= 1.4.4', require: false
-gem "foreman", "~> 0.87.2"
-gem "paranoia", "~> 2.2"
-gem "aws-sdk-s3", require: false
+gem 'aasm', '~> 5.4'
+gem 'aws-sdk-s3', require: false
+gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', '~> 4.8', '>= 4.8.1'
-gem "rails-i18n"
-gem "image_processing"
+gem 'foreman', '~> 0.87.2'
+gem 'image_processing'
 gem 'mini_magick', '~> 4.8'
-gem 'net-smtp', require: false
 gem 'net-imap', require: false
 gem 'net-pop', require: false
-gem "ransack"
+gem 'net-smtp', require: false
 gem 'nokogiri', '~> 1.13', '>= 1.13.9'
-gem "redis", "< 5.0"
-gem 'aasm', '~> 5.4'
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem "rqrcode", "~> 2.0"
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
+gem 'paranoia', '~> 2.2'
+gem 'rails-i18n'
+gem 'ransack'
+gem 'redis', '< 5.0'
+gem 'rqrcode', '~> 2.0'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem "dotenv-rails", "~> 2.8"
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails', '~> 2.8'
+  gem 'rubocop-rails', require: false
 end
 
 group :development do
-  gem 'web-console', '>= 4.1.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
+  gem 'web-console', '>= 4.1.0'
 end
 
 group :test do
@@ -63,6 +65,3 @@ group :test do
   gem 'selenium-webdriver', '>= 4.0.0.rc1'
   gem 'webdrivers'
 end
-
-
-

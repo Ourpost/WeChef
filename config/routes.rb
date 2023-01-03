@@ -1,22 +1,24 @@
-Rails.application.routes.draw do
-  devise_for :users , controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+# frozen_string_literal: true
 
-  resources :stores do 
+Rails.application.routes.draw do
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
+  resources :stores do
     resources :classifications
     resources :menus
     resources :desks
   end
 
-  root "stores#index"
+  root 'stores#index'
   get '/foods', to: 'menus#order_food'
 
-  resource :cart, only: [:show, :destroy] do
+  resource :cart, only: %i[show destroy] do
     collection do
-      post :add, path:'add/:id'
+      post :add, path: 'add/:id'
     end
   end
 
-  resources :orders, only: [:create, :destroy] do
+  resources :orders, only: %i[create destroy] do
     member do
       get :checkout
       get :order_state
@@ -27,5 +29,3 @@ Rails.application.routes.draw do
 
   post '/response/index', to: 'response#index'
 end
-
-

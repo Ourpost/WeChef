@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CartItem
   attr_reader :menu_id, :quantity
 
@@ -6,8 +8,8 @@ class CartItem
     @quantity = quantity.to_i
   end
 
-  def increment(n = 1)
-    @quantity += n.to_i
+  def increment(quantity = 1)
+    @quantity += quantity.to_i
   end
 
   def menu

@@ -1,0 +1,18 @@
+Style/Documentation:
+  Enabled: false
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - 'bin/*'
+    - 'config/initializers/devise.rb'
+    - 'config/environments/development.rb'
+    - 'app/controllers/application_controller.rb'
+    - 'app/controllers/orders_controller.rb'
+    - 'app/service/newebpay/mpg.rb'
+    - 'app/service/newebpay/mpg_response.rb'
+    - 'app/models/cart.rb'
+    - 'app/models/cart.rb'
+Metrics/MethodLength: 
+  Max: 30
+Metrics/AbcSize:
+  Max: 24
