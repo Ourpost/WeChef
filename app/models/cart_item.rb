@@ -11,7 +11,7 @@ class CartItem
   end
 
   def menu
-    Menu.find_by(id: menu_id)
+    Menu.find_by!(id: menu_id)
   end
 
   def price

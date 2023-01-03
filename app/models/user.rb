@@ -1,12 +1,10 @@
 class User < ApplicationRecord
   has_one_attached :avatar
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   # devise validate
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable ,:omniauthable, 
          omniauth_providers: [:google_oauth2]
-        #  :confirmable
 
   # relationships
   has_many :stores ,dependent: :destroy
