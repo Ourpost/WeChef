@@ -5,13 +5,8 @@ export default class extends Controller {
     orderId: String,
   };
 
-  connect() {
-    console.log(777);
-  }
-
   pay() {
     // rails root
-    console.log(this.orderIdValue);
     fetch(`/orders/${this.orderIdValue}/order_state`)
       .then((resp) => {
         return resp.json();

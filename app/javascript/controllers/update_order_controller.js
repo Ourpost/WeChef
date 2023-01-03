@@ -18,15 +18,7 @@ export default class extends Controller {
   }
 
   _cableConnected() {
-    // console.log(this);
-    console.log("connected");
     const el = document.getElementById(`desk_${this.deskIdValue}`);
-    console.log(this.deskIdValue);
-    console.log(el);
-  }
-
-  _cableDisconnected() {
-    console.log("disconnected");
   }
 
   _cableReceived(data) {

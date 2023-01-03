@@ -34,10 +34,5 @@ export default class extends Controller {
 
   setQuantity(n) {
     this.quantityTarget.value = n;
-
-    // const evt = new CustomEvent("update-quantity", {
-    //   detail: { quantity: n },
-    // });
-    // document.dispatchEvent(evt);
   }
 }
