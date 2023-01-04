@@ -57,3 +57,4 @@ class MenusController < ApplicationController
   def find_store
     @store = Store.find(params[:store_id])
   end
+end
