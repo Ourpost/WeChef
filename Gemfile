@@ -39,6 +39,7 @@ gem 'ransack'
 gem 'redis', '< 5.0'
 gem 'rqrcode', '~> 2.0'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'aasm', '~> 5.4'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
