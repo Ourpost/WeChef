@@ -32,16 +32,6 @@
             <%= f.label :"在輸入一次密碼" ,class:"block text-md mb-2"%>
             <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "new-password", class:"px-4 w-full border-2 py-2 rounded-md text-sm outline-none focus:border-mainorange ",placeholder:"請再輸入一次密碼"%>
           </div>
-          <div class="my-3 py-2 rounded-md flex justify-center">
-            <div class="mx-4">
-              <%= f.radio_button :role, "user" , class:"w-5 h-5 align-text-bottom" %>
-              <%= f.label :"消費者" ,class:"text-block dark:text-gray-200 mx-2" %>
-            </div>
-            <div class="mx-4">
-              <%= f.radio_button :role, "vender" ,class:"w-5 h-5 align-text-bottom"%>
-              <%= f.label :"店家" ,class:"text-block dark:text-gray-200 mx-2" %>
-            </div>
-          </div>
         </div>
         <div>
             <%= f.submit '註冊' , class:"mb-3 w-full bg-mainorange text-white py-2 rounded-md transition duration-100 hover:bg-yellow-500"%>
