@@ -117,18 +117,18 @@
       </nav>
     </div>
     <main
-      class="w-full box-border items-start content-start bg-gray-200 p-2 grid grid-cols-4 lg:grid-cols-5 gap-4 h-full">
-      <table class=" w-full border-collpse table">
-        <thead>
-          <tr class="bg-gray-200 text-gray-600 uppercase text-base  leading-normal">
-            <th class="py-3 px-6 text-center">商品分類</th>
-            <th class="py-3 px-6 text-center">分類設定</th>
+      class="w-full box-border items-start content-start bg-gray-200 h-full">
+      <table class=" w-full border-collpse">
+        <thead class="bg-red-200 flex w-full" >
+          <tr class="bg-gray-200 w-full text-gray-600 uppercase text-base flex leading-normal">
+            <th class="py-3 px-6 w-1/2 text-center">商品分類</th>
+            <th class="py-3 px-6 w-1/2 text-center">分類設定</th>
           </tr>
         </thead>
         <tbody class="block sm:table-row-group">
           <% @classifications.each do |classification| %>
-            <tr class="content-around bg-gray-300 text-gray-600 text-sm border border-grey-600 sborder-none table-row">
-              <td class="py-3 px-6 text-center borde bg-maingray">
+            <tr class="content-around bg-gray-300 text-gray-600 text-sm border border-grey-600 sborder-none flex">
+              <td class="py-3 w-full px-6 text-center borde bg-maingray">
                 <div class="flex items-center text-base text-gray-50 font-bold justify-center">
                   <span>
                     <%= classification.name %>
@@ -136,7 +136,7 @@
                 </div>
               </td>
 
-              <td class="py-3 px-6 text-center border">
+              <td class="py-3 px-6 w-full text-center border">
                 <div class="flex item-center justify-center">
                   <button class="w-4 mr-2 transform hover:scale-110">
                     <a
