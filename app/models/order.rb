@@ -22,7 +22,7 @@ class Order < ApplicationRecord
     end
 
     event :refund do
-      transitions from: %i[paid served], to: :refunded
+      transitions from: [:paid, :served], to: :refunded
     end
   end
 
