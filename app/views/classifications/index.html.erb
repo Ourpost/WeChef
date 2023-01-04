@@ -139,16 +139,15 @@
               <td class="py-3 px-6 text-center border">
                 <div class="flex item-center justify-center">
                   <button class="w-4 mr-2 transform hover:scale-110">
-                    <a
-                      href="<%= edit_store_classification_path({store: classification.store, id: classification.id})%>">
+                    <%=link_to edit_store_classification_path({store: classification.store, id: classification.id}) do %>
                       <img src="/photo/8675035_ic_fluent_edit_regular_icon.png" alt="">
-                    </a>
+                    <% end %>
                   </button>
 
                   <button class="w-4 mr-2 transform hover:scale-110">
-                    <a href="<%=  store_classification_path({store: classification.store, id: classification.id}) %>">
+                    <%=link_to store_classification_path({store: classification.store, id: classification.id}),method: "delete" , data: {confirm: "確定刪除？" } do %>
                       <img src="/photo/4781812_bin_delete_file_garbage_recycle_icon.png" alt="">
-                    </a>
+                    <% end %>
                   </button>
                 </div>
               </td>
