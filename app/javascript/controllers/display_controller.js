@@ -5,10 +5,6 @@ export default class extends Controller {
     orderId: String,
   };
 
-  connect() {
-    console.log("display");
-  }
-
   hide() {
     this.element.classList.toggle("hidden");
   }

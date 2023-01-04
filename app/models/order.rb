@@ -1,7 +1,8 @@
-class Order < ApplicationRecord
-  acts_as_paranoid 
-  has_one_attached :avatar
+# frozen_string_literal: true
 
+class Order < ApplicationRecord
+  acts_as_paranoid
+  has_one_attached :avatar
 
   validates :serial, presence: true, uniqueness: true
   before_validation :generate_serial
@@ -11,7 +12,6 @@ class Order < ApplicationRecord
   aasm do
     state :pending, initial: true
     state :paid, :refunded, :served
-    # , :sent
 
     event :pay do
       transitions from: :pending, to: :paid
@@ -25,8 +25,9 @@ class Order < ApplicationRecord
       transitions from: [:paid, :served], to: :refunded
     end
   end
-  
+
   private
+
   def generate_serial
     self.serial = SecureRandom.alphanumeric(15)
   end

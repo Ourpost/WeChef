@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DesksChannel < ApplicationCable::Channel
   def subscribed
     # puts params

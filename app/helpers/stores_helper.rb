@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module StoresHelper
   def menu_id_to_name(id)
     Menu.find(id).name

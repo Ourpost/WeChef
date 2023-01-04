@@ -11,7 +11,6 @@
         <div>
             <h1 class="text-2xl font-bold">變更您的密碼</h1>
         </div>
-
         <div class="mt-5">
           <div class="flex">
             <%= f.label :password, "新的密碼" ,class:"block text-md mb-2 pr-2"%>
@@ -19,20 +18,16 @@
             <em>(請輸入最少<%= @minimum_password_length %>位數字)</em>
             <% end %>
           </div>
-
           <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class:"px-4 w-full border-2 py-2 rounded-md text-sm outline-none focus:border-mainorange " ,placeholder:"請輸入新密碼" %>
         </div>
-
         <div class="my-3">
           <%= f.label :password_confirmation, "再輸入一次密碼" ,class:"block text-md mb-2" %>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"px-4 w-full border-2 py-2 rounded-md text-sm outline-none focus:border-mainorange " ,placeholder:"請再輸入一次密碼" %>
         </div>
-
         <div class="actions">
           <%= f.submit "確認送出", class:"mt-4 mb-3 w-full bg-mainorange text-white py-2 rounded-md transition duration-100 hover:bg-yellow-500 " %>
         </div>
       <% end %>
-
     </div>
   </div>
 </div>

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+module Users
+  class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+    skip_before_action :verify_authenticity_token, only: [:google_oauth2]
 
   skip_before_action :verify_authenticity_token, only: [:google_oauth2]
 
@@ -13,9 +15,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session["devise.google_oauth2"] = request.env["omniauth.auth"].except(:extra) # Removing extra as it can overflow some session stores
       redirect_to  user_session_path ,alert: "此信箱已申請過,請確認信箱資訊！！"
     end
-  end
 
-  def failure
-    redirect_to root_path, alert: "無法獲得驗證！"
+    def failure
+      redirect_to root_path, alert: '無法獲得驗證！'
+    end
   end
 end

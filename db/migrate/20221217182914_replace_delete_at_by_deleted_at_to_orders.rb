@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReplaceDeleteAtByDeletedAtToOrders < ActiveRecord::Migration[6.1]
   def change
     add_column :orders, :deleted_at, :datetime

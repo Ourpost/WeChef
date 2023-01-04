@@ -35,8 +35,7 @@
         </thead>
         <tbody class="block sm:table-row-group">
           <% @stores.each do |store| %>
-            <tr
-              class="content-around bg-gray-300 text-gray-600 text-sm border border-grey-600 sborder-none table-row">
+            <tr class="content-around bg-gray-300 text-gray-600 text-sm border border-grey-600 sborder-none table-row">
               <td class="py-3 px-6 text-center borde bg-maingray">
                 <div class="flex items-center text-base text-gray-50 font-bold justify-center">
                   <img class="w-6 h-6 mr-2 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" />
@@ -45,19 +44,16 @@
                   </span>
                 </div>
               </td>
-
               <td class="p-2 border border-grey-500 ">
                 <p class="text-center">
                   <%= store.address %>
                 </p>
               </td>
-
               <td class="p-2 borde ">
                 <p class="text-center">
                   <%= store.tel %>
                 </p>
               </td>
-
               <td class="py-3 px-6 text-center border">
                 <div class="flex item-center justify-center">
                   <button class="w-4 mr-2 transform hover:scale-110">
@@ -65,7 +61,6 @@
                       <img src="/photo/8675035_ic_fluent_edit_regular_icon.png" alt="" >
                     </a>
                   </button>
-
                   <button class="w-4 mr-2 transform hover:scale-110">
                     <%= link_to store_path(id: store.id), method: "delete" , data: {confirm: "確定刪除？" } do %>
                       <img src="/photo/4781812_bin_delete_file_garbage_recycle_icon.png" alt="" >
@@ -74,7 +69,7 @@
                 </div>
               </td>
             </tr>
-            <% end %>
+          <% end %>
         </tbody>
       </table>
     </main>
