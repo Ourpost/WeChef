@@ -7,7 +7,6 @@ export default class extends Controller {
     this.min = +this.quantityTarget.min;
     this.max = +this.quantityTarget.max;
     this.serialNumber = this.linkTarget.dataset.serialNumber;
-    console.log(this.serialNumber);
   }
 
   decrement(e) {

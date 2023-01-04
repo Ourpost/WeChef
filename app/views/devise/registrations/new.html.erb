@@ -2,8 +2,6 @@
   <div class="hidden md:flex w-full h-full my-auto rounded-xl  overflow-hidden">
     <img src="/photo/wechef-low-resolution-color-logo_1.png" alt="" class="w-full">
   </div>
-
-  
   <section  class="flex flex-col md:flex-row w-full items-center">
     <img src="/photo/wechef-low-resolution-color-logo_1.png" alt="" class="w-full md:hidden">
     <div class="bg-white max-h-screen p-4 w-full md:w-2/3 mx-auto md:p-12 rounded-md">
@@ -13,18 +11,14 @@
         </div>
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class="mb-6">
-
           <div class="mt-5">
             <%= f.label :"暱稱" ,class:"block text-md mb-2" %>
             <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class:"px-4 w-full border-2 py-2 rounded-md text-sm outline-none focus:border-mainorange " ,placeholder:"請輸入暱稱"%>
           </div>
-  
           <div class="my-3">
             <%= f.label :"電子信箱", class:"block text-md mb-2"%>
             <%= f.email_field :email, autofocus: true,autocomplete: "email", class:"px-4 w-full border-2 py-2 rounded-md text-sm outline-none focus:border-mainorange " ,placeholder:"請輸入電子信箱"%>
           </div>
-  
-  
           <div class="my-3">
             <div class="flex ">
               <%= f.label :"密碼" ,class:"block text-md mb-2"%>
@@ -32,15 +26,12 @@
               <div class="px-2"> (請至少輸入<%= @minimum_password_length %> 位數密碼)</div>
               <% end %>
             </div>
-  
             <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class:"px-4 w-full border-2 py-2 rounded-md text-sm outline-none focus:border-mainorange " ,placeholder:"請輸入密碼" %>
           </div>
-  
           <div class="my-3">
             <%= f.label :"在輸入一次密碼" ,class:"block text-md mb-2"%>
             <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "new-password", class:"px-4 w-full border-2 py-2 rounded-md text-sm outline-none focus:border-mainorange ",placeholder:"請再輸入一次密碼"%>
           </div>
-  
           <div class="my-3 py-2 rounded-md flex justify-center">
             <div class="mx-4">
               <%= f.radio_button :role, "user" , class:"w-5 h-5 align-text-bottom" %>
@@ -52,8 +43,7 @@
             </div>
           </div>
         </div>
-  
-        <div class="">
+        <div>
             <%= f.submit '註冊' , class:"mb-3 w-full bg-mainorange text-white py-2 rounded-md transition duration-100 hover:bg-yellow-500"%>
             <%= link_to "返回", :back ,class:"flex  space-x-2 justify-center items-end bg-maingray hover:bg-gray-600 text-white py-2 rounded-md transition duration-100" %>
         </div>

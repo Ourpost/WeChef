@@ -1,26 +1,22 @@
 <div class=" max-h-screen box-boreder">
   <div class="flex overflow-x-hidden h-screen">
-     <div class="w-1/5 bg-gray-100 ">
+    <div class="w-1/5 bg-gray-100 ">
       <nav>
         <h2 class="w-full my-4 text-xl font-semibold tracking-wide text-center text-gray-700 uppercase"><%= @store.name %></h2>
         <h2 class="font-semibold tracking-wide text-center mb-4 text-gray-600 uppercase text-md">餐廳資訊</h2>
-
         <div class="mb-1">
           <span class="flex items-center px-2 py-1 font-medium text-gray-700 rounded-lg
             text-md hover:bg-gray-300">電話：<%= @store.tel %>
         </div>
-
         <div class="mb-1">
           <span class="flex items-center px-2 py-1 font-medium text-gray-700 rounded-lg
             text-md hover:bg-gray-300">地址：<%= @store.address %>
         </div>
-
         <div class="mb-1 flex flex-col items-start px-2 py-1 font-medium text-gray-700 rounded-lg
             text-md">
           <span>營業時間（起）： </span>
           <span><%= @store.business_start %></span>
         </div>
-
         <div class="mb-1 flex flex-col items-start px-2 py-1 font-medium text-gray-700 rounded-lg
             text-md">
           <span>營業時間（迄）： </span>
@@ -63,7 +59,6 @@
             </li>
           </ul>
         </div>
-
         <div class="mb-1">
           <button type="button"
             class="flex font-medium items-center w-full text-base font-normal text-gray-700 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white dark:hover:bg-gray-700"
@@ -101,7 +96,6 @@
             </li>
           </ul>
         </div>
-        
         <div class="mt-4">
           <h2 class="font-semibold mb-4 tracking-wide text-center text-gray-600 uppercase">會員管理</h2>
           <div class="mb-1">
@@ -132,12 +126,10 @@
             </div>
             <span>＄<%= menu.price %></span>
             <div class="flex justify-end">
-              <button class="transition
-                      text-white duration-200 ease-in-out bg-pccific p-1 mx-1 rounded-md hover:bg-red-400">
+              <button class="transition text-white duration-200 ease-in-out bg-pccific p-1 mx-1 rounded-md hover:bg-red-400">
                 <%= link_to '編輯' , edit_store_menu_path(@store , menu)%>
               </button>
-              <button class="transition 
-                      text-white duration-200 ease-in-out bg-pccific p-1 mx-1 rounded-md hover:bg-red-400">
+              <button class="transition text-white duration-200 ease-in-out bg-pccific p-1 mx-1 rounded-md hover:bg-red-400">
                 <%= link_to '刪除' , store_menu_path(@store, menu) , method:'DELETE' , data:{confirm:"確認刪除？"}%>
               </button>
             </div>

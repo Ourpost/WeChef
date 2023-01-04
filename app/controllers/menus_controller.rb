@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 class MenusController < ApplicationController
-  before_action :find_menu , only:[ :show , :edit ,:update ,:destroy ]
-  before_action :find_store , only:[ :new, :create ,:index]
+  before_action :find_menu, only: %i[show edit update destroy]
+  before_action :find_store, only: %i[new create index]
+
 
   def index
     @q = @store.menus.ransack(params[:q])
@@ -14,21 +17,19 @@ class MenusController < ApplicationController
 
   def create
     if @store.menus.create(menu_params)
-      redirect_to store_menus_path , notice: '品項新增成功'  
+      redirect_to store_menus_path, notice: '品項新增成功'
     else
       render :new
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @menu.update(menu_params)
-      redirect_to store_menus_path , notice: '品項更新成功'
+      redirect_to store_menus_path, notice: '品項更新成功'
     else
       render :edit
     end
@@ -36,7 +37,7 @@ class MenusController < ApplicationController
 
   def destroy
     @menu.destroy
-    redirect_to store_menus_path , alert: '品項移除成功'
+    redirect_to store_menus_path, alert: '品項移除成功'
   end
 
   def order_food
@@ -45,10 +46,9 @@ class MenusController < ApplicationController
     @classifications = @store.classifications.includes(menus: { photo_attachment: :blob })
   end
 
-  private
   def menu_params
-    params.require(:menu).permit(:name , :price , :note , :photo , :delete_at ,:avatar , :quantity, :classification_id)
-  end
+    params.require(:menu).permit(:name, :price, :note, :photo, :delete_at, :avatar, :quantity, :classification_id)
+
 
   def find_menu
     @menu = Menu.find(params[:id])
@@ -57,4 +57,3 @@ class MenusController < ApplicationController
   def find_store
     @store = Store.find(params[:store_id])
   end
-end

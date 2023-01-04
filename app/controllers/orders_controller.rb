@@ -1,24 +1,27 @@
+# frozen_string_literal: true
+
 class OrdersController < ApplicationController
   before_action :find_desk, only: [:create]
-  before_action :find_order, only: [:destroy, :pay, :serve]
+  before_action :find_order, only: %i[destroy pay serve]
   before_action :authenticate_user!
-  skip_before_action :verify_authenticity_token, only: [:checkout, :response]
+  skip_before_action :verify_authenticity_token, only: %i[checkout response]
 
   def create
-    order = current_user.orders.new( 
-      desk_id: params[:desk_id], 
-      email: current_user.email, 
+    order = current_user.orders.new(
+      desk_id: params[:desk_id],
+      email: current_user.email,
       amount: current_cart.total_price,
       items: params[:items],
       name: current_user.nickname
+
     )
-    
+
     if order.save
-      new_order = render_to_string partial: "stores/order", locals: { order: order}
+      new_order = render_to_string partial: 'stores/order', locals: { order: }
       DesksChannel.broadcast_to(@desk, new_order)
       redirect_to checkout_order_path(id: order.serial)
     else
-      redirect_to cart_path, alert: "訂單建立失敗"
+      redirect_to cart_path, alert: '訂單建立失敗'
     end
   end
 
@@ -27,21 +30,20 @@ class OrdersController < ApplicationController
   end
 
   def pay
-    if @order.may_pay?
-      @order.pay!
-    end
+    return unless @order.may_pay?
+
+    @order.pay!
   end
 
   def serve
-    if @order.paid?
-      @order.serve!
-    end
+    return unless @order.paid?
+
+    @order.serve!
   end
 
   def order_state
     @state = Order.find(params[:id]).aasm_state
-    @state
-    render json: {state: @state}
+    render json: { state: @state }
   end
 
   def checkout
@@ -53,6 +55,7 @@ class OrdersController < ApplicationController
   end
 
   private
+
   def find_desk
     @desk = Desk.find(params[:desk_id])
   end

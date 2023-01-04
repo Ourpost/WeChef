@@ -1,18 +1,18 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_one_attached :avatar
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   # devise validate
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable ,:omniauthable, 
+         :recoverable, :rememberable, :validatable, :omniauthable,
          omniauth_providers: [:google_oauth2]
-        #  :confirmable
 
   # relationships
-  has_many :stores ,dependent: :destroy
+  has_many :stores, dependent: :destroy
   has_many :orders
-  
-  enum role: {user: 0, vender:1}
+
+  enum role: { user: 0, vender: 1 }
 
   # google api
   def self.from_omniauth(auth)
