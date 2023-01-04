@@ -39,7 +39,6 @@ class ClassificationsController < ApplicationController
   end
 
   private
-
   def classification_params
     params.require(:classification).permit(:name)
   end

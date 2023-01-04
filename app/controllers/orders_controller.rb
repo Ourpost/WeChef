@@ -12,7 +12,8 @@ class OrdersController < ApplicationController
       email: current_user.email,
       amount: current_cart.total_price,
       items: params[:items],
-      name: 'NAME~'
+      name: current_user.nickname
+
     )
 
     if order.save
