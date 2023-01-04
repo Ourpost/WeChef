@@ -10,7 +10,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <% if current_user %>
+    <% if current_user && serial_number=nil %>
       <%= render "shared/navbar" %>
     <% end %>
     <%= render 'shared/flash' %>
