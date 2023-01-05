@@ -1,8 +1,13 @@
 <% if flash.any? %>
-  <div style="background-color: green; color: white">
-    <%= notice %>
-  </div>
-  <div style="background-color: red; color: white">
-    <%= alert %>
+  <div data-controller="notice">
+    <% if notice %>
+      <div data-notice-target="notice" class="px-2 py-1 top-2 w-56 rounded-md m-auto bg-green-600 text-white text-center fixed-top">
+        <%= notice %>
+      </div>
+    <% else %>
+      <div data-notice-target="alert" class="px-2 py-1 top-2 w-56 rounded-md m-auto bg-red-500 text-white text-center fixed-top">
+        <%= alert %>
+      </div>
+    <% end %>
   </div>
 <% end %>
