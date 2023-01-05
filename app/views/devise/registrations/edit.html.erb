@@ -1,54 +1,53 @@
-<h1 class="py-10 font-mono text-5xl font-bold text-center">Edit <%= resource_name.to_s.humanize %></h1>
-
-<section class="max-w-xl mx-auto bg-gray-100 rounded-md shadow-md dark:bg-gray-800">
-  <div class="h-4 bg-green-400 rounded-t-md w-full"></div>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-    <div class=" p-6 grid grid-cols-1 gap-6 mt-4 sm:grid-cols-1">
-      <div class="field">
-        <%= f.label :"Nick Name" ,class:"text-block dark:text-gray-200" %><br />
-        <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" ,class:"block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"%>
-      </div>
-      <div class="field">
-        <%= f.label :email, class:"text-block dark:text-gray-200" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"%>
-      </div>
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+<div class="w-full min-h-screen flex px-10 bg-maingray">
+  <div class="hidden md:flex w-full h-full my-auto rounded-xl  overflow-hidden">
+  <img src="/photo/wechef-low-resolution-color-logo_1.png" alt="" class="w-full">
+  </div>
+  <section class="flex flex-col md:flex-row w-full items-center">
+    <img src="/photo/wechef-low-resolution-color-logo_1.png" alt="" class="w-full md:hidden">
+    <div class="bg-white max-h-screen p-2 w-full md:w-2/3 mx-auto md:p-12 rounded-md">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <div>
+          <h1 class="text-2xl font-bold">修改使用者資料</h1>
+        </div>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="mb-6">
+          <div class="mt-5">
+            <%= f.label :"暱稱" ,class:"block text-sm mb-2" %>
+            <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" ,class:"px-4 w-full border-2 py-2 rounded-md text-sm outline-none focus:border-mainorange " ,placeholder:"請輸入暱稱"%>
+          </div>
+          <div class="my-3">
+            <%= f.label :"電子信箱", class:"block text-sm mb-2" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"px-4 w-full border-2 py-2 rounded-md text-sm outline-none focus:border-mainorange " ,placeholder:"請輸入電子信箱"%>
+          </div>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+            </div>
+          <% end %>
+          <div class="my-3">
+            <div class="flex">
+              <%= f.label :"新密碼" ,class:"block text-sm mb-2" %>    
+              <% if @minimum_password_length %>
+              <div class="text-sm">(若您不想更改請留空)</div>
+              <% end %>
+            </div>
+            <%= f.password_field :password, autocomplete: "new-password" ,class:"px-4 w-full border-2 py-2 rounded-md text-sm outline-none focus:border-mainorange " ,placeholder:"請輸入至少6位數新密碼" %>
+          </div>
+          <div class="my-3">
+            <%= f.label :"再輸入一次新密碼" ,class:"block text-sm mb-2" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"px-4 w-full border-2 py-2 rounded-md text-sm outline-none focus:border-mainorange ",placeholder:"請再輸入一次新密碼"%>
+          </div>
+          <div class="my-3">
+            <div class="flex">
+              <%= f.label :"原來密碼" ,class:"block text-sm mb-2"%>
+            </div>
+            <%= f.password_field :current_password, autocomplete: "current-password",class:"px-4 w-full border-2 py-2 rounded-md text-sm outline-none focus:border-mainorange " ,placeholder:"請輸入原來密碼" %>
+          </div>
+        </div>
+          <%= f.submit '更新' , class:"mb-3 w-full bg-mainorange text-white py-2 rounded-md transition duration-100 hover:bg-yellow-500"%>
+          <%= link_to "返回", :back ,class:"flex  space-x-2 justify-center items-end bg-maingray hover:bg-gray-600 text-white py-2 rounded-md transition duration-100" %>
+          <%= button_to "刪除帳號", registration_path(resource_name), data: { confirm: "確認刪除?" }, method: :delete,class:'mt-4 mb-3 w-full bg-pink-500 text-white mr-2 py-2 rounded-md transition duration-100 hover:bg-pink-700 text-center' %>
         </div>
       <% end %>
-      <div class="field">
-        <%= f.label :password ,class:"text-block dark:text-gray-200" %>    
-        <% if @minimum_password_length %>
-          <em>
-            (<%= @minimum_password_length %> characters minimum)
-          </em>
-        <% end %>
-        <%= f.password_field :password, autocomplete: "new-password" ,class:"block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" %>
-        <p class="text-gray-400">(leave blank if you don't want to change it)</p>
-      </div>
-      <div class="field">
-        <%= f.label :password_confirmation ,class:"text-block dark:text-gray-200" %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"%>
-      </div>
-      <div class="field">
-        <%= f.label :current_password ,class:"text-block dark:text-gray-200" %>
-        <%= f.password_field :current_password, autocomplete: "current-password",class:"block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" %>
-        <p class="text-gray-400">(we need your current password to confirm your changes)</p>
-      </div>
     </div>
-    <div class="flex justify-center mt-6">
-      <%= link_to "Back", :back ,class:"px-6 py-2 mx-2 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600 hover:scale-105" %>
-      <%= f.submit 'Update' , class:"px-6 py-2 mx-2 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600 hover:scale-105 "%>
-    </div>
-    <div class="flex justify-center mt-6">
-      <%= render "devise/shared/links" %>
-    </div>
-    <p class="flex justify-center mt-3 "><%= button_to "Cancel my account", 
-    registration_path(resource_name), 
-    data: { confirm: "確認刪除?" }, 
-    method: :delete,
-    class:'font-mono font-bold' %>
-    </p>
-  <% end %>
-</section>
+  </section>
+</div>
