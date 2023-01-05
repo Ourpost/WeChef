@@ -58,25 +58,29 @@
     </h2>
     <div class="max-w-full md:p-5 mx-auto overflow-hidden bg-white grid  md:grid-cols-2">
       <% classification.menus.each do |menu| %>
-        <div class="mx-5 mb-5 transition duration-300 ease-out transform shadow-md hover:scale-105  rounded-xl hover:shadow-xl md:flex ">
-          <div class="overflow-hidden rounded-t-md md:rounded-xl md:flex-shrink-0">
-            <% if menu.avatar.attached? %>
-              <%= image_tag menu.avatar ,class:'w-full object-cover md:w-52 md:h-52' %>
-            <% end %>
-          </div>
-          <div class="w-full flex-col px-8 py-6 md:flex">
-            <%= link_to menu.name , store_menu_path(@store, menu.id, {serial_number: params[:serial_number]}) ,
-            class:"block mt-1 text-lg font-medium leading-tight hover:underline"%>
-            <div class="">
-              <p class="py-2 mt-2 text-gray-500">
-                <%= menu.note %>
-              </p>
-              <span class="flex justify-end text-xl">
-                $<%= menu.price %>
-              </span>
+        <%= link_to store_menu_path(@store, menu.id, {serial_number: params[:serial_number]}) ,
+          class:"block mt-1 text-lg font-medium leading-tight" do %>
+          <div class="mx-5 mb-5 transition duration-300 ease-out transform shadow-md hover:scale-105  rounded-xl hover:shadow-xl md:flex ">
+            <div class="overflow-hidden rounded-t-md md:rounded-xl md:flex-shrink-0">
+              <% if menu.avatar.attached? %>
+                <%= image_tag menu.avatar ,class:'w-full object-cover md:w-52 md:h-52' %>
+              <% end %>
             </div>
-          </div>  
-        </div>
+            <div class="w-full flex-col px-8 py-6 md:flex">
+                <p class="text-lg">
+                  <%= menu.name%>
+                </p>
+              <div class="">
+                <p class="py-2 mt-2 text-gray-500">
+                  <%= menu.note %>
+                </p>
+                <span class="flex justify-end text-xl">
+                  $<%= menu.price %>
+                </span>
+              </div>
+            </div>  
+          </div>
+        <% end %>
       <% end %>
     </div>
   <% end %>
