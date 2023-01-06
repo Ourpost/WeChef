@@ -7,12 +7,8 @@
           <%= f.text_field :name ,autofocus: true, autocomplete: "name", class:"pl-4 md:pl-0.5 px-4 w-full border-2 py-2 rounded-b-lg text-md outline-none border-gray-300 focus:border-mainorange text-center" ,placeholder:"請輸入分類" %>
         </div>
         <div class="flex justify-end mt-6">
-          <div class="mt-4 mb-3 w-full bg-gray-300 text-maingray mr-2 py-2 rounded-md transition duration-100 hover:bg-gray-200 text-center ">
-            <%= link_to '回分類' ,store_classifications_path %>
-          </div>
-          <div class="mt-4 mb-3 w-full bg-mainorange text-white py-2 rounded-md transition duration-100 hover:bg-yellow-500 text-center">
-            <%= f.submit '新增分類'%>
-          </div>
+          <%= link_to '回分類',  store_classifications_path , class:"mt-4 mb-3 w-full bg-gray-300 text-maingray mr-2 py-2 rounded-md text-center transition duration-100 hover:bg-gray-200 "%>
+          <%= f.submit '新增分類' ,class:"mt-4 mb-3 w-full bg-mainorange text-white py-2 rounded-md transition duration-100 hover:bg-yellow-500 text-center"%>
         </div>
       </div>
     <% end %>
