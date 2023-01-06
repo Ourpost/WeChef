@@ -58,8 +58,8 @@
             </li>
           </ul>
         </div>
-        <div class="mb-1">
-          <button type="button" class="flex font-medium items-center w-full text-base font-normal text-gray-700 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example-2">
+        <div class="mb-1" data-controller="dropdown">
+          <button type="button" data-action="click->dropdown#siderbarbtn" data-dropdown-target="btn" class="flex font-medium items-center w-full text-base font-normal text-gray-700 rounded-lg transition duration-75 group hover:bg-gray-300 dark:text-white dark:hover:bg-gray-700">
             <span class="flex-1 text-left p-2 whitespace-nowrap" sidebar-toggle-item>主要功能</span>
             <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg">
@@ -69,7 +69,7 @@
               </path>
             </svg>
           </button>
-          <ul id="dropdown-example-2" class="hidden py-2 space-y-2">
+          <ul id="dropdown-example-2" class="hidden py-2 space-y-2"  data-dropdown-target="dropdown-btn">
             <li>
               <div class="flex items-center">
                 <%= link_to "新增桌位" , new_store_desk_path(@store) ,class:'p-2 pl-11 w-full text-base font-normal
