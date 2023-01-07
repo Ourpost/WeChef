@@ -14,13 +14,11 @@
         </div>
         <div class="mb-1 flex flex-col items-start px-2 py-1 font-medium text-gray-700 rounded-lg
             text-md">
-          <span>營業時間（起）： </span>
-          <span><%= @store.time_start %></span>
+          <span>營業時間（起）： <%= @store.time_start.strftime("%H:%M")%></span>
         </div>
         <div class="mb-1 flex flex-col items-start px-2 py-1 font-medium text-gray-700 rounded-lg
             text-md">
-          <span>營業時間（迄）： </span>
-          <span><%= @store.time_end %></span>
+          <span>營業時間（迄）： <%= @store.time_end.strftime("%H:%M")%></span>
         </div>
         <div class="mb-2"
         data-controller="dropdown">
