@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-
 <html>
   <head>
     <title>WeChef</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico' %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %>
@@ -14,7 +14,7 @@
     <% if current_user %>
       <%= render "shared/navbar" %>
     <% end %>
-    <%= render 'shared/flash' %>
+      <%= render 'shared/flash' %>
     <%= yield %>
   </body>
 </html>
