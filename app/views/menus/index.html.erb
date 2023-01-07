@@ -14,13 +14,11 @@
         </div>
         <div class="mb-1 flex flex-col items-start px-2 py-1 font-medium text-gray-700 rounded-lg
             text-md">
-          <span>營業時間（起）： </span>
-          <span><%= @store.time_start %></span>
+          <span>營業時間（起）： <%= @store.time_start.strftime("%H:%M")%></span>
         </div>
         <div class="mb-1 flex flex-col items-start px-2 py-1 font-medium text-gray-700 rounded-lg
             text-md">
-          <span>營業時間（迄）： </span>
-          <span><%= @store.time_end %></span>
+          <span>營業時間（迄）： <%= @store.time_end.strftime("%H:%M")%></span>
         </div>
         <div class="mb-2" data-controller="dropdown">
           <button type="button"       data-action="click->dropdown#siderbarbtn" data-dropdown-target="btn"
@@ -110,10 +108,10 @@
       </nav>
     </div>
     <main
-      class="w-full box-border items-start content-start bg-gray-200 p-2 grid grid-cols-4 lg:grid-cols-5 gap-4 h-full">
+      class="w-full box-border items-start content-start bg-gray-200 p-2 grid grid-cols-4 lg:grid-cols-6 gap-4 h-full">
       <% @menus.each do |menu| %>
         <div class="rounded-lg w-full">
-          <button class="object-cover w-full overflow-hidden max-h-40 rounded-t-md align-bottom"
+          <button class="object-cover w-full overflow-hidden max-h-36 rounded-t-md align-bottom"
             style="aspect-ratio: 1 / 4 ;">
             <% if menu.avatar.attached? %>
               <%= image_tag menu.avatar ,class:'object-cover w-full h-full' %>
