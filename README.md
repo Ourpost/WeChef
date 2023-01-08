@@ -6,7 +6,7 @@
 
 > 本專案以 Ruby 版本 3.1.2；Rails 6.1.7 進行開發
 
-WeChef  是融合了POST系統跟客人線上點餐服務的平台 ，想像一下：
+WeChef  是融合了POS系統跟客人線上點餐服務的平台 ，想像一下：
 
 以往我們是客人時，總是要拿紙本菜單到櫃檯結帳，
 當是店家時總要到處走動點餐，造成不必要的人力成本開銷。
@@ -70,7 +70,6 @@ WeChef 提供了 ：
 
 ### 測試階段請利用ngrok產生臨時網址做測試
 (1) ngrok官網網址：https://ngrok.com/
-(2) ngrok設定參考資源：https://medium.com/life-after-hello-world/5%E5%88%86%E9%90%98%E5%AE%8C%E6%88%90-ngrok-%E8%A8%AD%E5%AE%9A-mac-6cedab20bc21
 
 ### 測試時開啟兩個終端機
 (1) 先開第一個終端機，輸入：foreman s
@@ -97,7 +96,7 @@ WeChef 提供了 ：
 **Email: mr.oldfive@gmail.com**
 
 
-## 邱志壅 JASON
+## 邱志壅 Jason
 
 * PosgreSQL 資料庫
 * 藍新金流串接 
